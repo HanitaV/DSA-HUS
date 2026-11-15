@@ -1,0 +1,3089 @@
+{
+  "version": 1,
+  "pieces": [
+    {
+      "id": "java-interface-abstract",
+      "title": "Lớp trừu tượng và giao diện (Java)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Lớp trừu tượng không thể được khởi tạo trực tiếp và có thể khai báo phương thức chưa có thân; giao diện mô tả các thao tác mà lớp cài đặt phải cung cấp. Slide minh họa một lớp cài đặt nhiều giao diện.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 1/L1- Java Review.pdf",
+          "page": "18-22"
+        }
+      ],
+      "tags": [
+        "java",
+        "oop"
+      ],
+      "lesson": "content/lessons/java-interface-abstract.md"
+    },
+    {
+      "id": "java-generics",
+      "title": "Lập trình tổng quát (Generics)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Lớp tham số hóa theo kiểu `T` cho phép tập hợp đồng nhất, lấy phần tử không cần ép kiểu; không thể viết `new T()` hay `new T[5]`.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 1/L1- Java Review.pdf",
+          "page": "24-29"
+        }
+      ],
+      "tags": [
+        "java"
+      ],
+      "lesson": "content/lessons/java-generics.md"
+    },
+    {
+      "id": "comparable-interface",
+      "title": "Giao diện Comparable<T>",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "`compareTo` trả về số âm, 0 hoặc dương để xác định thứ tự tự nhiên của đối tượng; các ví dụ dùng nó trong sắp xếp tổng quát.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 1/L1- Java Review.pdf",
+          "page": "31-34"
+        }
+      ],
+      "tags": [
+        "java",
+        "sorting"
+      ],
+      "lesson": "content/lessons/comparable-interface.md"
+    },
+    {
+      "id": "generic-bubble-sort",
+      "title": "Sắp xếp tổng quát với <T extends Comparable<? super T>>",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "Cài đặt sắp xếp nổi bọt cho mọi kiểu so sánh được; ràng buộc `? super T` cho phép sắp xếp lớp con (Dog, Cat) khi lớp cha (Animal) cài Comparable.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 1/L1- Java Review.pdf",
+          "page": "35-37"
+        }
+      ],
+      "tags": [
+        "java",
+        "sorting"
+      ],
+      "lesson": "content/lessons/generic-bubble-sort.md"
+    },
+    {
+      "id": "algorithm-problem",
+      "title": "Bài toán và thuật toán",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Bài toán gồm đầu vào và đầu ra; thuật toán là dãy hữu hạn thao tác xác định biến đổi input thành output, có tính dừng, xác định, phổ dụng và hiệu quả.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 1 - Các khái niệm cơ bản/Bai 1 - Cac khai niem co ban.pdf",
+          "page": "3-5"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "8-9"
+        }
+      ],
+      "tags": [
+        "nền tảng"
+      ],
+      "lesson": "content/lessons/algorithm-problem.md"
+    },
+    {
+      "id": "running-time-model",
+      "title": "Thời gian thực hiện và mô hình RAM",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Thời gian chạy $T(n)$ là tổng số phép toán sơ cấp (số học, logic, gán, truy cập bộ nhớ) theo kích thước dữ liệu $n$, độc lập với phần cứng và ngôn ngữ.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 1 - Các khái niệm cơ bản/Bai 1 - Cac khai niem co ban.pdf",
+          "page": "6-7"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 2 - Máy Turing/Bai 2 - May Turing.pdf",
+          "page": "9"
+        }
+      ],
+      "tags": [
+        "độ phức tạp"
+      ],
+      "lesson": "content/lessons/running-time-model.md"
+    },
+    {
+      "id": "big-o",
+      "title": "Ký hiệu O lớn",
+      "type": "formula",
+      "difficulty": 1,
+      "summary": "$f(n)=O(g(n))$ khi tồn tại hằng $C$ và $n_0$ sao cho $f(n)\\le C\\,g(n)$ với mọi $n\\ge n_0$; ví dụ $2n^2+3n+5=O(n^2)$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 1 - Các khái niệm cơ bản/Bai 1 - Cac khai niem co ban.pdf",
+          "page": "8-11"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "18"
+        }
+      ],
+      "tags": [
+        "độ phức tạp"
+      ],
+      "lesson": "content/lessons/big-o.md"
+    },
+    {
+      "id": "sum-product-rules",
+      "title": "Quy tắc tổng và quy tắc nhân",
+      "type": "theorem",
+      "difficulty": 1,
+      "summary": "Gọi tuần tự hai thủ tục: $O(f)+O(g)=O(\\max(f,g))$; gọi lồng nhau: $O(f)\\cdot O(g)$. Lệnh rẽ nhánh lấy max, vòng lặp nhân số lần lặp.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 1 - Các khái niệm cơ bản/Bai 1 - Cac khai niem co ban.pdf",
+          "page": "12-13"
+        }
+      ],
+      "tags": [
+        "độ phức tạp"
+      ],
+      "lesson": "content/lessons/sum-product-rules.md"
+    },
+    {
+      "id": "best-worst-average",
+      "title": "Trường hợp tốt nhất, xấu nhất, trung bình",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Cùng kích thước $n$, mẫu dữ liệu vào khác nhau cho $T_{min}$, $T_{max}$, $T_{aver}$; ví dụ nổi bọt cải tiến tốt nhất $O(n)$, xấu nhất $O(n^2)$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 1 - Các khái niệm cơ bản/Bai 1 - Cac khai niem co ban.pdf",
+          "page": "14"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "16"
+        }
+      ],
+      "tags": [
+        "độ phức tạp"
+      ],
+      "lesson": "content/lessons/best-worst-average.md"
+    },
+    {
+      "id": "complexity-classes",
+      "title": "Phân lớp bài toán: P, NP, NP-khó, NP-đầy đủ",
+      "type": "concept",
+      "difficulty": 3,
+      "summary": "Độ phức tạp bài toán là độ phức tạp của thuật toán tốt nhất; phép dẫn $B \\propto A$ dùng để định nghĩa NP-khó, và NP-đầy đủ = thuộc NP và NP-khó.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 1 - Các khái niệm cơ bản/Bai 1 - Cac khai niem co ban.pdf",
+          "page": "15-16"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/Đề cương ôn tập cuối kỳ_Thiết kế và đánh giá thuật toán.pdf",
+          "page": "1"
+        }
+      ],
+      "tags": [
+        "độ phức tạp",
+        "lý thuyết"
+      ],
+      "lesson": "content/lessons/complexity-classes.md"
+    },
+    {
+      "id": "turing-machine",
+      "title": "Máy Turing",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Bộ bốn $M=(K,\\Sigma,\\delta,s)$: tập trạng thái, bảng chữ cái, hàm chuyển và trạng thái đầu; máy dừng ở $h$, \"yes\" hoặc \"no\". Thời gian tính = số bước chuyển trạng thái.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 2 - Máy Turing/Bai 2 - May Turing.pdf",
+          "page": "3-9"
+        }
+      ],
+      "tags": [
+        "lý thuyết"
+      ],
+      "lesson": "content/lessons/turing-machine.md"
+    },
+    {
+      "id": "hw-turing",
+      "title": "Bài tập: thiết kế máy Turing",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Xây dựng máy Turing đảo bit, xóa chữ số 0, kiểm tra xâu nhị phân đối xứng, chèn ký tự trắng vào đầu xâu.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 2 - Máy Turing/Homework1_Máy Turing.pdf",
+          "page": "1-2"
+        }
+      ],
+      "tags": [
+        "lý thuyết",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-turing.md"
+    },
+    {
+      "id": "recursion",
+      "title": "Đệ quy",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Giải bài toán qua lời giải của chính nó với tham số nhỏ hơn; cần trường hợp suy biến (base case) và bước đệ quy tiến dần về đó. Lời gọi được quản lý bằng ngăn xếp.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/Bai 3 - De qui  va khu de qui.pdf",
+          "page": "3-6"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "8-18"
+        }
+      ],
+      "tags": [
+        "đệ quy"
+      ],
+      "lesson": "content/lessons/recursion.md"
+    },
+    {
+      "id": "recursion-correctness",
+      "title": "Chứng minh tính đúng bằng quy nạp",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Quy nạp theo kích thước bài toán: base case của đệ quy là cơ sở quy nạp; giả thiết lời gọi con đúng để chứng minh lời gọi hiện tại đúng.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "20"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/L4 - Divide and Conquer.pdf",
+          "page": "9"
+        }
+      ],
+      "tags": [
+        "đệ quy",
+        "chứng minh"
+      ],
+      "lesson": "content/lessons/recursion-correctness.md"
+    },
+    {
+      "id": "recurrence-relation",
+      "title": "Công thức truy hồi cho thời gian chạy",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Thời gian của thuật toán đệ quy được mô tả bằng $T(n)$ qua các $T$ của bài toán con, ví dụ $T(n)=2T(n-1)+1$ cho tháp Hà Nội.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/Bai 3 - De qui  va khu de qui.pdf",
+          "page": "21"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "21-23"
+        }
+      ],
+      "tags": [
+        "đệ quy",
+        "độ phức tạp"
+      ],
+      "lesson": "content/lessons/recurrence-relation.md"
+    },
+    {
+      "id": "substitution-method",
+      "title": "Giải truy hồi bằng phương pháp thế",
+      "type": "formula",
+      "difficulty": 2,
+      "summary": "Thế lặp để tìm dạng đóng: $T(n)=T(n-1)+n \\Rightarrow O(n^2)$, $T(n)=T(n/2)+1 \\Rightarrow \\log_2 n$, $T(n)=2T(n/2)+n \\Rightarrow O(n\\log n)$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/Bai 3 - De qui  va khu de qui.pdf",
+          "page": "22-25"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "24"
+        }
+      ],
+      "tags": [
+        "đệ quy",
+        "độ phức tạp"
+      ],
+      "lesson": "content/lessons/substitution-method.md"
+    },
+    {
+      "id": "master-theorem",
+      "title": "Định lý chính (Master theorem)",
+      "type": "theorem",
+      "difficulty": 2,
+      "summary": "Với dạng trong phiếu bài tập $T(n)=aT(n/b)+n^d$, $a\\ge1$, $b>1$, $d\\ge0$: so sánh $a$ với $b^d$ để nhận cận $O(n^d)$, $O(n^d\\log n)$ hoặc $O(n^{\\log_b a})$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/Bai 3 - De qui  va khu de qui.pdf",
+          "page": "26-29"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "25-28"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/L4 - Divide and Conquer.pdf",
+          "page": "10"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/Homework2_Recursion.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "đệ quy",
+        "độ phức tạp"
+      ],
+      "lesson": "content/lessons/master-theorem.md"
+    },
+    {
+      "id": "recursion-elimination",
+      "title": "Khử đệ quy",
+      "type": "concept",
+      "difficulty": 3,
+      "summary": "Thay lời gọi đệ quy bằng vòng lặp và ngăn xếp tự quản lý; có lược đồ chuẩn cho các dạng ED[AP], ED[APB], ED[APBP].",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/Bai 3 - De qui  va khu de qui.pdf",
+          "page": "7-20"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "29-44"
+        }
+      ],
+      "tags": [
+        "đệ quy"
+      ],
+      "lesson": "content/lessons/recursion-elimination.md"
+    },
+    {
+      "id": "tower-of-hanoi",
+      "title": "Tháp Hà Nội",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "Chuyển $n-1$ đĩa sang cọc trung gian, chuyển đĩa lớn nhất, rồi chuyển $n-1$ đĩa về đích; mỗi cọc là một ngăn xếp. $T(n)=2T(n-1)+1$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "11"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "18"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "43-44"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/L4a- Stack ADT.pdf",
+          "page": "26-28"
+        }
+      ],
+      "tags": [
+        "đệ quy",
+        "stack"
+      ],
+      "lesson": "content/lessons/tower-of-hanoi.md"
+    },
+    {
+      "id": "fibonacci",
+      "title": "Số Fibonacci",
+      "type": "example",
+      "difficulty": 1,
+      "summary": "$F(1)=F(2)=1$, $F(n)=F(n-1)+F(n-2)$. Đệ quy trực tiếp tính lặp lại các bài toán con nên tốn $O(2^n)$; lưu bảng $F_1..F_n$ chỉ cần $O(n)$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "10"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
+          "page": "17"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
+          "page": "6"
+        }
+      ],
+      "tags": [
+        "đệ quy",
+        "quy hoạch động"
+      ],
+      "lesson": "content/lessons/fibonacci.md"
+    },
+    {
+      "id": "hw-recurrences",
+      "title": "Bài tập: giải công thức truy hồi",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Giải các truy hồi như $T(n)=3T(n-1)+2$, $T(n)=2T(n/2)+3n+2$ bằng phương pháp thế hoặc định lý chính.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/Homework2_Recursion.pdf",
+          "page": "2-3"
+        }
+      ],
+      "tags": [
+        "đệ quy",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-recurrences.md"
+    },
+    {
+      "id": "divide-and-conquer",
+      "title": "Chia để trị",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Chia bài toán thành các bài toán con cùng dạng, giải đệ quy, rồi tổng hợp lời giải. Thời gian thường có dạng $T(n)=aT(n/b)+f(n)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "31"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/L4 - Divide and Conquer.pdf",
+          "page": "6-10"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/Chidetri.pdf",
+          "page": "4-5"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "33"
+        }
+      ],
+      "tags": [
+        "chia để trị"
+      ],
+      "lesson": "content/lessons/divide-and-conquer.md"
+    },
+    {
+      "id": "minmax-dc",
+      "title": "MinMax chia để trị",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "Tìm min và max bằng cách chia đôi đoạn rồi gộp: số phép so sánh thỏa $T(n)=2T(n/2)+2$, ít hơn $2(n-1)$ của cách dùng hai vòng lặp độc lập.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/L4 - Divide and Conquer.pdf",
+          "page": "19-22"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/Chidetri.pdf",
+          "page": "16-18"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "35-36"
+        }
+      ],
+      "tags": [
+        "chia để trị"
+      ],
+      "lesson": "content/lessons/minmax-dc.md"
+    },
+    {
+      "id": "strassen",
+      "title": "Nhân ma trận Strassen",
+      "type": "formula",
+      "difficulty": 3,
+      "summary": "Chia mỗi ma trận thành 4 khối và dùng 7 tích $P_1..P_7$ thay vì 8: $T(n)=7T(n/2)+n^2=O(n^{\\log_2 7})$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/L4 - Divide and Conquer.pdf",
+          "page": "23-27"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/Chidetri.pdf",
+          "page": "19-21"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "39-40"
+        }
+      ],
+      "tags": [
+        "chia để trị",
+        "ma trận"
+      ],
+      "lesson": "content/lessons/strassen.md"
+    },
+    {
+      "id": "tromino-tiling",
+      "title": "Lát nền 2^n × 2^n bằng gạch chữ L",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "Đặt một viên gạch chữ L ở tâm để mỗi góc phần tư có đúng một ô bị chiếm, đưa về 4 bài toán con kích thước một nửa.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/Chidetri.pdf",
+          "page": "22-27"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/Homework5_DivideandConquer.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "chia để trị"
+      ],
+      "lesson": "content/lessons/tromino-tiling.md"
+    },
+    {
+      "id": "decrease-transform-conquer",
+      "title": "Giảm để trị và biến đổi để trị",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Hai biến thể của \"đơn giản hóa và trị\": giảm theo hằng số hoặc hệ số (giai thừa, tìm kiếm nhị phân), hoặc biến đổi bài toán sang dạng dễ giải hơn.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/L4 - Divide and Conquer.pdf",
+          "page": "28-31"
+        }
+      ],
+      "tags": [
+        "chia để trị"
+      ],
+      "lesson": "content/lessons/decrease-transform-conquer.md"
+    },
+    {
+      "id": "sorting-problem",
+      "title": "Bài toán sắp xếp",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Đặt các phần tử theo một thứ tự (số học, từ điển). Sắp xếp giúp kiểm tra trùng lặp, tìm kiếm nhanh, phép toán tập hợp, đếm tần suất.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "5-8"
+        }
+      ],
+      "tags": [
+        "sorting"
+      ],
+      "lesson": "content/lessons/sorting-problem.md"
+    },
+    {
+      "id": "bubble-sort",
+      "title": "Sắp xếp nổi bọt (Bubble Sort)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "So sánh và đổi chỗ hai phần tử kề nhau sai thứ tự; sau mỗi lượt phần tử lớn nhất \"nổi\" về cuối. Bản cải tiến dừng sớm khi một lượt không có đổi chỗ.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "10-16"
+        }
+      ],
+      "tags": [
+        "sorting"
+      ],
+      "lesson": "content/lessons/bubble-sort.md"
+    },
+    {
+      "id": "bubble-sort-cost",
+      "title": "Số lần lặp của sắp xếp nổi bọt",
+      "type": "formula",
+      "difficulty": 1,
+      "summary": "$0+1+\\dots+(n-1)=\\dfrac{n(n-1)}{2}$ lần lặp vòng trong, nên thời gian $c\\cdot\\dfrac{n(n-1)}{2}=O(n^2)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "13"
+        }
+      ],
+      "tags": [
+        "sorting",
+        "độ phức tạp"
+      ],
+      "lesson": "content/lessons/bubble-sort-cost.md"
+    },
+    {
+      "id": "selection-sort",
+      "title": "Sắp xếp chọn (Selection Sort)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Tìm phần tử lớn nhất trong $[0..n-1]$, đổi với vị trí $n-1$, rồi giảm $n$. Luôn $O(n^2)$, kể cả khi dãy đã sắp.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "18-21"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "53"
+        }
+      ],
+      "tags": [
+        "sorting"
+      ],
+      "lesson": "content/lessons/selection-sort.md"
+    },
+    {
+      "id": "insertion-sort",
+      "title": "Sắp xếp chèn (Insertion Sort)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Như xếp bài trên tay: lấy phần tử kế tiếp và chèn vào đúng chỗ trong phần đã sắp. Tốt nhất $O(n)$ khi dãy đã sắp, xấu nhất $O(n^2)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "23-26"
+        }
+      ],
+      "tags": [
+        "sorting"
+      ],
+      "lesson": "content/lessons/insertion-sort.md"
+    },
+    {
+      "id": "shuffle-sort",
+      "title": "Xáo trộn ngẫu nhiên (Shuffle)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Tạo hoán vị ngẫu nhiên đều: gán số ngẫu nhiên rồi sắp xếp, hoặc đổi mỗi phần tử với một vị trí ngẫu nhiên trong $O(n)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "28-29"
+        }
+      ],
+      "tags": [
+        "sorting",
+        "ngẫu nhiên"
+      ],
+      "lesson": "content/lessons/shuffle-sort.md"
+    },
+    {
+      "id": "quick-sort",
+      "title": "Sắp xếp nhanh (Quick Sort)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Chọn chốt, phân hoạch thành phần nhỏ hơn và phần lớn hơn hoặc bằng chốt, rồi sắp đệ quy hai phần; bước tổng hợp không làm gì. Trung bình $O(n\\log n)$, xấu nhất $O(n^2)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "32-37"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/Chidetri.pdf",
+          "page": "10-15"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "36-38"
+        }
+      ],
+      "tags": [
+        "sorting",
+        "chia để trị"
+      ],
+      "lesson": "content/lessons/quick-sort.md"
+    },
+    {
+      "id": "merge-sort",
+      "title": "Sắp xếp trộn (Merge Sort)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Chia đôi mảng, sắp đệ quy hai nửa, rồi trộn hai nửa đã sắp. Luôn $O(n\\log n)$ nhưng cần thêm $O(n)$ bộ nhớ cho mảng tạm.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "39-49"
+        }
+      ],
+      "tags": [
+        "sorting",
+        "chia để trị"
+      ],
+      "lesson": "content/lessons/merge-sort.md"
+    },
+    {
+      "id": "sort-properties",
+      "title": "Sắp xếp tại chỗ và sắp xếp ổn định",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Tại chỗ: chỉ dùng $O(1)$ bộ nhớ phụ (Merge Sort không phải). Ổn định: không đổi thứ tự các phần tử bằng nhau, hữu ích khi sắp theo nhiều trường.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
+          "page": "50-53"
+        }
+      ],
+      "tags": [
+        "sorting"
+      ],
+      "lesson": "content/lessons/sort-properties.md"
+    },
+    {
+      "id": "comparison-sort-lower-bound",
+      "title": "Cận dưới của sắp xếp dựa trên so sánh",
+      "type": "theorem",
+      "difficulty": 3,
+      "summary": "Mọi thuật toán sắp xếp chỉ dựa trên phép so sánh cần $\\Omega(n\\log n)$ phép so sánh trong trường hợp xấu nhất; vì vậy Merge Sort được gọi là tối ưu.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Tài liệu tham khảo/1. Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser - Data Structures and Algorithms in Java-Wiley (2014).pdf",
+          "page": "574-575"
+        }
+      ],
+      "tags": [
+        "sorting",
+        "độ phức tạp"
+      ],
+      "lesson": "content/lessons/comparison-sort-lower-bound.md",
+      "externalNote": "Phát biểu cận dưới $\\Omega(n\\log n)$ là kiến thức chung; docs chỉ ghi \"optimal comparison based sort\" (L2 tr. 37, 48) và đáp án trắc nghiệm, không có chứng minh."
+    },
+    {
+      "id": "hw-sorting-benchmark",
+      "title": "Bài tập: đánh giá thực nghiệm các thuật toán sắp xếp",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Cài đặt 5 thuật toán sắp xếp, đếm số lần so sánh/đổi chỗ, đo thời gian với $N=10^2..10^5$ và rút ra khi nào nên dùng thuật toán nào.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/Hw2_SimpleSort.pdf",
+          "page": "1"
+        }
+      ],
+      "tags": [
+        "sorting",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-sorting-benchmark.md"
+    },
+    {
+      "id": "ex-count-pairs",
+      "title": "Bài tập: đếm cặp a_i + a_j = x",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Sắp xếp rồi với mỗi $j$ tìm nhị phân khoảng chỉ số có giá trị $x-a_j$, giảm từ $O(n^2)$ xuống $O(n\\log n)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/Hw2_SimpleSort.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "sorting",
+        "searching",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/ex-count-pairs.md"
+    },
+    {
+      "id": "abstraction-adt",
+      "title": "Kiểu dữ liệu trừu tượng (ADT)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "ADT = dữ liệu + các thao tác. Đặc tả (thao tác hỗ trợ) tách khỏi cài đặt (cấu trúc dữ liệu cụ thể), như một \"bức tường\" che chi tiết khỏi người dùng.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/L3a - AbstractDataType.pdf",
+          "page": "5-13"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/L3a - AbstractDataType.pdf",
+          "page": "19"
+        }
+      ],
+      "tags": [
+        "adt"
+      ],
+      "lesson": "content/lessons/abstraction-adt.md"
+    },
+    {
+      "id": "list-adt",
+      "title": "List ADT",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Dãy phần tử có thứ tự vị trí $\\langle a_1,\\dots,a_n\\rangle$ với các thao tác `isEmpty`, `size`, `get(i)`, `set(i,e)`, `add(i,e)`, `remove(i)`.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/L3b- List ADT.pdf",
+          "page": "5-9"
+        }
+      ],
+      "tags": [
+        "adt",
+        "list"
+      ],
+      "lesson": "content/lessons/list-adt.md"
+    },
+    {
+      "id": "array-list",
+      "title": "Danh sách cài đặt bằng mảng",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Danh sách bằng mảng truy xuất theo chỉ số trong $O(1)$; chèn/xóa đầu cần dịch phần tử, $O(n)$. Chèn cuối không cần dịch khi còn dung lượng; chi phí mở rộng mảng cần xét riêng.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/L3b- List ADT.pdf",
+          "page": "11-15"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Tài liệu tham khảo/1. Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser - Data Structures and Algorithms in Java-Wiley (2014).pdf",
+          "page": "282-283"
+        }
+      ],
+      "tags": [
+        "list"
+      ],
+      "lesson": "content/lessons/array-list.md"
+    },
+    {
+      "id": "linked-list",
+      "title": "Danh sách liên kết đơn",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Các nút không liền kề, mỗi nút giữ dữ liệu và tham chiếu `next`; có `head`, `tail`. Chèn/xóa tại đầu $O(1)$, duyệt tìm $O(n)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/L3b- List ADT.pdf",
+          "page": "17-28"
+        }
+      ],
+      "tags": [
+        "list"
+      ],
+      "lesson": "content/lessons/linked-list.md"
+    },
+    {
+      "id": "linked-list-variants",
+      "title": "Các biến thể danh sách liên kết",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Danh sách liên kết đôi, vòng, có đuôi, đôi vòng; dùng để cài đặt stack, queue, đồ thị.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/L3b- List ADT.pdf",
+          "page": "30-31"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/Hw3_ADT_ListADT.pdf",
+          "page": "4-5"
+        }
+      ],
+      "tags": [
+        "list"
+      ],
+      "lesson": "content/lessons/linked-list-variants.md"
+    },
+    {
+      "id": "hw-list",
+      "title": "Bài tập: Fraction, SimpleArrayList, SimpleLinkedList",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Cài đặt kiểu phân số, danh sách bằng mảng (cài `Iterable`) và danh sách liên kết đơn; đếm tần suất từ bằng WordCount.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/Hw3_ADT_ListADT.pdf",
+          "page": "1-3"
+        }
+      ],
+      "tags": [
+        "list",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-list.md"
+    },
+    {
+      "id": "stack-adt",
+      "title": "Ngăn xếp (Stack)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Ngăn xếp chỉ thao tác ở đỉnh theo LIFO: `push`, `pop`, `top`. Với danh sách liên kết hoặc mảng còn dung lượng, các thao tác cơ bản có chi phí $O(1)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/L4a- Stack ADT.pdf",
+          "page": "6-21"
+        }
+      ],
+      "tags": [
+        "stack"
+      ],
+      "lesson": "content/lessons/stack-adt.md"
+    },
+    {
+      "id": "bracket-matching",
+      "title": "Kiểm tra dấu ngoặc hợp lệ",
+      "type": "example",
+      "difficulty": 1,
+      "summary": "Duyệt xâu: gặp ngoặc mở thì push; gặp ngoặc đóng thì pop và so khớp loại ngoặc. Biểu thức hợp lệ khi không lỗi khớp và stack rỗng ở cuối.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/L4a- Stack ADT.pdf",
+          "page": "24-25"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/Hw4_Stack and Queue.pdf",
+          "page": "3"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/Hw4_Stack and Queue.pdf",
+          "page": "5"
+        }
+      ],
+      "tags": [
+        "stack"
+      ],
+      "lesson": "content/lessons/bracket-matching.md"
+    },
+    {
+      "id": "maze-stack",
+      "title": "Khám phá mê cung bằng ngăn xếp",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "Lưu đường đi là stack tọa độ; ở ô cụt thì pop để lùi về ngã rẽ gần nhất còn hướng chưa đi.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/L4a- Stack ADT.pdf",
+          "page": "29-39"
+        }
+      ],
+      "tags": [
+        "stack",
+        "quay lui"
+      ],
+      "lesson": "content/lessons/maze-stack.md"
+    },
+    {
+      "id": "postfix-eval",
+      "title": "Bài tập: tính biểu thức hậu tố",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Dùng ngăn xếp để tính biểu thức hậu tố và chuyển biểu thức trung tố sang hậu tố.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/Hw4_Stack and Queue.pdf",
+          "page": "1"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/Hw4_Stack and Queue.pdf",
+          "page": "5"
+        }
+      ],
+      "tags": [
+        "stack",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/postfix-eval.md"
+    },
+    {
+      "id": "queue-adt",
+      "title": "Hàng đợi (Queue)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Vào trước ra trước (FIFO): `enqueue` ở cuối, `dequeue` ở đầu, `first`. Dùng cho chia sẻ tài nguyên, bộ đệm vào/ra.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/L4b- Queue ADT.pdf",
+          "page": "6-13"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/L4b- Queue ADT.pdf",
+          "page": "31"
+        }
+      ],
+      "tags": [
+        "queue"
+      ],
+      "lesson": "content/lessons/queue-adt.md"
+    },
+    {
+      "id": "circular-array-queue",
+      "title": "Hàng đợi mảng vòng",
+      "type": "formula",
+      "difficulty": 2,
+      "summary": "Giữ chỉ số đầu $f$ và kích thước $sz$: vị trí trống $avail=(f+sz)\\bmod N$, khi dequeue $f=(f+1)\\bmod N$. Mọi thao tác $O(1)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/L4b- Queue ADT.pdf",
+          "page": "15-22"
+        }
+      ],
+      "tags": [
+        "queue"
+      ],
+      "lesson": "content/lessons/circular-array-queue.md"
+    },
+    {
+      "id": "linked-queue",
+      "title": "Hàng đợi bằng danh sách liên kết",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Đầu danh sách là đầu hàng đợi, đuôi là cuối: `enqueue = addLast`, `dequeue = removeFirst`, đều $O(1)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/L4b- Queue ADT.pdf",
+          "page": "24-26"
+        }
+      ],
+      "tags": [
+        "queue",
+        "list"
+      ],
+      "lesson": "content/lessons/linked-queue.md"
+    },
+    {
+      "id": "palindrome-stack-queue",
+      "title": "Kiểm tra palindrome bằng stack và queue",
+      "type": "example",
+      "difficulty": 1,
+      "summary": "Đưa xâu vào cả stack (đảo ngược) và queue (giữ nguyên), rồi so sánh hai dãy lấy ra: trùng nhau thì là palindrome.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/L4b- Queue ADT.pdf",
+          "page": "29-30"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/Hw4_Stack and Queue.pdf",
+          "page": "4"
+        }
+      ],
+      "tags": [
+        "stack",
+        "queue"
+      ],
+      "lesson": "content/lessons/palindrome-stack-queue.md"
+    },
+    {
+      "id": "tree-concepts",
+      "title": "Cây: định nghĩa và thuật ngữ",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Cây gồm nút gốc và các cây con; cha/con/anh em, tổ tiên/hậu duệ, nút lá (ngoài) và nút trong, mức và chiều cao.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 5/L5- Tree.pdf",
+          "page": "5-14"
+        }
+      ],
+      "tags": [
+        "tree"
+      ],
+      "lesson": "content/lessons/tree-concepts.md"
+    },
+    {
+      "id": "binary-tree",
+      "title": "Cây nhị phân, cây đầy đủ và cây hoàn chỉnh",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Mỗi nút có tối đa hai con trái/phải có thứ tự. Theo quy ước slide, cây đầy đủ có các mức đầy; cây hoàn chỉnh đầy tới mức áp chót, mức cuối được lấp từ trái sang.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 5/L5- Tree.pdf",
+          "page": "16-20"
+        }
+      ],
+      "tags": [
+        "tree"
+      ],
+      "lesson": "content/lessons/binary-tree.md"
+    },
+    {
+      "id": "full-binary-tree-height",
+      "title": "Số nút của cây nhị phân đầy đủ",
+      "type": "formula",
+      "difficulty": 1,
+      "summary": "Cây nhị phân đầy đủ chiều cao $h$ (gốc ở mức 1) có $N=2^h-1$ nút, nên $h=O(\\log N)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 5/L5- Tree.pdf",
+          "page": "19"
+        }
+      ],
+      "tags": [
+        "tree"
+      ],
+      "lesson": "content/lessons/full-binary-tree-height.md"
+    },
+    {
+      "id": "binary-tree-repr",
+      "title": "Biểu diễn cây nhị phân: liên kết và mảng",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Liên kết: nút giữ `parent`, `left`, `right`. Mảng cho cây hoàn chỉnh: nút ở chỉ số $i$ có con trái $2i$, con phải $2i+1$, cha $\\lfloor i/2\\rfloor$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 5/L5- Tree.pdf",
+          "page": "21-27"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 5/Hw5_Tree&Binary Tree and Application.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "tree"
+      ],
+      "lesson": "content/lessons/binary-tree-repr.md"
+    },
+    {
+      "id": "tree-traversal",
+      "title": "Duyệt cây nhị phân: trước, giữa, sau",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Pre-order (gốc–trái–phải), in-order (trái–gốc–phải), post-order (trái–phải–gốc); mỗi nút được thăm đúng một lần, cài đặt tự nhiên bằng đệ quy.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 5/L5- Tree.pdf",
+          "page": "29-38"
+        }
+      ],
+      "tags": [
+        "tree",
+        "đệ quy"
+      ],
+      "lesson": "content/lessons/tree-traversal.md"
+    },
+    {
+      "id": "expression-tree",
+      "title": "Cây biểu thức",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "Nút trong là toán tử, lá là toán hạng. Duyệt giữa (thêm ngoặc) để in biểu thức; duyệt sau để tính giá trị.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 5/L5- Tree.pdf",
+          "page": "41-44"
+        }
+      ],
+      "tags": [
+        "tree"
+      ],
+      "lesson": "content/lessons/expression-tree.md"
+    },
+    {
+      "id": "priority-queue-adt",
+      "title": "Hàng đợi ưu tiên (Priority Queue)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "`insert(k,v)`, `min()`, `removeMin()` lấy phần tử khóa nhỏ nhất. Cài bằng danh sách: chưa sắp thì chèn $O(1)$/xóa $O(n)$, đã sắp thì ngược lại.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 6/L6- Priority Queue and Heap.pdf",
+          "page": "5-9"
+        }
+      ],
+      "tags": [
+        "heap",
+        "queue"
+      ],
+      "lesson": "content/lessons/priority-queue-adt.md"
+    },
+    {
+      "id": "binary-heap",
+      "title": "Đống nhị phân (Binary Heap)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Cây nhị phân hoàn chỉnh thỏa tính chất đống: khóa của mỗi nút $\\ge$ khóa nút cha (min-heap). Lưu trong mảng; gốc là phần tử nhỏ nhất.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 6/L6- Priority Queue and Heap.pdf",
+          "page": "11-14"
+        }
+      ],
+      "tags": [
+        "heap",
+        "tree"
+      ],
+      "lesson": "content/lessons/binary-heap.md"
+    },
+    {
+      "id": "heap-height",
+      "title": "Chiều cao của đống",
+      "type": "theorem",
+      "difficulty": 2,
+      "summary": "Đống chứa $n$ nút có chiều cao $h\\le\\log_2 n$, vì $n\\ge 1+2+\\dots+2^{h-1}+1=2^h$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 6/L6- Priority Queue and Heap.pdf",
+          "page": "12"
+        }
+      ],
+      "tags": [
+        "heap"
+      ],
+      "lesson": "content/lessons/heap-height.md"
+    },
+    {
+      "id": "heap-insert",
+      "title": "Chèn vào đống: up-heap",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Đặt khóa mới vào vị trí sau nút cuối, rồi đổi chỗ với cha khi còn nhỏ hơn cha. $O(\\log n)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 6/L6- Priority Queue and Heap.pdf",
+          "page": "15-18"
+        }
+      ],
+      "tags": [
+        "heap"
+      ],
+      "lesson": "content/lessons/heap-insert.md"
+    },
+    {
+      "id": "heap-removemin",
+      "title": "Xóa nhỏ nhất: down-heap",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Thay gốc bằng nút cuối, xóa nút cuối, rồi đổi chỗ xuống với con nhỏ hơn cho tới khi đúng tính chất đống. $O(\\log n)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 6/L6- Priority Queue and Heap.pdf",
+          "page": "19-23"
+        }
+      ],
+      "tags": [
+        "heap"
+      ],
+      "lesson": "content/lessons/heap-removemin.md"
+    },
+    {
+      "id": "heap-sort",
+      "title": "Sắp xếp vun đống (Heap Sort)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Chèn $n$ phần tử vào đống rồi `removeMin` $n$ lần: $O(n\\log n)$. Có thể làm tại chỗ và dựng đống từ dưới lên trong $O(n)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 6/L6- Priority Queue and Heap.pdf",
+          "page": "25-27"
+        }
+      ],
+      "tags": [
+        "heap",
+        "sorting"
+      ],
+      "lesson": "content/lessons/heap-sort.md"
+    },
+    {
+      "id": "hw-priority-queue",
+      "title": "Bài tập: cài đặt hàng đợi ưu tiên",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Cài PriorityQueue bằng mảng chưa sắp, mảng đã sắp, danh sách liên kết và đống; so sánh độ phức tạp.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 6/Hw6_Priority Queue and Heap.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "heap",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-priority-queue.md"
+    },
+    {
+      "id": "sequential-search",
+      "title": "Tìm kiếm tuần tự",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Duyệt từ đầu tới khi gặp phần tử hoặc hết danh sách; không cần dãy có thứ tự, nhưng $O(n)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/L7- Searching and Binary Search Tree.pdf",
+          "page": "5-6"
+        }
+      ],
+      "tags": [
+        "searching"
+      ],
+      "lesson": "content/lessons/sequential-search.md"
+    },
+    {
+      "id": "binary-search",
+      "title": "Tìm kiếm nhị phân",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Trên dãy đã sắp, so sánh với phần tử giữa và tiếp tục ở nửa có thể chứa giá trị: $T(n)=T(n/2)+1=O(\\log n)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/L7- Searching and Binary Search Tree.pdf",
+          "page": "7-8"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/L4 - Divide and Conquer.pdf",
+          "page": "13-18"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/Chidetri.pdf",
+          "page": "7-9"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "33-34"
+        }
+      ],
+      "tags": [
+        "searching",
+        "chia để trị"
+      ],
+      "lesson": "content/lessons/binary-search.md"
+    },
+    {
+      "id": "bst-property",
+      "title": "Cây nhị phân tìm kiếm (BST)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Mọi khóa ở cây con trái nhỏ hơn gốc, ở cây con phải lớn hơn gốc. Duyệt giữa một BST cho dãy khóa tăng dần.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/L7- Searching and Binary Search Tree.pdf",
+          "page": "10-13"
+        }
+      ],
+      "tags": [
+        "bst",
+        "tree",
+        "searching"
+      ],
+      "lesson": "content/lessons/bst-property.md"
+    },
+    {
+      "id": "bst-operations",
+      "title": "Các thao tác trên BST",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "`findMin`, `search`, `insert`, `delete` (3 trường hợp: lá, một con, hai con thay bằng min cây con phải) đều $O(h)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/L7- Searching and Binary Search Tree.pdf",
+          "page": "15-26"
+        }
+      ],
+      "tags": [
+        "bst"
+      ],
+      "lesson": "content/lessons/bst-operations.md"
+    },
+    {
+      "id": "bst-balance",
+      "title": "Cây suy biến và phép quay cân bằng",
+      "type": "concept",
+      "difficulty": 3,
+      "summary": "Chèn khóa theo thứ tự tăng làm cây suy biến, $h=O(n)$. Phép quay trái/phải $O(1)$ đưa cây về cân bằng; xem thêm AVL, đỏ đen.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/L7- Searching and Binary Search Tree.pdf",
+          "page": "36-45"
+        }
+      ],
+      "tags": [
+        "bst"
+      ],
+      "lesson": "content/lessons/bst-balance.md"
+    },
+    {
+      "id": "bst-geometric-apps",
+      "title": "Ứng dụng hình học của BST",
+      "type": "example",
+      "difficulty": 3,
+      "summary": "Tìm kiếm khoảng 1 chiều, giao đoạn thẳng, cây k-d, cây khoảng, giao hình chữ nhật, láng giềng gần nhất.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/L7- Searching and Binary Search Tree.pdf",
+          "page": "27-34"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/Homework 7_Searching and Binary Search Tree.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "bst",
+        "ứng dụng"
+      ],
+      "lesson": "content/lessons/bst-geometric-apps.md"
+    },
+    {
+      "id": "hash-table",
+      "title": "Bảng băm (tài liệu tham khảo)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Lưu phần tử trong bảng chỉ số hóa theo hàm băm của khóa; xung đột được giải bằng móc xích (separate chaining) hoặc địa chỉ mở (dò tuyến tính).",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Tài liệu tham khảo/Hash Table/HashTables.pdf",
+          "page": "3"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Tài liệu tham khảo/Hash Table/HashTables.pdf",
+          "page": "16-17"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Tài liệu tham khảo/Hash Table/HashTables.pdf",
+          "page": "25-28"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/L7- Searching and Binary Search Tree.pdf",
+          "page": "47"
+        }
+      ],
+      "tags": [
+        "hash",
+        "tham khảo"
+      ],
+      "lesson": "content/lessons/hash-table.md"
+    },
+    {
+      "id": "hw-bst",
+      "title": "Bài tập: BST và so sánh các cách tìm kiếm",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Cài đặt BST (FindMin, Search, Insert, Delete), so sánh thời gian với tìm tuần tự và nhị phân trên $10^6..10^8$ số; thêm hàm quay cân bằng.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/Homework 7_Searching and Binary Search Tree.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "bst",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-bst.md"
+    },
+    {
+      "id": "graph-concepts",
+      "title": "Đồ thị và Graph ADT",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Đồ thị $G=(V,E)$ có hướng hoặc vô hướng, có thể có trọng số; ADT gồm `numVertices`, `edges`, `getEdge(u,v)`, `outDegree`, `insertEdge`, `removeVertex`, ...",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 8/L8- Graph.pdf",
+          "page": "6-8"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 8/Hw8_Graph.pdf",
+          "page": "1"
+        }
+      ],
+      "tags": [
+        "graph"
+      ],
+      "lesson": "content/lessons/graph-concepts.md"
+    },
+    {
+      "id": "graph-representation",
+      "title": "Biểu diễn đồ thị: ma trận kề, danh sách kề, danh sách cạnh",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Ma trận kề $n\\times n$ với $a_{ij}=1$ khi có cạnh; danh sách kề lưu đỉnh kề của từng đỉnh; danh sách cạnh lưu các cặp $(u,v)$.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 8/L8- Graph.pdf",
+          "page": "10-12"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "62"
+        }
+      ],
+      "tags": [
+        "graph"
+      ],
+      "lesson": "content/lessons/graph-representation.md"
+    },
+    {
+      "id": "dfs",
+      "title": "Tìm kiếm theo chiều sâu (DFS)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Từ đỉnh bắt đầu, đi sâu theo đỉnh kề chưa thăm rồi quay lui; dùng đệ quy hoặc ngăn xếp và đánh dấu để tránh thăm lặp.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "62-64"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 8/Hw8_Graph.pdf",
+          "page": "2-3"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/Đề cương ôn tập cuối kỳ_Thiết kế và đánh giá thuật toán.pdf",
+          "page": "1"
+        }
+      ],
+      "tags": [
+        "graph",
+        "đệ quy"
+      ],
+      "lesson": "content/lessons/dfs.md"
+    },
+    {
+      "id": "bfs",
+      "title": "Tìm kiếm theo chiều rộng (BFS)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Duyệt các đỉnh theo từng lớp bằng hàng đợi FIFO; trên đồ thị không trọng số, tìm được đường có ít cạnh nhất từ đỉnh bắt đầu.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "64-66"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 8/Hw8_Graph.pdf",
+          "page": "2"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/Đề cương ôn tập cuối kỳ_Thiết kế và đánh giá thuật toán.pdf",
+          "page": "1"
+        }
+      ],
+      "tags": [
+        "graph",
+        "queue"
+      ],
+      "lesson": "content/lessons/bfs.md"
+    },
+    {
+      "id": "hw-graph",
+      "title": "Bài tập: cài đặt đồ thị và các thuật toán",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Cài đồ thị vô hướng/có hướng có trọng số bằng ma trận kề; viết DFS, BFS, Dijkstra, Euler/Hamilton, cây khung nhỏ nhất, tô màu.",
+      "sources": [
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 8/Hw8_Graph.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "graph",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-graph.md"
+    },
+    {
+      "id": "brute-force",
+      "title": "Vét cạn (Brute force)",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Liệt kê các ứng viên trong một không gian tìm kiếm hữu hạn và kiểm tra từng ứng viên. Nếu có nghiệm và phép liệt kê đầy đủ, vét cạn sẽ tìm được; chi phí có thể rất lớn.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/L5 - Trial and Error.pdf",
+          "page": "7-13"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/L5 - Trial and Error.pdf",
+          "page": "18-19"
+        }
+      ],
+      "tags": [
+        "thử sai"
+      ],
+      "lesson": "content/lessons/brute-force.md"
+    },
+    {
+      "id": "string-matching-bf",
+      "title": "Khớp xâu vét cạn",
+      "type": "example",
+      "difficulty": 1,
+      "summary": "Dịch mẫu $P$ (dài $m$) dọc văn bản $T$ (dài $n$) từng vị trí và so từng ký tự: $O(mn)$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/L5 - Trial and Error.pdf",
+          "page": "14-17"
+        }
+      ],
+      "tags": [
+        "thử sai",
+        "xâu"
+      ],
+      "lesson": "content/lessons/string-matching-bf.md"
+    },
+    {
+      "id": "backtracking",
+      "title": "Quay lui (Backtracking)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Xây cấu hình từng thành phần `Try(i)`: thử mỗi giá trị chấp nhận được, ghi nhận, gọi `Try(i+1)`, rồi khôi phục trạng thái. Chỉ xét các nhánh còn khả quan.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/L5 - Trial and Error.pdf",
+          "page": "21-23"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "53-54"
+        }
+      ],
+      "tags": [
+        "thử sai",
+        "đệ quy"
+      ],
+      "lesson": "content/lessons/backtracking.md"
+    },
+    {
+      "id": "binary-strings",
+      "title": "Liệt kê dãy nhị phân độ dài n",
+      "type": "example",
+      "difficulty": 1,
+      "summary": "`Try(i)`: cho $x_i$ lần lượt nhận 0, 1; nếu $i=n$ thì in, ngược lại gọi `Try(i+1)`. Có $2^n$ cấu hình.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/L5 - Trial and Error.pdf",
+          "page": "24"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "59"
+        }
+      ],
+      "tags": [
+        "thử sai"
+      ],
+      "lesson": "content/lessons/binary-strings.md"
+    },
+    {
+      "id": "n-queens",
+      "title": "Bài toán xếp hậu",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "Đặt $n$ quân hậu trên bàn $n\\times n$ không ăn nhau: quay lui theo hàng, đánh dấu cột và hai đường chéo đã bị chiếm.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/L5 - Trial and Error.pdf",
+          "page": "34-35"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/Quay lui.pdf",
+          "page": "1"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "57-58"
+        }
+      ],
+      "tags": [
+        "thử sai"
+      ],
+      "lesson": "content/lessons/n-queens.md"
+    },
+    {
+      "id": "maze-path-backtracking",
+      "title": "Tìm đường trong mê cung bằng quay lui",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "Coi mê cung là đồ thị (ma trận kề); `Try(i)` chọn đỉnh kề chưa đi qua, đánh dấu `Daqua`, dừng khi tới đích, bỏ đánh dấu khi lùi.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/L5 - Trial and Error.pdf",
+          "page": "25-29"
+        }
+      ],
+      "tags": [
+        "thử sai",
+        "graph"
+      ],
+      "lesson": "content/lessons/maze-path-backtracking.md"
+    },
+    {
+      "id": "branch-and-bound",
+      "title": "Nhánh cận (Branch and Bound)",
+      "type": "concept",
+      "difficulty": 3,
+      "summary": "Quay lui cho bài toán tối ưu, dùng cận hợp lệ để loại nhánh không thể cải thiện nghiệm tốt nhất đã biết. Dùng riêng chi phí đã đi làm cận dưới cần giả thiết chi phí còn lại không âm.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/L5 - Trial and Error.pdf",
+          "page": "37-39"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "69"
+        }
+      ],
+      "tags": [
+        "thử sai",
+        "tối ưu"
+      ],
+      "lesson": "content/lessons/branch-and-bound.md"
+    },
+    {
+      "id": "tsp-bnb",
+      "title": "Người du lịch (TSP) bằng nhánh cận",
+      "type": "example",
+      "difficulty": 3,
+      "summary": "Xây hành trình qua mỗi thành phố một lần rồi trở về điểm đầu, duy trì `BestCost`. Với chi phí không âm, nhánh có chi phí tạm không nhỏ hơn `BestCost` có thể bị loại.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/L5 - Trial and Error.pdf",
+          "page": "40-44"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/Nhanh can.pdf",
+          "page": "1"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "70-73"
+        }
+      ],
+      "tags": [
+        "thử sai",
+        "graph",
+        "tối ưu"
+      ],
+      "lesson": "content/lessons/tsp-bnb.md"
+    },
+    {
+      "id": "hw-trial-error",
+      "title": "Bài tập: vét cạn, quay lui, nhánh cận",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Khớp xâu, dãy nhị phân, xếp hậu, tập con k phần tử, chỉnh hợp, sudoku, leo bậc thang, người du lịch.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/Homework3_Trial and Error.pdf",
+          "page": "2"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/Quay lui.pdf",
+          "page": "1-2"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 4 - Các thuật toán thử sai/Nhanh can.pdf",
+          "page": "1"
+        }
+      ],
+      "tags": [
+        "thử sai",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-trial-error.md"
+    },
+    {
+      "id": "greedy-method",
+      "title": "Phương pháp tham lam",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Ở mỗi bước chọn phương án tốt nhất cục bộ (`BestSelect`), nhận nếu `Acceptable`. Đúng khi bài toán có tính chất lựa chọn tham lam và cấu trúc con tối ưu.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "6-12"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "81"
+        }
+      ],
+      "tags": [
+        "tham lam"
+      ],
+      "lesson": "content/lessons/greedy-method.md"
+    },
+    {
+      "id": "coin-change-greedy",
+      "title": "Đổi tiền tham lam",
+      "type": "example",
+      "difficulty": 1,
+      "summary": "Lấy đồng mệnh giá lớn nhất còn vừa số tiền còn lại. Với mệnh giá $\\{10,6,1\\}$ và số tiền 55, tham lam dùng 10 đồng trong khi có phương án 8 đồng, nên không bảo đảm tối ưu.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "7"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "9"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "14"
+        }
+      ],
+      "tags": [
+        "tham lam"
+      ],
+      "lesson": "content/lessons/coin-change-greedy.md"
+    },
+    {
+      "id": "activity-selection",
+      "title": "Chọn hoạt động (Activity Selection)",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "Sắp hoạt động theo thời điểm kết thúc tăng dần, chọn hoạt động đầu, rồi lần lượt nhận hoạt động có $s_i\\ge f_j$ của hoạt động vừa chọn.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "15-18"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/Homework4_ Greedy Method.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "tham lam"
+      ],
+      "lesson": "content/lessons/activity-selection.md"
+    },
+    {
+      "id": "mst",
+      "title": "Cây khung nhỏ nhất (MST)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Cây khung của đồ thị vô hướng liên thông là đồ thị con không chu trình chứa mọi đỉnh; cây khung nhỏ nhất có tổng trọng số nhỏ nhất.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "19"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "30"
+        }
+      ],
+      "tags": [
+        "graph",
+        "tham lam"
+      ],
+      "lesson": "content/lessons/mst.md"
+    },
+    {
+      "id": "prim",
+      "title": "Thuật toán Prim",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Bắt đầu từ một đỉnh, mỗi bước thêm cạnh nhỏ nhất nối cây hiện tại với một đỉnh ngoài cây. Ma trận kề: $O(V^2)$; min-heap + danh sách kề: $O(E\\log V)$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "20-26"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "90-92"
+        }
+      ],
+      "tags": [
+        "graph",
+        "tham lam"
+      ],
+      "lesson": "content/lessons/prim.md"
+    },
+    {
+      "id": "kruskal",
+      "title": "Thuật toán Kruskal",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Sắp cạnh tăng dần theo trọng số, lần lượt thêm cạnh nhỏ nhất không tạo chu trình vào rừng hiện có. $O(E\\log E)$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "27-29"
+        }
+      ],
+      "tags": [
+        "graph",
+        "tham lam"
+      ],
+      "lesson": "content/lessons/kruskal.md"
+    },
+    {
+      "id": "dijkstra",
+      "title": "Thuật toán Dijkstra",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Đường đi ngắn nhất từ $s_0$ trên đồ thị trọng số không âm: mỗi bước chốt đỉnh có nhãn tạm nhỏ nhất và cập nhật $L(v)=\\min\\{L(v),L(s_i)+m(s_i,v)\\}$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "84-89"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/L6 - Greedy.pdf",
+          "page": "31"
+        },
+        {
+          "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 8/Hw8_Graph.pdf",
+          "page": "2"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/Đề cương ôn tập cuối kỳ_Thiết kế và đánh giá thuật toán.pdf",
+          "page": "1"
+        }
+      ],
+      "tags": [
+        "graph",
+        "tham lam"
+      ],
+      "lesson": "content/lessons/dijkstra.md"
+    },
+    {
+      "id": "hw-greedy",
+      "title": "Bài tập: phương pháp tham lam",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Cài đặt đổi tiền, xếp balo liên tục, chọn hoạt động, Prim, Kruskal, Dijkstra, mã Huffman.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 5 - Thuật toán tham lam/Homework4_ Greedy Method.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "tham lam",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-greedy.md"
+    },
+    {
+      "id": "dynamic-programming",
+      "title": "Quy hoạch động",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Lưu kết quả các bài toán con chồng lấp để dùng lại; tài liệu trình bày cách điền bảng bottom-up. Cần định nghĩa trạng thái, cơ sở, truy hồi và thứ tự tính theo phụ thuộc.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
+          "page": "5-8"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
+          "page": "14"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "100"
+        }
+      ],
+      "tags": [
+        "quy hoạch động"
+      ],
+      "lesson": "content/lessons/dynamic-programming.md"
+    },
+    {
+      "id": "dp-elements",
+      "title": "Các yếu tố của lời giải QHĐ",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Công thức truy hồi, cơ sở QHĐ, bảng phương án, kết quả tối ưu, truy vết tìm nghiệm; kèm danh sách lỗi hay gặp khi thiết kế và cài đặt.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
+          "page": "15-24"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
+          "page": "38-41"
+        },
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/Đề cương ôn tập cuối kỳ_Thiết kế và đánh giá thuật toán.pdf",
+          "page": "1"
+        }
+      ],
+      "tags": [
+        "quy hoạch động"
+      ],
+      "lesson": "content/lessons/dp-elements.md"
+    },
+    {
+      "id": "binomial-dp",
+      "title": "Đếm tổ hợp C(r, n) bằng bảng",
+      "type": "formula",
+      "difficulty": 2,
+      "summary": "Theo ký hiệu của slide, $C(i,j)$ đếm cách chọn $i$ phần tử từ $j$: $C(i,j)=C(i-1,j-1)+C(i,j-1)$, với $C(0,j)=C(i,i)=1$. Điền bảng tránh tính lại các bài toán con.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
+          "page": "10-13"
+        }
+      ],
+      "tags": [
+        "quy hoạch động"
+      ],
+      "lesson": "content/lessons/binomial-dp.md"
+    },
+    {
+      "id": "lis",
+      "title": "Dãy con tăng dài nhất",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "$L(i)$ là độ dài dãy con tăng dài nhất kết thúc tại $a_i$: khởi tạo $L(i)=1$, rồi xét $L(j)+1$ với $j<i$ và $a_j<a_i$. Truy vết từ vị trí đạt $\\max_i L(i)$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
+          "page": "26-28"
+        }
+      ],
+      "tags": [
+        "quy hoạch động"
+      ],
+      "lesson": "content/lessons/lis.md"
+    },
+    {
+      "id": "knapsack-01",
+      "title": "Xếp balo 0-1",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "$C(i,j)$ chọn tốt nhất giữa bỏ vật $i$ và lấy nó khi $p_i\\le j$: $C(i-1,j-p_i)+w_i$. Theo slide, $p_i$ là trọng lượng, $w_i$ là giá trị; mỗi vật chỉ dùng một lần.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
+          "page": "29-32"
+        }
+      ],
+      "tags": [
+        "quy hoạch động",
+        "tối ưu"
+      ],
+      "lesson": "content/lessons/knapsack-01.md"
+    },
+    {
+      "id": "grid-path-dp",
+      "title": "Đường đi tổng lớn nhất trong bảng số",
+      "type": "example",
+      "difficulty": 2,
+      "summary": "$C(i,j)=\\max\\{C(i-1,j-1),C(i,j-1),C(i+1,j-1)\\}+a_{ij}$; chú ý chỉ số ngoài bảng khi tính và truy vết.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
+          "page": "33-37"
+        }
+      ],
+      "tags": [
+        "quy hoạch động"
+      ],
+      "lesson": "content/lessons/grid-path-dp.md"
+    },
+    {
+      "id": "floyd",
+      "title": "Thuật toán Floyd",
+      "type": "concept",
+      "difficulty": 3,
+      "summary": "Đường đi ngắn nhất mọi cặp đỉnh: ở bước $k$ cho phép đi qua đỉnh trung gian $k$, $d^k_{ij}=\\min(d^{k-1}_{ij},\\ d^{k-1}_{ik}+d^{k-1}_{kj})$.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "100-103"
+        }
+      ],
+      "tags": [
+        "graph",
+        "quy hoạch động"
+      ],
+      "lesson": "content/lessons/floyd.md"
+    },
+    {
+      "id": "lcs",
+      "title": "Dãy con chung dài nhất của hai dãy",
+      "type": "example",
+      "difficulty": 3,
+      "summary": "Đặt $L(i,j)$ là độ dài dãy con chung dài nhất của hai tiền tố; điền bảng từ các tiền tố ngắn hơn rồi truy vết để dựng dãy con chung. Các phần tử không cần liên tiếp.",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
+          "page": "111-115"
+        }
+      ],
+      "tags": [
+        "quy hoạch động"
+      ],
+      "lesson": "content/lessons/lcs.md",
+      "externalNote": "Mô tả bảng $L(i,j)$ theo tiền tố là kiến thức chung; mới đối chiếu mục lục giáo trình (tr. 111), chưa đọc kỹ nội dung trang."
+    },
+    {
+      "id": "hw-dp",
+      "title": "Bài tập: quy hoạch động",
+      "type": "exercise",
+      "difficulty": 3,
+      "summary": "Bố trí phòng họp, cho thuê máy, điền dấu ±, chia hai nhóm tích lớn nhất, Farmer (IOI 2004), ...",
+      "sources": [
+        {
+          "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/Homework7_DynamicProgramming_update.pdf",
+          "page": "2-3"
+        }
+      ],
+      "tags": [
+        "quy hoạch động",
+        "bài tập"
+      ],
+      "lesson": "content/lessons/hw-dp.md"
+    }
+  ],
+  "edges": [
+    {
+      "source": "java-interface-abstract",
+      "target": "comparable-interface",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-generics",
+      "target": "comparable-interface",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-generics",
+      "target": "generic-bubble-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "comparable-interface",
+      "target": "generic-bubble-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "bubble-sort",
+      "target": "generic-bubble-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-interface-abstract",
+      "target": "abstraction-adt",
+      "relation": "applies",
+      "note": "Trong Java, đặc tả của ADT được viết thành một interface"
+    },
+    {
+      "source": "java-generics",
+      "target": "list-adt",
+      "relation": "applies",
+      "note": "List<E>, Stack<E>, Queue<E> tham số hóa theo kiểu phần tử"
+    },
+    {
+      "source": "comparable-interface",
+      "target": "priority-queue-adt",
+      "relation": "applies",
+      "note": "Khóa K extends Comparable để so sánh độ ưu tiên"
+    },
+    {
+      "source": "algorithm-problem",
+      "target": "running-time-model",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "running-time-model",
+      "target": "big-o",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "big-o",
+      "target": "sum-product-rules",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "running-time-model",
+      "target": "best-worst-average",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "big-o",
+      "target": "complexity-classes",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "algorithm-problem",
+      "target": "turing-machine",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "turing-machine",
+      "target": "complexity-classes",
+      "relation": "related",
+      "note": "Mô hình lý thuyết để định nghĩa thời gian tính"
+    },
+    {
+      "source": "turing-machine",
+      "target": "hw-turing",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "big-o",
+      "target": "bubble-sort-cost",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "bubble-sort",
+      "target": "bubble-sort-cost",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sum-product-rules",
+      "target": "bubble-sort-cost",
+      "relation": "applies",
+      "note": "Hai vòng lặp lồng nhau: nhân số lần lặp với chi phí $O(1)$ của thân"
+    },
+    {
+      "source": "best-worst-average",
+      "target": "insertion-sort",
+      "relation": "applies",
+      "note": "Tốt nhất $O(n)$ khi dãy đã sắp, xấu nhất $O(n^2)$ khi dãy đảo ngược"
+    },
+    {
+      "source": "recursion",
+      "target": "recursion-correctness",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "recursion",
+      "target": "recurrence-relation",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "big-o",
+      "target": "recurrence-relation",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "recurrence-relation",
+      "target": "substitution-method",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "recurrence-relation",
+      "target": "master-theorem",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "recursion",
+      "target": "recursion-elimination",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "stack-adt",
+      "target": "recursion-elimination",
+      "relation": "related",
+      "note": "Ngăn xếp hỗ trợ cách khử đệ quy tổng quát; các dạng đuôi có thể dùng vòng lặp."
+    },
+    {
+      "source": "recursion",
+      "target": "tower-of-hanoi",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "recursion",
+      "target": "fibonacci",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "substitution-method",
+      "target": "hw-recurrences",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "master-theorem",
+      "target": "hw-recurrences",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "substitution-method",
+      "target": "tower-of-hanoi",
+      "relation": "applies",
+      "note": "Thế lặp $T(n)=2T(n-1)+1$ để ra số bước chuyển đĩa"
+    },
+    {
+      "source": "recursion-elimination",
+      "target": "tower-of-hanoi",
+      "relation": "applies",
+      "note": "Ví dụ chuẩn của dạng ED[APBP]"
+    },
+    {
+      "source": "recursion-elimination",
+      "target": "binary-search",
+      "relation": "applies",
+      "note": "Tìm kiếm nhị phân có dạng ED[AP], khử thành vòng while"
+    },
+    {
+      "source": "stack-adt",
+      "target": "tower-of-hanoi",
+      "relation": "applies",
+      "note": "Mỗi cọc là một ngăn xếp đĩa"
+    },
+    {
+      "source": "recursion",
+      "target": "divide-and-conquer",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "divide-and-conquer",
+      "target": "minmax-dc",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "divide-and-conquer",
+      "target": "strassen",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "divide-and-conquer",
+      "target": "tromino-tiling",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "divide-and-conquer",
+      "target": "decrease-transform-conquer",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "divide-and-conquer",
+      "target": "quick-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "divide-and-conquer",
+      "target": "merge-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "divide-and-conquer",
+      "target": "binary-search",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "master-theorem",
+      "target": "merge-sort",
+      "relation": "applies",
+      "note": "$T(n)=2T(n/2)+n$: $a=b^d$ nên $O(n\\log n)$"
+    },
+    {
+      "source": "master-theorem",
+      "target": "binary-search",
+      "relation": "applies",
+      "note": "$T(n)=T(n/2)+1$: $a=b^d=1$ nên $O(\\log n)$"
+    },
+    {
+      "source": "master-theorem",
+      "target": "strassen",
+      "relation": "applies",
+      "note": "$T(n)=7T(n/2)+n^2$: $a>b^d$ nên $O(n^{\\log_2 7})$"
+    },
+    {
+      "source": "substitution-method",
+      "target": "minmax-dc",
+      "relation": "applies",
+      "note": "Thế lặp $T(n)=2T(n/2)+2$ để đếm số phép so sánh"
+    },
+    {
+      "source": "recursion-correctness",
+      "target": "binary-search",
+      "relation": "applies",
+      "note": "Quy nạp theo độ dài đoạn $R-L+1$"
+    },
+    {
+      "source": "decrease-transform-conquer",
+      "target": "binary-search",
+      "relation": "related",
+      "note": "Giảm theo hệ số 2"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "bubble-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "selection-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "insertion-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "shuffle-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "quick-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "merge-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "bubble-sort",
+      "target": "sort-properties",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "selection-sort",
+      "target": "sort-properties",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "insertion-sort",
+      "target": "sort-properties",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "quick-sort",
+      "target": "sort-properties",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "merge-sort",
+      "target": "sort-properties",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "comparison-sort-lower-bound",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "big-o",
+      "target": "comparison-sort-lower-bound",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "comparison-sort-lower-bound",
+      "target": "merge-sort",
+      "relation": "related",
+      "note": "Merge Sort đạt cận dưới $O(n\\log n)$"
+    },
+    {
+      "source": "bubble-sort",
+      "target": "hw-sorting-benchmark",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "selection-sort",
+      "target": "hw-sorting-benchmark",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "insertion-sort",
+      "target": "hw-sorting-benchmark",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "merge-sort",
+      "target": "hw-sorting-benchmark",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "quick-sort",
+      "target": "hw-sorting-benchmark",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "ex-count-pairs",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-search",
+      "target": "ex-count-pairs",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "selection-sort",
+      "target": "brute-force",
+      "relation": "related",
+      "note": "Sắp xếp chọn và nổi bọt là ví dụ của vét cạn"
+    },
+    {
+      "source": "insertion-sort",
+      "target": "priority-queue-adt",
+      "relation": "related",
+      "note": "PQ trên danh sách đã sắp chèn như sắp xếp chèn"
+    },
+    {
+      "source": "abstraction-adt",
+      "target": "list-adt",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "list-adt",
+      "target": "array-list",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "list-adt",
+      "target": "linked-list",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "linked-list",
+      "target": "linked-list-variants",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "array-list",
+      "target": "hw-list",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "linked-list",
+      "target": "hw-list",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "list-adt",
+      "target": "stack-adt",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "list-adt",
+      "target": "queue-adt",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "queue-adt",
+      "target": "circular-array-queue",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "array-list",
+      "target": "circular-array-queue",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "queue-adt",
+      "target": "linked-queue",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "linked-list",
+      "target": "linked-queue",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "stack-adt",
+      "target": "bracket-matching",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "stack-adt",
+      "target": "maze-stack",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "stack-adt",
+      "target": "postfix-eval",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "stack-adt",
+      "target": "palindrome-stack-queue",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "queue-adt",
+      "target": "palindrome-stack-queue",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "linked-list",
+      "target": "stack-adt",
+      "relation": "applies",
+      "note": "Nút đầu danh sách là đỉnh ngăn xếp: push/pop $O(1)$ không giới hạn sức chứa"
+    },
+    {
+      "source": "maze-stack",
+      "target": "maze-path-backtracking",
+      "relation": "related",
+      "note": "Cùng bài toán mê cung: stack tường minh và quay lui đệ quy"
+    },
+    {
+      "source": "postfix-eval",
+      "target": "expression-tree",
+      "relation": "related",
+      "note": "Duyệt sau cây biểu thức cho biểu thức hậu tố"
+    },
+    {
+      "source": "tree-concepts",
+      "target": "binary-tree",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-tree",
+      "target": "full-binary-tree-height",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-tree",
+      "target": "binary-tree-repr",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-tree",
+      "target": "tree-traversal",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "recursion",
+      "target": "tree-traversal",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "tree-traversal",
+      "target": "expression-tree",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "queue-adt",
+      "target": "priority-queue-adt",
+      "relation": "related",
+      "note": "Đối chiếu thứ tự FIFO với thứ tự theo ưu tiên."
+    },
+    {
+      "source": "binary-tree-repr",
+      "target": "binary-heap",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-heap",
+      "target": "heap-height",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "full-binary-tree-height",
+      "target": "heap-height",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-heap",
+      "target": "heap-insert",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-heap",
+      "target": "heap-removemin",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "heap-insert",
+      "target": "heap-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "heap-removemin",
+      "target": "heap-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "heap-sort",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "priority-queue-adt",
+      "target": "hw-priority-queue",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-heap",
+      "target": "hw-priority-queue",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-heap",
+      "target": "priority-queue-adt",
+      "relation": "applies",
+      "note": "insert và removeMin cùng $O(\\log n)$ thay vì đánh đổi $O(1)$/$O(n)$"
+    },
+    {
+      "source": "heap-height",
+      "target": "heap-insert",
+      "relation": "applies",
+      "note": "Up-heap đi tối đa $h\\le\\log n$ bước"
+    },
+    {
+      "source": "heap-height",
+      "target": "heap-removemin",
+      "relation": "applies",
+      "note": "Down-heap đi tối đa $h\\le\\log n$ bước"
+    },
+    {
+      "source": "binary-heap",
+      "target": "prim",
+      "relation": "applies",
+      "note": "Min-heap + danh sách kề cho $O(E\\log V)$"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "binary-search",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sequential-search",
+      "target": "binary-search",
+      "relation": "related",
+      "note": "Tuần tự $O(n)$, không cần sắp; nhị phân $O(\\log n)$, cần sắp"
+    },
+    {
+      "source": "sequential-search",
+      "target": "brute-force",
+      "relation": "related",
+      "note": "Tìm kiếm tuần tự là vét cạn"
+    },
+    {
+      "source": "binary-tree",
+      "target": "bst-property",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "binary-search",
+      "target": "bst-property",
+      "relation": "related",
+      "note": "So sánh ý tưởng loại bớt một phần không gian tìm kiếm."
+    },
+    {
+      "source": "tree-traversal",
+      "target": "bst-property",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "bst-property",
+      "target": "bst-operations",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "bst-operations",
+      "target": "bst-balance",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "bst-operations",
+      "target": "bst-geometric-apps",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "bst-operations",
+      "target": "hw-bst",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "array-list",
+      "target": "hash-table",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "linked-list",
+      "target": "hash-table",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "hash-table",
+      "target": "bst-operations",
+      "relation": "related",
+      "note": "Hai cách cài đặt bảng ký hiệu (symbol table)"
+    },
+    {
+      "source": "full-binary-tree-height",
+      "target": "bst-operations",
+      "relation": "applies",
+      "note": "Cây cân bằng có $h=O(\\log n)$ nên thao tác đạt $O(\\log n)$"
+    },
+    {
+      "source": "graph-concepts",
+      "target": "graph-representation",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "linked-list",
+      "target": "graph-representation",
+      "relation": "related",
+      "note": "Danh sách liên kết là một lựa chọn cài đặt danh sách kề, không bắt buộc để hiểu ma trận kề."
+    },
+    {
+      "source": "graph-representation",
+      "target": "dfs",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "recursion",
+      "target": "dfs",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "graph-representation",
+      "target": "bfs",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "queue-adt",
+      "target": "bfs",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "stack-adt",
+      "target": "dfs",
+      "relation": "applies",
+      "note": "Đỉnh thăm sau được duyệt xong trước (LIFO), qua ngăn xếp đệ quy"
+    },
+    {
+      "source": "graph-representation",
+      "target": "hw-graph",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "hw-graph",
+      "target": "dfs",
+      "relation": "related"
+    },
+    {
+      "source": "hw-graph",
+      "target": "bfs",
+      "relation": "related"
+    },
+    {
+      "source": "hw-graph",
+      "target": "dijkstra",
+      "relation": "related"
+    },
+    {
+      "source": "tree-concepts",
+      "target": "graph-concepts",
+      "relation": "related",
+      "note": "Cây là đồ thị liên thông không chu trình"
+    },
+    {
+      "source": "dfs",
+      "target": "backtracking",
+      "relation": "related",
+      "note": "DFS là quay lui trên đồ thị"
+    },
+    {
+      "source": "algorithm-problem",
+      "target": "brute-force",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "brute-force",
+      "target": "string-matching-bf",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "brute-force",
+      "target": "backtracking",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "recursion",
+      "target": "backtracking",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "backtracking",
+      "target": "binary-strings",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "backtracking",
+      "target": "n-queens",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "backtracking",
+      "target": "maze-path-backtracking",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "graph-representation",
+      "target": "maze-path-backtracking",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "backtracking",
+      "target": "branch-and-bound",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "branch-and-bound",
+      "target": "tsp-bnb",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "graph-representation",
+      "target": "tsp-bnb",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "backtracking",
+      "target": "hw-trial-error",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "algorithm-problem",
+      "target": "greedy-method",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "greedy-method",
+      "target": "coin-change-greedy",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "greedy-method",
+      "target": "activity-selection",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "graph-concepts",
+      "target": "mst",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "tree-concepts",
+      "target": "mst",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "mst",
+      "target": "prim",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "greedy-method",
+      "target": "prim",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "mst",
+      "target": "kruskal",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "greedy-method",
+      "target": "kruskal",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "graph-representation",
+      "target": "dijkstra",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "greedy-method",
+      "target": "dijkstra",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "greedy-method",
+      "target": "hw-greedy",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "activity-selection",
+      "relation": "applies",
+      "note": "Sắp hoạt động theo thời điểm kết thúc tăng dần trước khi chọn"
+    },
+    {
+      "source": "sorting-problem",
+      "target": "kruskal",
+      "relation": "applies",
+      "note": "Sắp các cạnh tăng dần theo trọng số"
+    },
+    {
+      "source": "recursion-correctness",
+      "target": "prim",
+      "relation": "applies",
+      "note": "Quy nạp: mỗi cây con $T_i$ là một phần của một MST"
+    },
+    {
+      "source": "coin-change-greedy",
+      "target": "knapsack-01",
+      "relation": "related",
+      "note": "Tham lam không luôn tối ưu; QHĐ cho lời giải đúng"
+    },
+    {
+      "source": "dijkstra",
+      "target": "bfs",
+      "relation": "related",
+      "note": "BFS là trường hợp mọi cạnh có trọng số 1"
+    },
+    {
+      "source": "recursion",
+      "target": "dynamic-programming",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "recurrence-relation",
+      "target": "dynamic-programming",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "dynamic-programming",
+      "target": "dp-elements",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "dp-elements",
+      "target": "binomial-dp",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "dp-elements",
+      "target": "lis",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "dp-elements",
+      "target": "knapsack-01",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "dp-elements",
+      "target": "grid-path-dp",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "dp-elements",
+      "target": "floyd",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "dp-elements",
+      "target": "lcs",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "dp-elements",
+      "target": "hw-dp",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "graph-representation",
+      "target": "floyd",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "dynamic-programming",
+      "target": "fibonacci",
+      "relation": "applies",
+      "note": "Lưu bảng $F_1..F_n$ thay vì gọi đệ quy lặp lại: $O(2^n)\\to O(n)$"
+    },
+    {
+      "source": "floyd",
+      "target": "dijkstra",
+      "relation": "related",
+      "note": "Floyd: mọi cặp đỉnh; Dijkstra: một nguồn"
+    },
+    {
+      "source": "activity-selection",
+      "target": "hw-dp",
+      "relation": "related",
+      "note": "Bài \"bố trí phòng họp\" trong bài tập QHĐ có lời giải tham lam"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "MAT3514",
+  "name": "Cấu trúc dữ liệu và giải thuật",
+  "aim": "Nắm định nghĩa, thao tác và độ phức tạp của các cấu trúc dữ liệu cơ bản (danh sách, ngăn xếp, hàng đợi, cây, đống, cây tìm kiếm, đồ thị) cùng các thuật toán sắp xếp và tìm kiếm; cài đặt được chúng bằng Java tổng quát và chọn được cấu trúc phù hợp cho từng bài toán.",
+  "outcomes": [
+    "Hiểu nguyên lý, mã giả và cài đặt các thuật toán sắp xếp nổi bọt, chọn, chèn, trộn, nhanh; chọn được thuật toán phù hợp theo kích thước dữ liệu.",
+    "Phân biệt đặc tả và cài đặt của một ADT; cài đặt danh sách bằng mảng và danh sách liên kết (đơn, đôi, vòng).",
+    "Cài đặt ngăn xếp, hàng đợi bằng mảng và danh sách liên kết; dùng ngăn xếp kiểm tra ngoặc, tính biểu thức.",
+    "Biểu diễn và duyệt cây nhị phân; cài đặt hàng đợi ưu tiên bằng đống và sắp xếp vun đống.",
+    "Cài đặt tìm kiếm tuần tự, nhị phân và cây nhị phân tìm kiếm cùng các thao tác tìm, thêm, xóa.",
+    "Biểu diễn đồ thị (ma trận kề, danh sách kề, danh sách cạnh) và cài đặt DFS, BFS."
+  ],
+  "sources": [
+    { "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/Hw2_SimpleSort.pdf", "page": "1" },
+    { "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/Hw3_ADT_ListADT.pdf", "page": "1" },
+    { "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 4/Hw4_Stack and Queue.pdf", "page": "1" },
+    { "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 6/Hw6_Priority Queue and Heap.pdf", "page": "1" },
+    { "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/Homework 7_Searching and Binary Search Tree.pdf", "page": "1" },
+    { "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 8/Hw8_Graph.pdf", "page": "1" }
+  ],
+  "chapters": [
+    {
+      "id": "c1",
+      "title": "Ôn tập Java và công cụ phân tích",
+      "pieces": ["java-interface-abstract", "java-generics", "comparable-interface", "algorithm-problem", "running-time-model", "big-o", "recursion"]
+    },
+    {
+      "id": "c2",
+      "title": "Sắp xếp",
+      "pieces": ["sorting-problem", "bubble-sort", "bubble-sort-cost", "generic-bubble-sort", "best-worst-average", "selection-sort", "insertion-sort", "shuffle-sort", "divide-and-conquer", "quick-sort", "merge-sort", "sort-properties", "comparison-sort-lower-bound", "hw-sorting-benchmark"]
+    },
+    {
+      "id": "c3",
+      "title": "Kiểu dữ liệu trừu tượng và danh sách",
+      "pieces": ["abstraction-adt", "list-adt", "array-list", "linked-list", "linked-list-variants", "hw-list"]
+    },
+    {
+      "id": "c4",
+      "title": "Ngăn xếp và hàng đợi",
+      "pieces": ["stack-adt", "bracket-matching", "maze-stack", "tower-of-hanoi", "postfix-eval", "queue-adt", "circular-array-queue", "linked-queue", "palindrome-stack-queue"]
+    },
+    {
+      "id": "c5",
+      "title": "Cây và cây nhị phân",
+      "pieces": ["tree-concepts", "binary-tree", "full-binary-tree-height", "binary-tree-repr", "tree-traversal", "expression-tree"]
+    },
+    {
+      "id": "c6",
+      "title": "Hàng đợi ưu tiên và đống",
+      "pieces": ["priority-queue-adt", "binary-heap", "heap-height", "heap-insert", "heap-removemin", "heap-sort", "hw-priority-queue"]
+    },
+    {
+      "id": "c7",
+      "title": "Tìm kiếm và cây nhị phân tìm kiếm",
+      "pieces": ["sequential-search", "binary-search", "ex-count-pairs", "bst-property", "bst-operations", "bst-balance", "bst-geometric-apps", "hash-table", "hw-bst"]
+    },
+    {
+      "id": "c8",
+      "title": "Đồ thị",
+      "pieces": ["graph-concepts", "graph-representation", "dfs", "bfs", "dijkstra", "hw-graph"]
+    }
+  ]
+}

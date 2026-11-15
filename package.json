@@ -1,0 +1,23 @@
+{
+  "name": "dsa-hus-knowledge-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website học theo mảnh kiến thức cho MAT3514 và MAT3504 (HUS), dữ liệu lấy từ docs/.",
+  "type": "module",
+  "scripts": {
+    "validate": "node tools/validate.mjs",
+    "validate:strict": "node tools/validate.mjs --strict",
+    "serve": "node tools/serve.mjs",
+    "test": "node --test tools/model.test.mjs tools/validator.test.mjs",
+    "test:browser": "playwright test",
+    "lessons": "node tools/write-lessons.mjs",
+    "stage": "node tools/stage.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "katex": "0.19.1"
+  }
+}

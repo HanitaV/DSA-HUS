@@ -1,0 +1,142 @@
+{
+  "id": "MAT3504",
+  "name": "Thiết kế và đánh giá thuật toán",
+  "aim": "Phân tích độ phức tạp thuật toán và bài toán, giải công thức truy hồi; nắm và vận dụng các chiến lược thiết kế thuật toán: đệ quy, chia để trị, thử sai (vét cạn, quay lui, nhánh cận), tham lam và quy hoạch động.",
+  "outcomes": [
+    "Phát biểu bài toán bằng đầu vào/đầu ra; đánh giá độ phức tạp bằng ký hiệu O lớn, quy tắc tổng/nhân và mô hình RAM; phân biệt các lớp P, NP, NP-khó, NP-đầy đủ.",
+    "Xây dựng và mô phỏng máy Turing đơn giản.",
+    "Thiết kế thuật toán đệ quy, chứng minh tính đúng bằng quy nạp, lập và giải công thức truy hồi (phương pháp thế, định lý chính), khử đệ quy bằng ngăn xếp.",
+    "Thiết kế thuật toán chia để trị (tìm kiếm nhị phân, MinMax, QuickSort, Strassen) và đánh giá bằng định lý chính.",
+    "Giải bài toán liệt kê và tối ưu bằng vét cạn, quay lui, nhánh cận.",
+    "Áp dụng tham lam cho đổi tiền, chọn hoạt động, Prim, Kruskal, Dijkstra và nhận biết khi tham lam không cho lời giải tối ưu.",
+    "Giải bài toán quy hoạch động với bảng phương án 1 hoặc 2 chiều: công thức truy hồi, cơ sở, bảng phương án và truy vết."
+  ],
+  "sources": [
+    {
+      "file": "docs/18. Thiết kế đánh giá thuật toán/Đề cương ôn tập cuối kỳ_Thiết kế và đánh giá thuật toán.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 2 - Máy Turing/Homework1_Máy Turing.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/Homework2_Recursion.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/Homework7_DynamicProgramming_update.pdf",
+      "page": "1"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "b0",
+      "title": "Nền tảng dùng chung từ cấu trúc dữ liệu",
+      "pieces": [
+        "abstraction-adt",
+        "list-adt",
+        "queue-adt",
+        "sorting-problem",
+        "tree-concepts"
+      ]
+    },
+    {
+      "id": "b1",
+      "title": "Các khái niệm cơ bản",
+      "pieces": [
+        "algorithm-problem",
+        "running-time-model",
+        "big-o",
+        "sum-product-rules",
+        "best-worst-average",
+        "complexity-classes"
+      ]
+    },
+    {
+      "id": "b2",
+      "title": "Mô hình toán học: máy Turing",
+      "pieces": [
+        "turing-machine",
+        "hw-turing"
+      ]
+    },
+    {
+      "id": "b3",
+      "title": "Đệ quy và khử đệ quy",
+      "pieces": [
+        "recursion",
+        "recursion-correctness",
+        "fibonacci",
+        "tower-of-hanoi",
+        "recurrence-relation",
+        "substitution-method",
+        "master-theorem",
+        "recursion-elimination",
+        "hw-recurrences",
+        "graph-concepts",
+        "graph-representation",
+        "dfs",
+        "bfs"
+      ]
+    },
+    {
+      "id": "b4",
+      "title": "Chia để trị",
+      "pieces": [
+        "divide-and-conquer",
+        "binary-search",
+        "minmax-dc",
+        "quick-sort",
+        "merge-sort",
+        "strassen",
+        "tromino-tiling",
+        "decrease-transform-conquer"
+      ]
+    },
+    {
+      "id": "b5",
+      "title": "Các phương pháp thử sai",
+      "pieces": [
+        "brute-force",
+        "string-matching-bf",
+        "backtracking",
+        "binary-strings",
+        "n-queens",
+        "maze-path-backtracking",
+        "branch-and-bound",
+        "tsp-bnb",
+        "hw-trial-error"
+      ]
+    },
+    {
+      "id": "b6",
+      "title": "Phương pháp tham lam",
+      "pieces": [
+        "greedy-method",
+        "coin-change-greedy",
+        "activity-selection",
+        "mst",
+        "prim",
+        "kruskal",
+        "dijkstra",
+        "hw-greedy"
+      ]
+    },
+    {
+      "id": "b7",
+      "title": "Quy hoạch động",
+      "pieces": [
+        "dynamic-programming",
+        "dp-elements",
+        "binomial-dp",
+        "lis",
+        "knapsack-01",
+        "grid-path-dp",
+        "floyd",
+        "lcs",
+        "hw-dp"
+      ]
+    }
+  ]
+}

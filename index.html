@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi" data-type="software" data-radius="soft">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="page-type" content="software"><meta name="site-kind" content="software">
+  <title>Bản đồ kiến thức · HUS</title>
+  <meta name="description" content="Khám phá kiến thức cấu trúc dữ liệu và thuật toán HUS qua đồ thị, học theo khóa và lưu tiến độ trên thiết bị.">
+  <meta property="og:title" content="Bản đồ kiến thức · HUS"><meta property="og:description" content="Từ một mảnh kiến thức, tìm đường học tiếp."><meta property="og:type" content="website">
+  <meta name="theme-color" content="#eef0f3">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="assets/vendor/katex/katex.min.js"></script>
+  <script defer src="assets/vendor/katex/auto-render.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+<!-- Software workspace. Palette cool-grey-cobalt; graph is the main learning interface. -->
+<a class="skip-link" href="#workspace">Đi tới nội dung</a>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">h.</span><span>HUS <span class="brand-sub">/ Bản đồ kiến thức</span></span></a>
+  <nav class="mode-switch" aria-label="Chế độ học"><a id="explore-link" class="active" href="#">Khám phá</a><button id="course-mode">Theo khóa học</button></nav>
+  <button id="sidebar-toggle" class="mobile-toggle" aria-expanded="false" aria-controls="sidebar">Danh sách</button>
+  <a class="header-source" href="DOCUMENTS.md" target="_blank" rel="noopener">Tài liệu nguồn ↗</a>
+</header>
+<div class="app-shell">
+  <aside id="sidebar" class="sidebar" aria-label="Tìm kiếm và danh sách kiến thức">
+    <div class="sidebar-top"><span class="eyebrow">Không gian học tập</span><div class="sidebar-title">Bản đồ kiến thức</div><p>Từ một mảnh nhỏ,<br>hiểu thêm một điều.</p></div>
+    <label class="search-label" for="search">Tìm mảnh kiến thức</label>
+    <div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Ví dụ: đệ quy, cây…" autocomplete="off"><kbd>/</kbd></div>
+    <label class="search-label" for="course-select">Khóa học</label><select id="course-select"><option value="">Tất cả kiến thức</option></select>
+    <div class="list-heading"><h2 id="list-title">Mảnh kiến thức</h2><span id="result-count" role="status"></span></div>
+    <div class="filter-row"><label for="status-filter" class="sr-only">Lọc theo tiến độ</label><select id="status-filter"><option value="all">Tất cả trạng thái</option><option value="ready">Sẵn sàng học</option><option value="learned">Đã học</option><option value="unlearned">Chưa học</option></select></div>
+    <div id="piece-list" class="piece-list"><p>Đang tải kiến thức…</p></div>
+    <div class="sidebar-footer"><span id="total-progress"></span><progress id="global-progress" max="100" value="0" aria-label="Tiến độ toàn bộ kiến thức"></progress><small id="storage-status" role="status"></small></div>
+  </aside>
+  <main id="workspace" class="workspace" tabindex="-1">
+    <div class="workspace-heading"><div><span id="mode-label" class="eyebrow">Chế độ khám phá</span><h1 id="workspace-title">Mỗi kết nối mở một hướng học.</h1><p id="workspace-description">Chọn một mảnh để xem cần biết gì và có thể dùng ở đâu.</p></div><span class="workspace-index" aria-hidden="true">01 / ∞</span></div>
+    <section id="course-overview" class="course-overview" hidden aria-label="Mục tiêu và tiến độ khóa học"></section>
+    <section class="graph-panel" aria-label="Đồ thị kiến thức">
+      <div class="graph-top"><div><span class="live-dot" aria-hidden="true"></span><span id="graph-count">Đang tải đồ thị</span></div><span class="graph-caption">Chọn để khám phá</span></div>
+      <div id="graph" class="graph-host"></div>
+      <div class="graph-bottom"><div class="legend"><span><i class="legend-line"></i>Tiên quyết</span><span><i class="legend-line applies"></i>Áp dụng</span><span><i class="legend-line related"></i>Liên quan</span></div><div class="graph-controls"><button id="zoom-out" aria-label="Thu nhỏ">−</button><button id="zoom-in" aria-label="Phóng to">+</button><button id="fit-graph" aria-label="Xem toàn bộ đồ thị">Vừa khung</button></div></div>
+    </section>
+    <div class="workspace-foot"><span>Kéo nền để di chuyển · Dùng + / − để phóng to</span><span>Học theo cách của bạn.</span></div>
+    <section id="course-path" class="course-path" hidden aria-label="Lộ trình theo chương"></section>
+    <p id="app-message" class="notice" role="status" hidden></p>
+  </main>
+  <aside id="detail" class="detail" aria-label="Chi tiết mảnh kiến thức"><div class="detail-empty"><span class="eyebrow">Một điểm bắt đầu</span><h2>Bạn muốn hiểu điều gì?</h2><p>Chọn trên đồ thị hoặc tìm một mảnh trong danh sách bên trái.</p></div></aside>
+</div>
+<noscript><p class="notice">Cần bật JavaScript để khám phá đồ thị. Bạn vẫn có thể đọc tài liệu trong thư mục docs/.</p></noscript>
+</body>
+</html>
