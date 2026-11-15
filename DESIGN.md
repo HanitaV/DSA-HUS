@@ -4,13 +4,13 @@ Loại sản phẩm: phần mềm học tập, giao diện sử dụng trực ti
 
 ## Đồ thị là không gian học
 
-Trang đầu mở thẳng vào đồ thị. Bố cục ba cột giữ danh sách, đồ thị và chi tiết trong cùng ngữ cảnh: chọn một mảnh là thấy ngay cần biết gì và có thể dùng ở đâu. Không đặt trang quảng bá hoặc yêu cầu đăng nhập trước hoạt động học.
+Trang đầu mở thẳng vào đồ thị toàn cảnh. Bố cục gồm thanh bên có thể thu gọn ở bên trái, vùng đồ thị trung tâm chiếm tối đa chiều cao màn hình và bảng chi tiết bên phải chỉ mở khi người học chọn một mảnh kiến thức. Không đặt trang quảng bá hoặc yêu cầu đăng nhập trước hoạt động học.
 
-Trong Khám phá, bố trí lực xác định tạo các vị trí tự do, không phụ thuộc thứ tự khóa học. Khi chọn mảnh, các hàng xóm trực tiếp được bố trí quanh nó để các kết nối dễ đọc; những mảnh khác vẫn có thể tìm qua danh sách, phóng toàn bộ hoặc kéo nền. Mảnh ban đầu được chọn theo dữ liệu: một mảnh mức 1 có nhiều ứng dụng. Không gắn cứng mã môn hoặc mã mảnh vào module đồ thị.
+Trong chế độ Khám phá, đồ thị bố trí các mảnh kiến thức cốt lõi (`71` khái niệm, định lý, công thức) thành các tầng DAG có hướng (mặc định Trái → phải, chuyển được sang Trên → dưới trong thanh `Bộ lọc`), sử dụng thẻ chữ nhật bo góc, đường cong Bezier mượt và bản đồ thu gọn ở góc phải dưới để kéo nhìn nhanh. Các `ví dụ` và `bài tập` (`33` mảnh) được ẩn khỏi đồ thị chính mặc định để giữ đồ thị thoáng, đồng thời liên kết trực tiếp trong mục `Ví dụ & bài tập liên quan` của bảng chi tiết hoặc bật lại bất cứ lúc nào qua `Bộ lọc`.
 
-Theo khóa học dùng các hàng chia theo chương và giữ các cạnh tiên quyết. Lộ trình văn bản bên dưới là biểu diễn đầy đủ, có thứ tự và dễ dùng bằng bàn phím. Chọn liên kết vị trí khóa giữ cả mã khóa lẫn mã mảnh trong URL, làm nổi mảnh và chương tương ứng.
+Theo khóa học hiển thị các thẻ chương (`Chương 1..n`) dẫn vào DAG tiên quyết từng chương và giữ lộ trình văn bản đầy đủ ở bên dưới để đọc tuần tự hoặc dùng bằng bàn phím. Chọn liên kết vị trí khóa giữ cả mã khóa lẫn mã mảnh trong URL, làm nổi mảnh và chương tương ứng.
 
-Mũi tên hướng từ kiến thức nền tới kiến thức sử dụng nó. Nét liền là tiên quyết, nét đứt là áp dụng, nét chấm là liên quan. Màu không phải tín hiệu duy nhất: loại quan hệ còn có chú giải và các danh sách riêng trong bảng chi tiết.
+Mũi tên hướng từ kiến thức nền tới kiến thức sử dụng nó. Mặc định chỉ vẽ cạnh `Tiên quyết` nét liền; cạnh `Áp dụng` nét đứt và `Liên quan` nét chấm bật/tắt độc lập trong `Bộ lọc`. Màu sắc luôn đi kèm chấm phân loại, nhãn chữ và biểu tượng trạng thái `Đã học`.
 
 ## Hệ thống thị giác
 
@@ -22,9 +22,9 @@ Skill gợi ý hero giữa trang, hiệu ứng shader và một hoạt cảnh b�
 
 ## Mobile và bàn phím
 
-Dưới 760 px, thanh chế độ có hàng riêng, danh sách được mở bằng nút 44 px và chi tiết nằm sau đồ thị. Vùng vẽ cho phép kéo bằng một ngón tay; nút cộng/trừ và vừa khung hoạt động cả bằng cảm ứng lẫn bàn phím. Vùng nhận chạm của nút đồ thị được tính lại để tối thiểu 44 px dù tỷ lệ SVG thay đổi.
+Dưới 760 px, thanh chế độ có hàng riêng, danh sách được mở bằng nút 44 px, bản đồ thu gọn được ẩn để giữ khung đồ thị rộng và bảng chi tiết nằm sau đồ thị. Vùng vẽ cho phép kéo bằng một ngón tay, cuộn để thu phóng quanh con trỏ; nút cộng/trừ và vừa khung hoạt động cả bằng cảm ứng lẫn bàn phím.
 
-Danh sách và ô tìm kiếm cho phép đến mọi mảnh mà không cần thao tác trên đồ thị. Phím `/` mở và đặt tiêu điểm vào tìm kiếm; Escape đóng danh sách mobile. Tab/Enter/Space thao tác với các nút SVG; đường viền focus rõ. Liên kết bỏ qua nội dung không ghi đè URL của mảnh đang học.
+Danh sách và ô tìm kiếm cho phép đến mọi mảnh (bao gồm ví dụ và bài tập) mà không cần thao tác trên đồ thị. Phím `/` mở và đặt tiêu điểm vào tìm kiếm; `Escape` đóng thanh bên mobile, đóng bảng chi tiết đang mở hoặc đóng thanh bộ lọc. `Tab`/`Enter`/`Space` thao tác với các thẻ SVG; đường viền focus rõ. Liên kết bỏ qua nội dung không ghi đè URL của mảnh đang học.
 
 ## Tiến độ và đề xuất
 

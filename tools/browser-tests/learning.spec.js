@@ -3,18 +3,22 @@ import { test, expect } from '@playwright/test';
 test('exploration, accentless search, graph selection and keyboard', async ({ page }) => {
     const errors = []; page.on('pageerror', e => errors.push(e.message));
     await page.goto('/');
-    await expect(page.locator('.graph-node')).toHaveCount(104);
-    await expect(page.locator('#detail h2')).not.toBeEmpty();
+    await expect(page.locator('.graph-node')).toHaveCount(71);
+    await expect(page.locator('#detail')).toBeHidden();
     await page.locator('#search').fill('DE QUY');
     await expect(page.locator('#piece-list .list-item')).toHaveCount(2);
     await page.locator('#piece-list .list-item[href="#piece=recursion"]').focus();
     await page.keyboard.press('Enter');
+    await expect(page.locator('#detail')).toBeVisible();
     await expect(page.locator('#detail h2')).toContainText('Đệ quy');
     await expect(page.locator('#detail')).toContainText('Có thể áp dụng trong');
+    await page.locator('#close-detail').click();
+    await expect(page.locator('#detail')).toBeHidden();
     await page.locator('#search').fill('zzzzzzz');
     await expect(page.locator('#piece-list')).toContainText('Không tìm thấy');
     await expect(page.locator('.graph-node')).toHaveCount(0);
     await page.locator('#search').fill('');
+    await expect(page.locator('.graph-node')).toHaveCount(71);
     await page.locator('.graph-node[data-id="big-o"]').focus();
     await page.keyboard.press('Enter');
     await expect(page.locator('#detail h2')).toContainText('O lớn');
@@ -86,10 +90,43 @@ test('mobile layout, list access and reduced motion', async ({ page }) => {
 
 test('titles avoid unrendered math or markdown markers', async ({ page }) => {
     await page.goto('/');
+    await expect(page.locator('.graph-node')).toHaveCount(71);
+    await page.locator('#filter-toggle').click();
+    await page.locator('#toggle-examples').check();
     await expect(page.locator('.graph-node')).toHaveCount(104);
-    const badTitles = await page.evaluate(() => [...document.querySelectorAll('#piece-list .list-item > span:nth-child(2), .graph-node > text:last-of-type')]
+    const badTitles = await page.evaluate(() => [...document.querySelectorAll('#piece-list .list-item .list-item-title, .graph-node .node-title')]
         .map(el => el.textContent.trim()).filter(t => /[$`]/.test(t)));
     expect(badTitles).toEqual([]);
+});
+
+test('collapsible sidebar, filter bar, DAG direction, edge toggles, examples and minimap', async ({ page }) => {
+    const errors = []; page.on('pageerror', e => errors.push(e.message));
+    await page.goto('/');
+    await expect(page.locator('#minimap .minimap-node')).toHaveCount(71);
+    await expect(page.locator('#minimap .minimap-viewport')).toBeVisible();
+
+    await page.locator('#collapse-sidebar').click();
+    await expect(page.locator('#sidebar')).toBeHidden();
+    await expect(page.locator('#reopen-sidebar')).toBeVisible();
+    await page.locator('#reopen-sidebar').click();
+    await expect(page.locator('#sidebar')).toBeVisible();
+    await expect(page.locator('#search')).toBeFocused();
+
+    await page.locator('#filter-toggle').click();
+    await expect(page.locator('#filter-bar')).toBeVisible();
+    await page.locator('#layout-dir').selectOption('TB');
+    await expect(page.locator('#graph-count')).toContainText('từ trên xuống');
+
+    await expect(page.locator('.edge.applies').first()).toBeHidden();
+    await page.locator('#rel-applies').check();
+    await expect(page.locator('.edge.applies').first()).toBeVisible();
+
+    await page.locator('#toggle-examples').check();
+    await expect(page.locator('.graph-node')).toHaveCount(104);
+
+    await page.goto('/#piece=bubble-sort');
+    await expect(page.locator('#detail')).toContainText('Ví dụ & bài tập liên quan');
+    expect(errors).toEqual([]);
 });
 
 test('invalid shared URLs fail gracefully and browser history restores selection', async ({ page }) => {

@@ -16,29 +16,30 @@ Tài liệu này ghi nhận các bước kiểm tra đã chạy sau lần chỉn
   - Điều kiện sẵn sàng học theo tiên quyết và gợi ý theo thứ tự chương (kể cả khi tiên quyết nằm ngoài khóa).
   - Xử lý khi `localStorage` bị chặn hoặc chứa JSON hỏng, và ghép/tách route hash `#course=...&piece=...`.
   - Xác nhận validator từ chối ID trùng, cạnh treo, chu trình tiên quyết, mảnh không tồn tại trong khóa và mảnh thiếu nguồn.
-- `npm run test:browser` (`tools/browser-tests/learning.spec.js`, Playwright trên Microsoft Edge headless): **8/8 bài kiểm tra đạt**, bao gồm:
-  - Chế độ Khám phá với 104 nút đồ thị, tìm kiếm không dấu, chọn mảnh bằng bàn phím, danh sách trống và skip link giữ nguyên URL mảnh đang học.
+- `npm run test:browser` (`tools/browser-tests/learning.spec.js`, Playwright trên Microsoft Edge headless): **9/9 bài kiểm tra đạt**, bao gồm:
+  - Chế độ Khám phá với 71 nút cốt lõi mặc định (`concept`, `theorem`, `formula`), bảng chi tiết đóng sẵn khi mở `/` và mở theo lựa chọn, mở rộng lên 104 nút khi bật `Hiện ví dụ & bài tập`, tìm kiếm không dấu, chọn mảnh bằng bàn phím, đóng chi tiết `#close-detail`, danh sách trống và skip link giữ nguyên URL mảnh đang học.
   - Chế độ Theo khóa học (`MAT3504` với 8 chương, `MAT3514`), đánh dấu/bỏ đánh dấu hoàn thành đồng bộ giữa các khóa và lưu qua reload.
   - Trang bài học `lesson.html`: hiển thị tiêu đề, mục Tự kiểm tra, công thức KaTeX cục bộ (`.katex-error` = 0), vùng chờ hoạt ảnh `#algorithm-animation`, và quay về đúng vị trí khóa học.
   - Tình huống chặn `localStorage`: hiển thị thông báo không lưu được và vẫn cho phép học trong phiên.
   - Kiểm tra HTTP 200 cho toàn bộ 104 tệp bài học và toàn bộ tệp PDF được trích dẫn.
   - Giao diện mobile/tablet (`390px`, `320px`, `768px`, `1024px`) với `prefers-reduced-motion: reduce`: mở thanh bên bằng `#sidebar-toggle`, `<h1>` hiển thị ở mobile, không tràn ngang trên cả `index.html` lẫn `lesson.html` (kể cả tại `320px`).
-  - Nhãn hiển thị trong danh sách và đồ thị SVG không chứa `$` hoặc backtick thô.
+  - Nhãn hiển thị trong danh sách và đồ thị SVG (đủ 104 nút) không chứa `$` hoặc backtick thô.
+  - Thanh bên thu gọn desktop (`#collapse-sidebar` / `#reopen-sidebar`), thanh `Bộ lọc` (`#filter-toggle`), đổi hướng bố cục DAG (`LR` ↔ `TB`), bật/tắt loại cạnh (`Tiên quyết`, `Áp dụng`, `Liên quan`), mục `Ví dụ & bài tập liên quan` trong `#detail`, và minimap SVG tương tác (`#minimap`).
   - Xử lý URL không hợp lệ và nút Back lịch sử trình duyệt.
 
 ## 3. Kiểm tra văn bản, hiệu năng và bộ kiểm tra landing page
 
-Các công cụ của skill `design-taste-frontend` đã được chạy trên phiên bản cuối:
+Các công cụ của skill `design-taste-frontend` đã được chạy trên phiên bản nâng cấp:
 
 - `copy-lint.mjs --kind software`:
-  - `index.html` (137 từ): **0 FAIL, 0 WARN**.
+  - `index.html` (113 từ): **0 FAIL, 0 WARN**.
   - `lesson.html` (24 từ): **0 FAIL, 0 WARN**.
 - `perf.mjs index.html`: **0 FAIL, 2 WARN** (chỉ cảnh báo dung lượng tệp font `190.9 KiB` cho 4 biến thể `Instrument Sans` lưu cục bộ).
-  - Tại `1440px`: tổng truyền tải `313 KiB`, 20 yêu cầu, 0 yêu cầu lỗi, CLS `0.000`, FCP `140 ms`, LCP `464 ms`, blocking time `177 ms`, 1 họ font (`Instrument Sans`).
-  - Tại `390px`: tổng truyền tải `312.6 KiB`, 19 yêu cầu, 0 yêu cầu lỗi, CLS `0.000`, FCP `84 ms`, LCP `84 ms`, blocking time `141 ms`.
+  - Tại `1440px`: tổng truyền tải `320.3 KiB`, 20 yêu cầu, 0 yêu cầu lỗi, CLS `0.000`, FCP `156 ms`, LCP `156 ms`, blocking time `0 ms`, 1 họ font (`Instrument Sans`).
+  - Tại `390px`: tổng truyền tải `319.9 KiB`, 19 yêu cầu, 0 yêu cầu lỗi, CLS `0.000`, FCP `108 ms`, LCP `108 ms`, blocking time `0 ms`.
 - `consistency.mjs --quick --widths 1440,390`:
-  - Đã kiểm tra và xác nhận **PASS** các tiêu chí cốt lõi cho ứng dụng web: `text-contrast`, `contrast`, `font-load`, `one-heading`, `heading-order`, `off-viewport` (kể cả tại `320x640`), `collide`, `tap-size`, `a11y-name`, `menu-toggle`, `focus-ring`, `focus-visible`, `focus-hidden`, `lang`, `page-meta`, `hero-enter`.
-  - Đã xử lý tình trạng tràn hộp `<select id="course-select">` với tên môn dài (`white-space: nowrap; text-overflow: ellipsis`), vùng nhìn đồ thị hướng tâm ở màn hình hẹp (`390px`), căn lề `.lesson-footer` ở `820px`/`1024px` và ngắt từ tên tệp nguồn dài ở `320px`.
+  - Đã kiểm tra và xác nhận **PASS** các tiêu chí cốt lõi cho ứng dụng web: `text-contrast`, `contrast`, `font-load`, `one-heading`, `heading-order`, `heading-scale`, `off-viewport` (0 lỗi tại `320x640` và `1280..768`), `collide`, `tap-size`, `a11y-name`, `menu-toggle`, `focus-ring`, `focus-visible`, `focus-hidden`, `lang`, `page-meta`, `hero-enter`.
+  - Đã xử lý tình trạng tràn hộp `<select id="course-select">` với tên môn dài (`white-space: nowrap; text-overflow: ellipsis`), vùng nhìn đồ thị DAG responsive theo chiều cao `filter-bar`, `text-wrap: balance` cho `<h1>` trên `390px`, căn lề `.lesson-footer` ở `820px`/`1024px` và ngắt từ tên tệp nguồn dài ở `320px`.
 
 ### Khác biệt có chủ đích với bộ kiểm tra landing page
 
@@ -57,4 +58,4 @@ Theo định hướng tại [DESIGN.md](DESIGN.md), giao diện chính là **kh�
 ## 4. Đóng gói artifact và phần còn để kiểm tra thủ công
 
 - `npm run stage`: sao chép tệp công khai (website, dữ liệu, bài học, `docs/`, các tài liệu Markdown và không gồm `.agents/`, `.claude/`, `node_modules/`, `.taste-skill/`) vào `.cache/pages`.
-- Các nội dung vẫn cần rà soát thủ công theo [REVIEW.md](REVIEW.md): đọc đối chiếu trực quan sách scan và slide chỉ có hình trong `docs/`, thẩm định sư phạm toàn bộ cạnh tiên quyết/liên quan, bổ sung hoạt ảnh thuật toán tương tác và kích hoạt GitHub Pages trên repository.
+- Các nội dung vẫn cần rà soát thủ công theo [REVIEW.md](REVIEW.md): đọc đối chiếu trực quan sách scan và slide chỉ có hình trong `docs/`, thẩm định sư phạm toàn bộ cạnh tiên quyết/liên quan và bổ sung hoạt ảnh thuật toán tương tác. (GitHub Pages đã được kích hoạt qua workflow `.github/workflows/pages.yml`).
