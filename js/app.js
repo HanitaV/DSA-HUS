@@ -255,7 +255,7 @@ function applyRoute() {
   $('#workspace-title').textContent = course ? 'Một lộ trình, từng bước hiểu sâu.' : 'Mỗi kết nối mở một hướng học.';
   $('#workspace-description').textContent = course
     ? 'Đi theo chương, học đủ tiên quyết và tiếp tục từ nơi bạn đã dừng.'
-    : 'Kéo nền để di chuyển, cuộn để phóng to, chọn một thẻ để xem chi tiết.';
+    : 'Kéo hoặc vuốt 2 ngón để di chuyển, chụm hoặc Ctrl + cuộn để thu phóng, chọn thẻ để xem chi tiết.';
   document.title = `${selected ? `${data.byId.get(selected).title} · ` : ''}${course?.id || 'Bản đồ kiến thức'} · HUS`;
 
   const previousIds = visible.map(p => p.id).join(',');

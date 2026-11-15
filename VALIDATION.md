@@ -16,7 +16,7 @@ Tài liệu này ghi nhận các bước kiểm tra đã chạy sau lần chỉn
   - Điều kiện sẵn sàng học theo tiên quyết và gợi ý theo thứ tự chương (kể cả khi tiên quyết nằm ngoài khóa).
   - Xử lý khi `localStorage` bị chặn hoặc chứa JSON hỏng, và ghép/tách route hash `#course=...&piece=...`.
   - Xác nhận validator từ chối ID trùng, cạnh treo, chu trình tiên quyết, mảnh không tồn tại trong khóa và mảnh thiếu nguồn.
-- `npm run test:browser` (`tools/browser-tests/learning.spec.js`, Playwright trên Microsoft Edge headless): **9/9 bài kiểm tra đạt**, bao gồm:
+- `npm run test:browser` (`tools/browser-tests/learning.spec.js`, Playwright trên Microsoft Edge headless): **10/10 bài kiểm tra đạt**, bao gồm:
   - Chế độ Khám phá với 71 nút cốt lõi mặc định (`concept`, `theorem`, `formula`), bảng chi tiết đóng sẵn khi mở `/` và mở theo lựa chọn, mở rộng lên 104 nút khi bật `Hiện ví dụ & bài tập`, tìm kiếm không dấu, chọn mảnh bằng bàn phím, đóng chi tiết `#close-detail`, danh sách trống và skip link giữ nguyên URL mảnh đang học.
   - Chế độ Theo khóa học (`MAT3504` với 8 chương, `MAT3514`), đánh dấu/bỏ đánh dấu hoàn thành đồng bộ giữa các khóa và lưu qua reload.
   - Trang bài học `lesson.html`: hiển thị tiêu đề, mục Tự kiểm tra, công thức KaTeX cục bộ (`.katex-error` = 0), vùng chờ hoạt ảnh `#algorithm-animation`, và quay về đúng vị trí khóa học.
@@ -26,13 +26,14 @@ Tài liệu này ghi nhận các bước kiểm tra đã chạy sau lần chỉn
   - Nhãn hiển thị trong danh sách và đồ thị SVG (đủ 104 nút) không chứa `$` hoặc backtick thô.
   - Thanh bên thu gọn desktop (`#collapse-sidebar` / `#reopen-sidebar`), thanh `Bộ lọc` (`#filter-toggle`), đổi hướng bố cục DAG (`LR` ↔ `TB`), bật/tắt loại cạnh (`Tiên quyết`, `Áp dụng`, `Liên quan`), mục `Ví dụ & bài tập liên quan` trong `#detail`, và minimap SVG tương tác (`#minimap`).
   - Xử lý URL không hợp lệ và nút Back lịch sử trình duyệt.
+  - Thao tác touchpad/trackpad laptop và cảm ứng: vuốt 2 ngón (2D pan với `deltaX`/`deltaY`), chụm thu phóng (`ctrlKey` / `gesturechange` / touch 2 ngón), và kéo-pan bắt đầu trực tiếp từ trên thẻ mà không mở nhầm bảng chi tiết.
 
 ## 3. Kiểm tra văn bản, hiệu năng và bộ kiểm tra landing page
 
 Các công cụ của skill `design-taste-frontend` đã được chạy trên phiên bản nâng cấp:
 
 - `copy-lint.mjs --kind software`:
-  - `index.html` (113 từ): **0 FAIL, 0 WARN**.
+  - `index.html` (119 từ): **0 FAIL, 0 WARN**.
   - `lesson.html` (24 từ): **0 FAIL, 0 WARN**.
 - `perf.mjs index.html`: **0 FAIL, 2 WARN** (chỉ cảnh báo dung lượng tệp font `190.9 KiB` cho 4 biến thể `Instrument Sans` lưu cục bộ).
   - Tại `1440px`: tổng truyền tải `320.3 KiB`, 20 yêu cầu, 0 yêu cầu lỗi, CLS `0.000`, FCP `156 ms`, LCP `156 ms`, blocking time `0 ms`, 1 họ font (`Instrument Sans`).

@@ -154,6 +154,10 @@ export class KnowledgeGraph {
     this.view = { x: 0, y: 0, w: 1200, h: 800 };
     this.bounds = { x: 0, y: 0, w: 1200, h: 800 };
     this.drag = null;
+    this.pinch = null;
+    this.activePointers = new Map();
+    this.lastWheelPanAt = 0;
+    this.gestureScale = 1;
     this.moved = false;
     this.rendered = false;
     this.direction = 'LR';
@@ -163,39 +167,150 @@ export class KnowledgeGraph {
     this.setupMinimap();
   }
 
+  panBy(dxPx, dyPx) {
+    const scale = this.view.w / Math.max(1, this.svg.clientWidth || 1);
+    this.view.x += dxPx * scale;
+    this.view.y += dyPx * scale;
+    this.applyView();
+  }
+
   setupInteraction() {
     this.svg.addEventListener('pointerdown', e => {
-      if (e.button !== 0 || e.target.closest('.graph-node, .chapter-node')) return;
-      this.drag = { x: e.clientX, y: e.clientY, vx: this.view.x, vy: this.view.y };
-      this.moved = false;
-      this.svg.classList.add('dragging');
-      this.svg.setPointerCapture?.(e.pointerId);
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      this.activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (this.activePointers.size === 1) {
+        this.pinch = null;
+        this.drag = {
+          startX: e.clientX,
+          startY: e.clientY,
+          lastX: e.clientX,
+          lastY: e.clientY,
+          captured: false,
+        };
+        this.moved = false;
+      } else if (this.activePointers.size === 2) {
+        this.drag = null;
+        this.moved = true;
+        const pts = [...this.activePointers.values()];
+        this.pinch = {
+          dist: Math.max(1, Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y)),
+          midX: (pts[0].x + pts[1].x) / 2,
+          midY: (pts[0].y + pts[1].y) / 2,
+        };
+      }
     });
 
     this.svg.addEventListener('pointermove', e => {
+      if (this.activePointers.has(e.pointerId)) {
+        this.activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      }
+      if (this.activePointers.size === 2 && this.pinch) {
+        const pts = [...this.activePointers.values()];
+        const dist = Math.max(1, Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y));
+        const midX = (pts[0].x + pts[1].x) / 2;
+        const midY = (pts[0].y + pts[1].y) / 2;
+        this.panBy(this.pinch.midX - midX, this.pinch.midY - midY);
+        const factor = dist / this.pinch.dist;
+        if (Math.abs(factor - 1) > 0.002) {
+          this.zoom(factor, { clientX: midX, clientY: midY });
+        }
+        this.pinch = { dist, midX, midY };
+        return;
+      }
       if (!this.drag) return;
-      const dx = e.clientX - this.drag.x;
-      const dy = e.clientY - this.drag.y;
-      if (Math.hypot(dx, dy) > 3) this.moved = true;
-      const scale = this.view.w / Math.max(1, this.svg.clientWidth || 1);
-      this.view.x = this.drag.vx - dx * scale;
-      this.view.y = this.drag.vy - dy * scale;
-      this.applyView();
+      const totalDist = Math.hypot(e.clientX - this.drag.startX, e.clientY - this.drag.startY);
+      if (!this.moved && totalDist > 5) {
+        this.moved = true;
+        if (!this.drag.captured) {
+          this.drag.captured = true;
+          this.svg.classList.add('dragging');
+          try {
+            this.svg.setPointerCapture?.(e.pointerId);
+          } catch { /* pointer may be synthetic or already released */ }
+        }
+      }
+      if (this.moved) {
+        this.panBy(this.drag.lastX - e.clientX, this.drag.lastY - e.clientY);
+      }
+      this.drag.lastX = e.clientX;
+      this.drag.lastY = e.clientY;
     });
 
-    const endDrag = () => {
-      this.drag = null;
-      this.svg.classList.remove('dragging');
+    const endDrag = e => {
+      this.activePointers.delete(e.pointerId);
+      if (this.activePointers.size < 2) this.pinch = null;
+      if (this.activePointers.size === 0) {
+        this.drag = null;
+        this.svg.classList.remove('dragging');
+        if (this.moved) setTimeout(() => { this.moved = false; }, 0);
+      }
     };
     this.svg.addEventListener('pointerup', endDrag);
     this.svg.addEventListener('pointercancel', endDrag);
+    window.addEventListener('blur', () => {
+      this.activePointers.clear();
+      this.drag = null;
+      this.pinch = null;
+      this.moved = false;
+      this.svg.classList.remove('dragging');
+    });
 
     this.svg.addEventListener(
       'wheel',
       e => {
         e.preventDefault();
-        const factor = e.deltaY > 0 ? 0.89 : 1.12;
-        this.zoom(factor, { clientX: e.clientX, clientY: e.clientY });
+        const linePx = 32;
+        const pagePx = this.host.clientHeight || 600;
+        const mult = e.deltaMode === 1 ? linePx : e.deltaMode === 2 ? pagePx : 1;
+        const dx = e.deltaX * mult;
+        const dy = e.deltaY * mult;
+
+        if (e.ctrlKey || e.metaKey) {
+          const factor = Math.exp(-Math.max(-80, Math.min(80, dy)) * 0.009);
+          this.zoom(factor, { clientX: e.clientX, clientY: e.clientY });
+          return;
+        }
+        if (e.shiftKey) {
+          this.panBy(dy || dx, 0);
+          return;
+        }
+
+        const absX = Math.abs(dx);
+        const absY = Math.abs(dy);
+        const now = performance.now();
+        const isTrackpadPan =
+          absX > 0 ||
+          !Number.isInteger(dy) ||
+          (e.deltaMode === 0 && absY > 0 && absY < 48) ||
+          (typeof e.wheelDeltaY === 'number' && Math.abs(e.wheelDeltaY) % 120 !== 0) ||
+          (now - this.lastWheelPanAt < 260 && e.deltaMode === 0);
+
+        if (isTrackpadPan) {
+          this.lastWheelPanAt = now;
+          this.panBy(dx, dy);
+        } else {
+          const factor = Math.exp(-Math.max(-180, Math.min(180, dy)) * 0.0022);
+          this.zoom(factor, { clientX: e.clientX, clientY: e.clientY });
+        }
+      },
+      { passive: false }
+    );
+
+    this.svg.addEventListener(
+      'gesturestart',
+      e => {
+        e.preventDefault();
+        this.gestureScale = 1;
+      },
+      { passive: false }
+    );
+    this.svg.addEventListener(
+      'gesturechange',
+      e => {
+        e.preventDefault();
+        const ratio = e.scale / Math.max(0.05, this.gestureScale);
+        this.gestureScale = e.scale;
+        this.zoom(ratio, { clientX: e.clientX, clientY: e.clientY });
       },
       { passive: false }
     );
@@ -855,6 +970,15 @@ export class KnowledgeGraph {
     const hostH = Math.max(1, this.host.clientHeight || 620);
     const ratio = hostH / hostW;
     this.view.h = this.view.w * ratio;
+    if (this.rendered) {
+      const b = this.bounds;
+      const minX = b.x - this.view.w * 0.82;
+      const maxX = b.x + b.w - this.view.w * 0.18;
+      const minY = b.y - this.view.h * 0.82;
+      const maxY = b.y + b.h - this.view.h * 0.18;
+      this.view.x = Math.max(minX, Math.min(maxX, this.view.x));
+      this.view.y = Math.max(minY, Math.min(maxY, this.view.y));
+    }
     this.svg.setAttribute('viewBox', `${this.view.x} ${this.view.y} ${this.view.w} ${this.view.h}`);
     this.syncMinimapViewport();
   }

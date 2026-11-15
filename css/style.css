@@ -41,6 +41,7 @@ html, body {
     background: var(--p-bg);
     font-size: 16px;
     line-height: 1.55;
+    overscroll-behavior-x: contain;
 }
 
 button, input, select {
@@ -646,6 +647,7 @@ progress::-webkit-progress-value {
     background: #f8f9fc;
     overflow: hidden;
     position: relative;
+    overscroll-behavior: contain;
 }
 
 .graph-overlay-top {
@@ -694,6 +696,7 @@ progress::-webkit-progress-value {
     display: block;
     cursor: grab;
     touch-action: none;
+    overscroll-behavior: contain;
 }
 
 .graph-host svg.dragging,

@@ -139,3 +139,49 @@ test('invalid shared URLs fail gracefully and browser history restores selection
     await page.goto('/lesson.html#piece=missing');
     await expect(page.locator('#lesson-content h1')).toContainText('Không tìm thấy');
 });
+
+test('touchpad two-finger swipe, pinch zoom and node-surface dragging', async ({ page }) => {
+    const errors = []; page.on('pageerror', e => errors.push(e.message));
+    await page.goto('/');
+    const svg = page.locator('#graph svg');
+    const getView = () => svg.getAttribute('viewBox').then(v => v.split(' ').map(Number));
+    const initial = await getView();
+
+    // Two-finger touchpad pan (fractional / horizontal wheel deltas)
+    const box = await svg.boundingBox();
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await page.evaluate(() => {
+      const target = document.querySelector('#graph svg');
+      target.dispatchEvent(new WheelEvent('wheel', { deltaX: 28.5, deltaY: -14.2, deltaMode: 0, bubbles: true, cancelable: true }));
+    });
+    const panned = await getView();
+    expect(panned[0]).toBeGreaterThan(initial[0]);
+    expect(panned[1]).toBeLessThan(initial[1]);
+    expect(Math.abs(panned[2] - initial[2])).toBeLessThan(0.5);
+
+    // Trackpad pinch-to-zoom (ctrlKey + pixel wheel delta)
+    await page.evaluate(() => {
+      const target = document.querySelector('#graph svg');
+      target.dispatchEvent(new WheelEvent('wheel', { deltaY: -40, ctrlKey: true, deltaMode: 0, bubbles: true, cancelable: true, clientX: 600, clientY: 450 }));
+    });
+    const zoomed = await getView();
+    expect(zoomed[2]).toBeLessThan(panned[2]);
+
+    // Dragging starting directly on a card pans without triggering node selection
+    const nodeBox = await page.locator('.graph-node[data-id="big-o"]').boundingBox();
+    const nx = nodeBox.x + nodeBox.width / 2;
+    const ny = nodeBox.y + nodeBox.height / 2;
+    await page.mouse.move(nx, ny);
+    await page.mouse.down();
+    await page.mouse.move(nx + 36, ny + 24, { steps: 4 });
+    await page.mouse.up();
+    await expect(page.locator('#detail')).toBeHidden();
+    const dragged = await getView();
+    expect(dragged[0]).toBeLessThan(zoomed[0]);
+
+    // Short click selects card normally
+    await page.locator('.graph-node[data-id="big-o"]').click();
+    await expect(page.locator('#detail')).toBeVisible();
+    await expect(page.locator('#detail h2')).toContainText('O lớn');
+    expect(errors).toEqual([]);
+});
