@@ -17,7 +17,8 @@
         "java",
         "oop"
       ],
-      "lesson": "content/lessons/java-interface-abstract.md"
+      "lesson": "content/lessons/java-interface-abstract.md",
+      "track": "algorithm"
     },
     {
       "id": "java-generics",
@@ -34,7 +35,8 @@
       "tags": [
         "java"
       ],
-      "lesson": "content/lessons/java-generics.md"
+      "lesson": "content/lessons/java-generics.md",
+      "track": "algorithm"
     },
     {
       "id": "comparable-interface",
@@ -52,7 +54,8 @@
         "java",
         "sorting"
       ],
-      "lesson": "content/lessons/comparable-interface.md"
+      "lesson": "content/lessons/comparable-interface.md",
+      "track": "algorithm"
     },
     {
       "id": "generic-bubble-sort",
@@ -70,14 +73,15 @@
         "java",
         "sorting"
       ],
-      "lesson": "content/lessons/generic-bubble-sort.md"
+      "lesson": "content/lessons/generic-bubble-sort.md",
+      "track": "algorithm"
     },
     {
       "id": "algorithm-problem",
       "title": "Bài toán và thuật toán",
       "type": "concept",
       "difficulty": 1,
-      "summary": "Bài toán gồm đầu vào và đầu ra; thuật toán là dãy hữu hạn thao tác xác định biến đổi input thành output, có tính dừng, xác định, phổ dụng và hiệu quả.",
+      "summary": "Xác định rõ đầu vào (input), đầu ra (output) và từng bước xử lý hữu hạn, rõ ràng để chuyển thành chương trình chạy đúng trên mọi bộ dữ liệu hợp lệ.",
       "sources": [
         {
           "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 1 - Các khái niệm cơ bản/Bai 1 - Cac khai niem co ban.pdf",
@@ -91,7 +95,8 @@
       "tags": [
         "nền tảng"
       ],
-      "lesson": "content/lessons/algorithm-problem.md"
+      "lesson": "content/lessons/algorithm-problem.md",
+      "track": "algorithm"
     },
     {
       "id": "running-time-model",
@@ -112,7 +117,8 @@
       "tags": [
         "độ phức tạp"
       ],
-      "lesson": "content/lessons/running-time-model.md"
+      "lesson": "content/lessons/running-time-model.md",
+      "track": "math"
     },
     {
       "id": "big-o",
@@ -133,7 +139,8 @@
       "tags": [
         "độ phức tạp"
       ],
-      "lesson": "content/lessons/big-o.md"
+      "lesson": "content/lessons/big-o.md",
+      "track": "math"
     },
     {
       "id": "sum-product-rules",
@@ -150,7 +157,8 @@
       "tags": [
         "độ phức tạp"
       ],
-      "lesson": "content/lessons/sum-product-rules.md"
+      "lesson": "content/lessons/sum-product-rules.md",
+      "track": "math"
     },
     {
       "id": "best-worst-average",
@@ -171,7 +179,8 @@
       "tags": [
         "độ phức tạp"
       ],
-      "lesson": "content/lessons/best-worst-average.md"
+      "lesson": "content/lessons/best-worst-average.md",
+      "track": "math"
     },
     {
       "id": "complexity-classes",
@@ -193,7 +202,8 @@
         "độ phức tạp",
         "lý thuyết"
       ],
-      "lesson": "content/lessons/complexity-classes.md"
+      "lesson": "content/lessons/complexity-classes.md",
+      "track": "math"
     },
     {
       "id": "turing-machine",
@@ -210,7 +220,8 @@
       "tags": [
         "lý thuyết"
       ],
-      "lesson": "content/lessons/turing-machine.md"
+      "lesson": "content/lessons/turing-machine.md",
+      "track": "math"
     },
     {
       "id": "hw-turing",
@@ -228,7 +239,8 @@
         "lý thuyết",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-turing.md"
+      "lesson": "content/lessons/hw-turing.md",
+      "track": "math"
     },
     {
       "id": "recursion",
@@ -249,7 +261,8 @@
       "tags": [
         "đệ quy"
       ],
-      "lesson": "content/lessons/recursion.md"
+      "lesson": "content/lessons/recursion.md",
+      "track": "algorithm"
     },
     {
       "id": "recursion-correctness",
@@ -271,7 +284,8 @@
         "đệ quy",
         "chứng minh"
       ],
-      "lesson": "content/lessons/recursion-correctness.md"
+      "lesson": "content/lessons/recursion-correctness.md",
+      "track": "math"
     },
     {
       "id": "recurrence-relation",
@@ -293,7 +307,8 @@
         "đệ quy",
         "độ phức tạp"
       ],
-      "lesson": "content/lessons/recurrence-relation.md"
+      "lesson": "content/lessons/recurrence-relation.md",
+      "track": "math"
     },
     {
       "id": "substitution-method",
@@ -315,7 +330,8 @@
         "đệ quy",
         "độ phức tạp"
       ],
-      "lesson": "content/lessons/substitution-method.md"
+      "lesson": "content/lessons/substitution-method.md",
+      "track": "math"
     },
     {
       "id": "master-theorem",
@@ -345,7 +361,8 @@
         "đệ quy",
         "độ phức tạp"
       ],
-      "lesson": "content/lessons/master-theorem.md"
+      "lesson": "content/lessons/master-theorem.md",
+      "track": "math"
     },
     {
       "id": "recursion-elimination",
@@ -366,7 +383,8 @@
       "tags": [
         "đệ quy"
       ],
-      "lesson": "content/lessons/recursion-elimination.md"
+      "lesson": "content/lessons/recursion-elimination.md",
+      "track": "algorithm"
     },
     {
       "id": "tower-of-hanoi",
@@ -396,7 +414,8 @@
         "đệ quy",
         "stack"
       ],
-      "lesson": "content/lessons/tower-of-hanoi.md"
+      "lesson": "content/lessons/tower-of-hanoi.md",
+      "track": "algorithm"
     },
     {
       "id": "fibonacci",
@@ -422,7 +441,8 @@
         "đệ quy",
         "quy hoạch động"
       ],
-      "lesson": "content/lessons/fibonacci.md"
+      "lesson": "content/lessons/fibonacci.md",
+      "track": "algorithm"
     },
     {
       "id": "hw-recurrences",
@@ -440,14 +460,15 @@
         "đệ quy",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-recurrences.md"
+      "lesson": "content/lessons/hw-recurrences.md",
+      "track": "math"
     },
     {
       "id": "divide-and-conquer",
       "title": "Chia để trị",
       "type": "concept",
       "difficulty": 2,
-      "summary": "Chia bài toán thành các bài toán con cùng dạng, giải đệ quy, rồi tổng hợp lời giải. Thời gian thường có dạng $T(n)=aT(n/b)+f(n)$.",
+      "summary": "Chia bài toán lớn thành các phần nhỏ cùng dạng, gọi đệ quy giải từng phần rồi gộp kết quả lại (như Merge Sort, Quick Sort, Tìm nhị phân).",
       "sources": [
         {
           "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 2/L2- Sorting.pdf",
@@ -469,14 +490,15 @@
       "tags": [
         "chia để trị"
       ],
-      "lesson": "content/lessons/divide-and-conquer.md"
+      "lesson": "content/lessons/divide-and-conquer.md",
+      "track": "algorithm"
     },
     {
       "id": "minmax-dc",
       "title": "MinMax chia để trị",
       "type": "example",
       "difficulty": 2,
-      "summary": "Tìm min và max bằng cách chia đôi đoạn rồi gộp: số phép so sánh thỏa $T(n)=2T(n/2)+2$, ít hơn $2(n-1)$ của cách dùng hai vòng lặp độc lập.",
+      "summary": "Chia đôi mảng để tìm (min, max) ở hai nửa rồi chỉ cần 2 phép so sánh để gộp kết quả, giảm số lần so sánh so với duyệt thẳng.",
       "sources": [
         {
           "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/L4 - Divide and Conquer.pdf",
@@ -494,14 +516,15 @@
       "tags": [
         "chia để trị"
       ],
-      "lesson": "content/lessons/minmax-dc.md"
+      "lesson": "content/lessons/minmax-dc.md",
+      "track": "algorithm"
     },
     {
       "id": "strassen",
       "title": "Nhân ma trận Strassen",
       "type": "formula",
       "difficulty": 3,
-      "summary": "Chia mỗi ma trận thành 4 khối và dùng 7 tích $P_1..P_7$ thay vì 8: $T(n)=7T(n/2)+n^2=O(n^{\\log_2 7})$.",
+      "summary": "Chia mỗi ma trận thành 4 khối con và dùng 7 phép nhân trung gian thay vì 8 phép nhân thông thường để tăng tốc khi nhân ma trận lớn.",
       "sources": [
         {
           "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 6 - Chia để trị/L4 - Divide and Conquer.pdf",
@@ -520,7 +543,8 @@
         "chia để trị",
         "ma trận"
       ],
-      "lesson": "content/lessons/strassen.md"
+      "lesson": "content/lessons/strassen.md",
+      "track": "algorithm"
     },
     {
       "id": "tromino-tiling",
@@ -541,7 +565,8 @@
       "tags": [
         "chia để trị"
       ],
-      "lesson": "content/lessons/tromino-tiling.md"
+      "lesson": "content/lessons/tromino-tiling.md",
+      "track": "algorithm"
     },
     {
       "id": "decrease-transform-conquer",
@@ -558,7 +583,8 @@
       "tags": [
         "chia để trị"
       ],
-      "lesson": "content/lessons/decrease-transform-conquer.md"
+      "lesson": "content/lessons/decrease-transform-conquer.md",
+      "track": "algorithm"
     },
     {
       "id": "sorting-problem",
@@ -575,7 +601,8 @@
       "tags": [
         "sorting"
       ],
-      "lesson": "content/lessons/sorting-problem.md"
+      "lesson": "content/lessons/sorting-problem.md",
+      "track": "algorithm"
     },
     {
       "id": "bubble-sort",
@@ -592,7 +619,8 @@
       "tags": [
         "sorting"
       ],
-      "lesson": "content/lessons/bubble-sort.md"
+      "lesson": "content/lessons/bubble-sort.md",
+      "track": "algorithm"
     },
     {
       "id": "bubble-sort-cost",
@@ -610,7 +638,8 @@
         "sorting",
         "độ phức tạp"
       ],
-      "lesson": "content/lessons/bubble-sort-cost.md"
+      "lesson": "content/lessons/bubble-sort-cost.md",
+      "track": "math"
     },
     {
       "id": "selection-sort",
@@ -631,7 +660,8 @@
       "tags": [
         "sorting"
       ],
-      "lesson": "content/lessons/selection-sort.md"
+      "lesson": "content/lessons/selection-sort.md",
+      "track": "algorithm"
     },
     {
       "id": "insertion-sort",
@@ -648,7 +678,8 @@
       "tags": [
         "sorting"
       ],
-      "lesson": "content/lessons/insertion-sort.md"
+      "lesson": "content/lessons/insertion-sort.md",
+      "track": "algorithm"
     },
     {
       "id": "shuffle-sort",
@@ -666,7 +697,8 @@
         "sorting",
         "ngẫu nhiên"
       ],
-      "lesson": "content/lessons/shuffle-sort.md"
+      "lesson": "content/lessons/shuffle-sort.md",
+      "track": "algorithm"
     },
     {
       "id": "quick-sort",
@@ -692,7 +724,8 @@
         "sorting",
         "chia để trị"
       ],
-      "lesson": "content/lessons/quick-sort.md"
+      "lesson": "content/lessons/quick-sort.md",
+      "track": "algorithm"
     },
     {
       "id": "merge-sort",
@@ -710,7 +743,8 @@
         "sorting",
         "chia để trị"
       ],
-      "lesson": "content/lessons/merge-sort.md"
+      "lesson": "content/lessons/merge-sort.md",
+      "track": "algorithm"
     },
     {
       "id": "sort-properties",
@@ -727,7 +761,8 @@
       "tags": [
         "sorting"
       ],
-      "lesson": "content/lessons/sort-properties.md"
+      "lesson": "content/lessons/sort-properties.md",
+      "track": "algorithm"
     },
     {
       "id": "comparison-sort-lower-bound",
@@ -746,7 +781,8 @@
         "độ phức tạp"
       ],
       "lesson": "content/lessons/comparison-sort-lower-bound.md",
-      "externalNote": "Phát biểu cận dưới $\\Omega(n\\log n)$ là kiến thức chung; docs chỉ ghi \"optimal comparison based sort\" (L2 tr. 37, 48) và đáp án trắc nghiệm, không có chứng minh."
+      "externalNote": "Phát biểu cận dưới $\\Omega(n\\log n)$ là kiến thức chung; docs chỉ ghi \"optimal comparison based sort\" (L2 tr. 37, 48) và đáp án trắc nghiệm, không có chứng minh.",
+      "track": "math"
     },
     {
       "id": "hw-sorting-benchmark",
@@ -764,7 +800,8 @@
         "sorting",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-sorting-benchmark.md"
+      "lesson": "content/lessons/hw-sorting-benchmark.md",
+      "track": "algorithm"
     },
     {
       "id": "ex-count-pairs",
@@ -783,7 +820,8 @@
         "searching",
         "bài tập"
       ],
-      "lesson": "content/lessons/ex-count-pairs.md"
+      "lesson": "content/lessons/ex-count-pairs.md",
+      "track": "algorithm"
     },
     {
       "id": "abstraction-adt",
@@ -804,7 +842,8 @@
       "tags": [
         "adt"
       ],
-      "lesson": "content/lessons/abstraction-adt.md"
+      "lesson": "content/lessons/abstraction-adt.md",
+      "track": "algorithm"
     },
     {
       "id": "list-adt",
@@ -822,7 +861,8 @@
         "adt",
         "list"
       ],
-      "lesson": "content/lessons/list-adt.md"
+      "lesson": "content/lessons/list-adt.md",
+      "track": "algorithm"
     },
     {
       "id": "array-list",
@@ -843,7 +883,8 @@
       "tags": [
         "list"
       ],
-      "lesson": "content/lessons/array-list.md"
+      "lesson": "content/lessons/array-list.md",
+      "track": "algorithm"
     },
     {
       "id": "linked-list",
@@ -860,7 +901,8 @@
       "tags": [
         "list"
       ],
-      "lesson": "content/lessons/linked-list.md"
+      "lesson": "content/lessons/linked-list.md",
+      "track": "algorithm"
     },
     {
       "id": "linked-list-variants",
@@ -881,7 +923,8 @@
       "tags": [
         "list"
       ],
-      "lesson": "content/lessons/linked-list-variants.md"
+      "lesson": "content/lessons/linked-list-variants.md",
+      "track": "algorithm"
     },
     {
       "id": "hw-list",
@@ -899,7 +942,8 @@
         "list",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-list.md"
+      "lesson": "content/lessons/hw-list.md",
+      "track": "algorithm"
     },
     {
       "id": "stack-adt",
@@ -916,7 +960,8 @@
       "tags": [
         "stack"
       ],
-      "lesson": "content/lessons/stack-adt.md"
+      "lesson": "content/lessons/stack-adt.md",
+      "track": "algorithm"
     },
     {
       "id": "bracket-matching",
@@ -941,7 +986,8 @@
       "tags": [
         "stack"
       ],
-      "lesson": "content/lessons/bracket-matching.md"
+      "lesson": "content/lessons/bracket-matching.md",
+      "track": "algorithm"
     },
     {
       "id": "maze-stack",
@@ -959,7 +1005,8 @@
         "stack",
         "quay lui"
       ],
-      "lesson": "content/lessons/maze-stack.md"
+      "lesson": "content/lessons/maze-stack.md",
+      "track": "algorithm"
     },
     {
       "id": "postfix-eval",
@@ -981,7 +1028,8 @@
         "stack",
         "bài tập"
       ],
-      "lesson": "content/lessons/postfix-eval.md"
+      "lesson": "content/lessons/postfix-eval.md",
+      "track": "algorithm"
     },
     {
       "id": "queue-adt",
@@ -1002,7 +1050,8 @@
       "tags": [
         "queue"
       ],
-      "lesson": "content/lessons/queue-adt.md"
+      "lesson": "content/lessons/queue-adt.md",
+      "track": "algorithm"
     },
     {
       "id": "circular-array-queue",
@@ -1019,7 +1068,8 @@
       "tags": [
         "queue"
       ],
-      "lesson": "content/lessons/circular-array-queue.md"
+      "lesson": "content/lessons/circular-array-queue.md",
+      "track": "algorithm"
     },
     {
       "id": "linked-queue",
@@ -1037,7 +1087,8 @@
         "queue",
         "list"
       ],
-      "lesson": "content/lessons/linked-queue.md"
+      "lesson": "content/lessons/linked-queue.md",
+      "track": "algorithm"
     },
     {
       "id": "palindrome-stack-queue",
@@ -1059,7 +1110,8 @@
         "stack",
         "queue"
       ],
-      "lesson": "content/lessons/palindrome-stack-queue.md"
+      "lesson": "content/lessons/palindrome-stack-queue.md",
+      "track": "algorithm"
     },
     {
       "id": "tree-concepts",
@@ -1076,7 +1128,8 @@
       "tags": [
         "tree"
       ],
-      "lesson": "content/lessons/tree-concepts.md"
+      "lesson": "content/lessons/tree-concepts.md",
+      "track": "algorithm"
     },
     {
       "id": "binary-tree",
@@ -1093,7 +1146,8 @@
       "tags": [
         "tree"
       ],
-      "lesson": "content/lessons/binary-tree.md"
+      "lesson": "content/lessons/binary-tree.md",
+      "track": "algorithm"
     },
     {
       "id": "full-binary-tree-height",
@@ -1110,7 +1164,8 @@
       "tags": [
         "tree"
       ],
-      "lesson": "content/lessons/full-binary-tree-height.md"
+      "lesson": "content/lessons/full-binary-tree-height.md",
+      "track": "math"
     },
     {
       "id": "binary-tree-repr",
@@ -1131,7 +1186,8 @@
       "tags": [
         "tree"
       ],
-      "lesson": "content/lessons/binary-tree-repr.md"
+      "lesson": "content/lessons/binary-tree-repr.md",
+      "track": "algorithm"
     },
     {
       "id": "tree-traversal",
@@ -1149,7 +1205,8 @@
         "tree",
         "đệ quy"
       ],
-      "lesson": "content/lessons/tree-traversal.md"
+      "lesson": "content/lessons/tree-traversal.md",
+      "track": "algorithm"
     },
     {
       "id": "expression-tree",
@@ -1166,7 +1223,8 @@
       "tags": [
         "tree"
       ],
-      "lesson": "content/lessons/expression-tree.md"
+      "lesson": "content/lessons/expression-tree.md",
+      "track": "algorithm"
     },
     {
       "id": "priority-queue-adt",
@@ -1184,7 +1242,8 @@
         "heap",
         "queue"
       ],
-      "lesson": "content/lessons/priority-queue-adt.md"
+      "lesson": "content/lessons/priority-queue-adt.md",
+      "track": "algorithm"
     },
     {
       "id": "binary-heap",
@@ -1202,7 +1261,8 @@
         "heap",
         "tree"
       ],
-      "lesson": "content/lessons/binary-heap.md"
+      "lesson": "content/lessons/binary-heap.md",
+      "track": "algorithm"
     },
     {
       "id": "heap-height",
@@ -1219,7 +1279,8 @@
       "tags": [
         "heap"
       ],
-      "lesson": "content/lessons/heap-height.md"
+      "lesson": "content/lessons/heap-height.md",
+      "track": "math"
     },
     {
       "id": "heap-insert",
@@ -1236,7 +1297,8 @@
       "tags": [
         "heap"
       ],
-      "lesson": "content/lessons/heap-insert.md"
+      "lesson": "content/lessons/heap-insert.md",
+      "track": "algorithm"
     },
     {
       "id": "heap-removemin",
@@ -1253,7 +1315,8 @@
       "tags": [
         "heap"
       ],
-      "lesson": "content/lessons/heap-removemin.md"
+      "lesson": "content/lessons/heap-removemin.md",
+      "track": "algorithm"
     },
     {
       "id": "heap-sort",
@@ -1271,7 +1334,8 @@
         "heap",
         "sorting"
       ],
-      "lesson": "content/lessons/heap-sort.md"
+      "lesson": "content/lessons/heap-sort.md",
+      "track": "algorithm"
     },
     {
       "id": "hw-priority-queue",
@@ -1289,7 +1353,8 @@
         "heap",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-priority-queue.md"
+      "lesson": "content/lessons/hw-priority-queue.md",
+      "track": "algorithm"
     },
     {
       "id": "sequential-search",
@@ -1306,14 +1371,15 @@
       "tags": [
         "searching"
       ],
-      "lesson": "content/lessons/sequential-search.md"
+      "lesson": "content/lessons/sequential-search.md",
+      "track": "algorithm"
     },
     {
       "id": "binary-search",
       "title": "Tìm kiếm nhị phân",
       "type": "concept",
       "difficulty": 1,
-      "summary": "Trên dãy đã sắp, so sánh với phần tử giữa và tiếp tục ở nửa có thể chứa giá trị: $T(n)=T(n/2)+1=O(\\log n)$.",
+      "summary": "Trên mảng đã sắp xếp, so sánh giá trị cần tìm với phần tử ở giữa mid để bỏ ngay một nửa mảng mỗi bước, chạy trong thời gian $O(\\log n)$.",
       "sources": [
         {
           "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 7/L7- Searching and Binary Search Tree.pdf",
@@ -1336,7 +1402,8 @@
         "searching",
         "chia để trị"
       ],
-      "lesson": "content/lessons/binary-search.md"
+      "lesson": "content/lessons/binary-search.md",
+      "track": "algorithm"
     },
     {
       "id": "bst-property",
@@ -1355,7 +1422,8 @@
         "tree",
         "searching"
       ],
-      "lesson": "content/lessons/bst-property.md"
+      "lesson": "content/lessons/bst-property.md",
+      "track": "algorithm"
     },
     {
       "id": "bst-operations",
@@ -1372,7 +1440,8 @@
       "tags": [
         "bst"
       ],
-      "lesson": "content/lessons/bst-operations.md"
+      "lesson": "content/lessons/bst-operations.md",
+      "track": "algorithm"
     },
     {
       "id": "bst-balance",
@@ -1389,7 +1458,8 @@
       "tags": [
         "bst"
       ],
-      "lesson": "content/lessons/bst-balance.md"
+      "lesson": "content/lessons/bst-balance.md",
+      "track": "algorithm"
     },
     {
       "id": "bst-geometric-apps",
@@ -1411,7 +1481,8 @@
         "bst",
         "ứng dụng"
       ],
-      "lesson": "content/lessons/bst-geometric-apps.md"
+      "lesson": "content/lessons/bst-geometric-apps.md",
+      "track": "algorithm"
     },
     {
       "id": "hash-table",
@@ -1441,7 +1512,8 @@
         "hash",
         "tham khảo"
       ],
-      "lesson": "content/lessons/hash-table.md"
+      "lesson": "content/lessons/hash-table.md",
+      "track": "algorithm"
     },
     {
       "id": "hw-bst",
@@ -1459,7 +1531,8 @@
         "bst",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-bst.md"
+      "lesson": "content/lessons/hw-bst.md",
+      "track": "algorithm"
     },
     {
       "id": "graph-concepts",
@@ -1480,7 +1553,8 @@
       "tags": [
         "graph"
       ],
-      "lesson": "content/lessons/graph-concepts.md"
+      "lesson": "content/lessons/graph-concepts.md",
+      "track": "algorithm"
     },
     {
       "id": "graph-representation",
@@ -1501,7 +1575,8 @@
       "tags": [
         "graph"
       ],
-      "lesson": "content/lessons/graph-representation.md"
+      "lesson": "content/lessons/graph-representation.md",
+      "track": "algorithm"
     },
     {
       "id": "dfs",
@@ -1527,7 +1602,8 @@
         "graph",
         "đệ quy"
       ],
-      "lesson": "content/lessons/dfs.md"
+      "lesson": "content/lessons/dfs.md",
+      "track": "algorithm"
     },
     {
       "id": "bfs",
@@ -1553,7 +1629,8 @@
         "graph",
         "queue"
       ],
-      "lesson": "content/lessons/bfs.md"
+      "lesson": "content/lessons/bfs.md",
+      "track": "algorithm"
     },
     {
       "id": "hw-graph",
@@ -1571,7 +1648,8 @@
         "graph",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-graph.md"
+      "lesson": "content/lessons/hw-graph.md",
+      "track": "algorithm"
     },
     {
       "id": "brute-force",
@@ -1592,7 +1670,8 @@
       "tags": [
         "thử sai"
       ],
-      "lesson": "content/lessons/brute-force.md"
+      "lesson": "content/lessons/brute-force.md",
+      "track": "algorithm"
     },
     {
       "id": "string-matching-bf",
@@ -1610,7 +1689,8 @@
         "thử sai",
         "xâu"
       ],
-      "lesson": "content/lessons/string-matching-bf.md"
+      "lesson": "content/lessons/string-matching-bf.md",
+      "track": "algorithm"
     },
     {
       "id": "backtracking",
@@ -1632,7 +1712,8 @@
         "thử sai",
         "đệ quy"
       ],
-      "lesson": "content/lessons/backtracking.md"
+      "lesson": "content/lessons/backtracking.md",
+      "track": "algorithm"
     },
     {
       "id": "binary-strings",
@@ -1653,7 +1734,8 @@
       "tags": [
         "thử sai"
       ],
-      "lesson": "content/lessons/binary-strings.md"
+      "lesson": "content/lessons/binary-strings.md",
+      "track": "algorithm"
     },
     {
       "id": "n-queens",
@@ -1678,7 +1760,8 @@
       "tags": [
         "thử sai"
       ],
-      "lesson": "content/lessons/n-queens.md"
+      "lesson": "content/lessons/n-queens.md",
+      "track": "algorithm"
     },
     {
       "id": "maze-path-backtracking",
@@ -1696,7 +1779,8 @@
         "thử sai",
         "graph"
       ],
-      "lesson": "content/lessons/maze-path-backtracking.md"
+      "lesson": "content/lessons/maze-path-backtracking.md",
+      "track": "algorithm"
     },
     {
       "id": "branch-and-bound",
@@ -1718,7 +1802,8 @@
         "thử sai",
         "tối ưu"
       ],
-      "lesson": "content/lessons/branch-and-bound.md"
+      "lesson": "content/lessons/branch-and-bound.md",
+      "track": "algorithm"
     },
     {
       "id": "tsp-bnb",
@@ -1745,7 +1830,8 @@
         "graph",
         "tối ưu"
       ],
-      "lesson": "content/lessons/tsp-bnb.md"
+      "lesson": "content/lessons/tsp-bnb.md",
+      "track": "algorithm"
     },
     {
       "id": "hw-trial-error",
@@ -1771,7 +1857,8 @@
         "thử sai",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-trial-error.md"
+      "lesson": "content/lessons/hw-trial-error.md",
+      "track": "algorithm"
     },
     {
       "id": "greedy-method",
@@ -1792,7 +1879,8 @@
       "tags": [
         "tham lam"
       ],
-      "lesson": "content/lessons/greedy-method.md"
+      "lesson": "content/lessons/greedy-method.md",
+      "track": "algorithm"
     },
     {
       "id": "coin-change-greedy",
@@ -1817,7 +1905,8 @@
       "tags": [
         "tham lam"
       ],
-      "lesson": "content/lessons/coin-change-greedy.md"
+      "lesson": "content/lessons/coin-change-greedy.md",
+      "track": "algorithm"
     },
     {
       "id": "activity-selection",
@@ -1838,7 +1927,8 @@
       "tags": [
         "tham lam"
       ],
-      "lesson": "content/lessons/activity-selection.md"
+      "lesson": "content/lessons/activity-selection.md",
+      "track": "algorithm"
     },
     {
       "id": "mst",
@@ -1860,7 +1950,8 @@
         "graph",
         "tham lam"
       ],
-      "lesson": "content/lessons/mst.md"
+      "lesson": "content/lessons/mst.md",
+      "track": "algorithm"
     },
     {
       "id": "prim",
@@ -1882,7 +1973,8 @@
         "graph",
         "tham lam"
       ],
-      "lesson": "content/lessons/prim.md"
+      "lesson": "content/lessons/prim.md",
+      "track": "algorithm"
     },
     {
       "id": "kruskal",
@@ -1900,14 +1992,15 @@
         "graph",
         "tham lam"
       ],
-      "lesson": "content/lessons/kruskal.md"
+      "lesson": "content/lessons/kruskal.md",
+      "track": "algorithm"
     },
     {
       "id": "dijkstra",
       "title": "Thuật toán Dijkstra",
       "type": "concept",
       "difficulty": 2,
-      "summary": "Đường đi ngắn nhất từ $s_0$ trên đồ thị trọng số không âm: mỗi bước chốt đỉnh có nhãn tạm nhỏ nhất và cập nhật $L(v)=\\min\\{L(v),L(s_i)+m(s_i,v)\\}$.",
+      "summary": "Tìm đường đi ngắn nhất từ một đỉnh nguồn (trọng số không âm): mỗi bước chốt đỉnh có khoảng cách tạm nhỏ nhất và cập nhật (relax) các đỉnh kề.",
       "sources": [
         {
           "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
@@ -1930,7 +2023,8 @@
         "graph",
         "tham lam"
       ],
-      "lesson": "content/lessons/dijkstra.md"
+      "lesson": "content/lessons/dijkstra.md",
+      "track": "algorithm"
     },
     {
       "id": "hw-greedy",
@@ -1948,7 +2042,8 @@
         "tham lam",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-greedy.md"
+      "lesson": "content/lessons/hw-greedy.md",
+      "track": "algorithm"
     },
     {
       "id": "dynamic-programming",
@@ -1973,7 +2068,8 @@
       "tags": [
         "quy hoạch động"
       ],
-      "lesson": "content/lessons/dynamic-programming.md"
+      "lesson": "content/lessons/dynamic-programming.md",
+      "track": "algorithm"
     },
     {
       "id": "dp-elements",
@@ -1998,14 +2094,15 @@
       "tags": [
         "quy hoạch động"
       ],
-      "lesson": "content/lessons/dp-elements.md"
+      "lesson": "content/lessons/dp-elements.md",
+      "track": "algorithm"
     },
     {
       "id": "binomial-dp",
       "title": "Đếm tổ hợp C(r, n) bằng bảng",
       "type": "formula",
       "difficulty": 2,
-      "summary": "Theo ký hiệu của slide, $C(i,j)$ đếm cách chọn $i$ phần tử từ $j$: $C(i,j)=C(i-1,j-1)+C(i,j-1)$, với $C(0,j)=C(i,i)=1$. Điền bảng tránh tính lại các bài toán con.",
+      "summary": "Dùng bảng 2 chiều C[i][j] (tương tự tam giác Pascal) để tính số cách chọn $ từ $ phần tử qua cộng hai ô hàng trên, tránh đệ quy lặp lại.",
       "sources": [
         {
           "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 7 - Quy hoạch động/L7 - DynamicPrograming.pdf",
@@ -2015,7 +2112,8 @@
       "tags": [
         "quy hoạch động"
       ],
-      "lesson": "content/lessons/binomial-dp.md"
+      "lesson": "content/lessons/binomial-dp.md",
+      "track": "algorithm"
     },
     {
       "id": "lis",
@@ -2032,7 +2130,8 @@
       "tags": [
         "quy hoạch động"
       ],
-      "lesson": "content/lessons/lis.md"
+      "lesson": "content/lessons/lis.md",
+      "track": "algorithm"
     },
     {
       "id": "knapsack-01",
@@ -2050,7 +2149,8 @@
         "quy hoạch động",
         "tối ưu"
       ],
-      "lesson": "content/lessons/knapsack-01.md"
+      "lesson": "content/lessons/knapsack-01.md",
+      "track": "algorithm"
     },
     {
       "id": "grid-path-dp",
@@ -2067,14 +2167,15 @@
       "tags": [
         "quy hoạch động"
       ],
-      "lesson": "content/lessons/grid-path-dp.md"
+      "lesson": "content/lessons/grid-path-dp.md",
+      "track": "algorithm"
     },
     {
       "id": "floyd",
       "title": "Thuật toán Floyd",
       "type": "concept",
       "difficulty": 3,
-      "summary": "Đường đi ngắn nhất mọi cặp đỉnh: ở bước $k$ cho phép đi qua đỉnh trung gian $k$, $d^k_{ij}=\\min(d^{k-1}_{ij},\\ d^{k-1}_{ik}+d^{k-1}_{kj})$.",
+      "summary": "Tìm đường đi ngắn nhất giữa mọi cặp đỉnh bằng bảng 2 chiều dist[i][j]: thử lần lượt từng đỉnh trung gian k để rút ngắn đường i -> k -> j.",
       "sources": [
         {
           "file": "docs/18. Thiết kế đánh giá thuật toán/thiet_ke_va_danh_gia_thuat_toan_9853.pdf",
@@ -2085,7 +2186,8 @@
         "graph",
         "quy hoạch động"
       ],
-      "lesson": "content/lessons/floyd.md"
+      "lesson": "content/lessons/floyd.md",
+      "track": "algorithm"
     },
     {
       "id": "lcs",
@@ -2103,7 +2205,8 @@
         "quy hoạch động"
       ],
       "lesson": "content/lessons/lcs.md",
-      "externalNote": "Mô tả bảng $L(i,j)$ theo tiền tố là kiến thức chung; mới đối chiếu mục lục giáo trình (tr. 111), chưa đọc kỹ nội dung trang."
+      "externalNote": "Mô tả bảng $L(i,j)$ theo tiền tố là kiến thức chung; mới đối chiếu mục lục giáo trình (tr. 111), chưa đọc kỹ nội dung trang.",
+      "track": "algorithm"
     },
     {
       "id": "hw-dp",
@@ -2121,7 +2224,8 @@
         "quy hoạch động",
         "bài tập"
       ],
-      "lesson": "content/lessons/hw-dp.md"
+      "lesson": "content/lessons/hw-dp.md",
+      "track": "algorithm"
     }
   ],
   "edges": [
@@ -3020,7 +3124,8 @@
     {
       "source": "recurrence-relation",
       "target": "dynamic-programming",
-      "relation": "prerequisite"
+      "relation": "related",
+      "note": "Phân tích truy hồi T(n) thuộc nhánh toán; để code quy hoạch động chỉ cần nắm đệ quy và cách lập bảng."
     },
     {
       "source": "dynamic-programming",

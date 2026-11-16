@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="page-type" content="software"><meta name="site-kind" content="software">
   <title>Bản đồ kiến thức · HUS</title>
-  <meta name="description" content="Khám phá kiến thức cấu trúc dữ liệu và thuật toán HUS qua đồ thị, học theo khóa và lưu tiến độ trên thiết bị.">
-  <meta property="og:title" content="Bản đồ kiến thức · HUS"><meta property="og:description" content="Từ một mảnh kiến thức, tìm đường học tiếp."><meta property="og:type" content="website">
+  <meta name="description" content="Khám phá cấu trúc dữ liệu và thuật toán HUS qua đồ thị tương tác, bài học trực quan tách riêng phần code và lý thuyết toán.">
+  <meta property="og:title" content="Bản đồ kiến thức · HUS"><meta property="og:description" content="Học thuật toán và cấu trúc dữ liệu qua trực quan, tách riêng lý thuyết toán học để dễ code."><meta property="og:type" content="website">
   <meta name="theme-color" content="#eef0f3">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
@@ -23,7 +23,7 @@
   <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">h.</span><span>HUS <span class="brand-sub">/ Bản đồ kiến thức</span></span></a>
   <nav class="mode-switch" aria-label="Chế độ học"><a id="explore-link" class="active" href="#">Khám phá</a><button id="course-mode">Theo khóa học</button></nav>
   <button id="sidebar-toggle" class="mobile-toggle" aria-expanded="false" aria-controls="sidebar">Danh sách</button>
-  <a class="header-source" href="DOCUMENTS.md" target="_blank" rel="noopener">Tài liệu nguồn ↗</a>
+  <span class="header-badge">Trực quan · Ưu tiên Code</span>
 </header>
 <div class="app-shell">
   <aside id="sidebar" class="sidebar" aria-label="Tìm kiếm và danh sách kiến thức">
@@ -44,10 +44,19 @@
     <div class="workspace-heading">
       <div class="workspace-heading-left">
         <button id="reopen-sidebar" class="reopen-sidebar-btn" type="button" hidden aria-expanded="false" aria-controls="sidebar">☰ Danh sách</button>
-        <div><span id="mode-label" class="eyebrow">Chế độ khám phá</span><h1 id="workspace-title">Mỗi kết nối mở một hướng học.</h1><p id="workspace-description">Kéo hoặc vuốt 2 ngón để di chuyển, chụm hoặc Ctrl + cuộn để thu phóng, chọn thẻ để xem chi tiết.</p></div>
+        <div><span id="mode-label" class="eyebrow">Chế độ khám phá · Thuật toán &amp; Code</span><h1 id="workspace-title">Học thuật toán trực quan để dễ viết code.</h1><p id="workspace-description">Lý thuyết toán học được tách sang nhánh riêng. Kéo để di chuyển, Ctrl + cuộn để thu phóng, chọn thẻ để xem bài học trực quan.</p></div>
       </div>
       <button id="filter-toggle" class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-bar">Bộ lọc</button>
     </div>
+    <div id="track-switch" class="track-bar" role="group" aria-label="Tách nhánh học">
+      <div class="track-pills">
+        <button id="track-algorithm" class="track-btn active" type="button" data-track="algorithm" aria-pressed="true">Thuật toán &amp; Code</button>
+        <button id="track-math" class="track-btn" type="button" data-track="math" aria-pressed="false">Lý thuyết Toán học</button>
+        <button id="track-all" class="track-btn" type="button" data-track="all" aria-pressed="false">Tất cả</button>
+      </div>
+      <span id="track-hint" class="track-hint">Ưu tiên cấu trúc dữ liệu, hình dung bước chạy và code mẫu.</span>
+    </div>
+    <div id="explore-guide" class="explore-guide" hidden aria-label="Gợi ý học và thực hành code"></div>
     <section id="filter-bar" class="filter-bar" hidden aria-label="Bộ lọc đồ thị và bố cục">
       <label class="filter-field"><span>Loại</span><select id="type-filter"><option value="all">Tất cả loại</option><option value="concept">Khái niệm</option><option value="theorem">Định lý</option><option value="formula">Công thức</option><option value="example">Ví dụ</option><option value="exercise">Bài tập</option></select></label>
       <label class="filter-field"><span>Hướng</span><select id="layout-dir"><option value="LR">Trái → phải</option><option value="TB">Trên → dưới</option></select></label>
@@ -74,6 +83,6 @@
   </main>
   <aside id="detail" class="detail" hidden aria-label="Chi tiết mảnh kiến thức"></aside>
 </div>
-<noscript><p class="notice">Cần bật JavaScript để khám phá đồ thị. Bạn vẫn có thể đọc tài liệu trong thư mục docs/.</p></noscript>
+<noscript><p class="notice">Cần bật JavaScript để khám phá đồ thị và bài học trực quan.</p></noscript>
 </body>
 </html>

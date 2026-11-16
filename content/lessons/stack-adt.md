@@ -1,19 +1,54 @@
-## Nội dung chính
+## Vì sao cần
 
-Stack chỉ thêm và lấy ở đỉnh theo LIFO. push thêm, pop lấy và bỏ, top đọc mà không bỏ phần tử đỉnh.
+Nhiều bài toán chỉ cần thao tác ở **một đầu** theo nguyên tắc vào sau ra trước (LIFO — Last-In, First-Out): hoàn tác (Undo), lưu khung lời gọi hàm khi đệ quy, kiểm tra dấu ngoặc ([[bracket-matching]]) và tính biểu thức hậu tố ([[postfix-eval]]).
 
-Bản mảng giữ vị trí đỉnh; bản liên kết có thể dùng đầu danh sách làm đỉnh. Các thao tác cơ bản không cần duyệt các phần tử còn lại.
+## Ý tưởng
 
-Khi gọi pop hoặc top trên stack rỗng, bản cài phải xử lý theo hợp đồng, chẳng hạn báo lỗi hoặc trả giá trị quy định. Không được đọc ngoài vùng dữ liệu.
+Stack chỉ có 3 phép toán cốt lõi ở đỉnh (top):
+
+- `push(x)`: đặt `x` lên đỉnh stack.
+- `pop()`: lấy và **xóa** phần tử ở đỉnh.
+- `top()` (hoặc `peek()`): chỉ **đọc** phần tử ở đỉnh mà không xóa.
+
+Cả hai cách cài bằng mảng động và danh sách liên kết đều đạt $O(1)$ cho mọi thao tác.
+
+## Cài đặt
+
+```java
+class ArrayStack {
+    private int[] data = new int[8];
+    private int size = 0;
+
+    void push(int x) {
+        if (size == data.length) data = Arrays.copyOf(data, size * 2);
+        data[size++] = x;
+    }
+
+    int pop() {
+        if (size == 0) throw new IllegalStateException("Stack rỗng");
+        return data[--size];
+    }
+
+    int top() {
+        if (size == 0) throw new IllegalStateException("Stack rỗng");
+        return data[size - 1];
+    }
+
+    boolean isEmpty() {
+        return size == 0;
+    }
+}
+```
+
+## Lỗi thường gặp
+
+- Gọi `pop()` hoặc `top()` khi `size == 0` mà không kiểm tra rỗng, dẫn tới truy cập `data[-1]` (`ArrayIndexOutOfBoundsException`).
+- Nhầm giữa `data[size--]` (đọc sai ô trống) và `data[--size]` (giảm `size` trước rồi mới đọc đỉnh).
 
 ## Tự kiểm tra
 
-Push A, push B, top, rồi pop: top và pop trả gì?
+1. Thực hiện lần lượt: `push(10)`, `push(20)`, `top()`, `pop()`, `pop()`. Kết quả trả về của 3 lệnh sau cùng là gì?
 
-## Gợi ý đối chiếu
-
-Cả hai đều trả B; top không thay đổi stack, còn pop bỏ B và để A ở đỉnh.
-
-## Đọc cùng tài liệu
-
-Bài học được biên soạn từ: L4a- Stack ADT.pdf, trang 6-21. Số trang được tính từ trang đầu của tệp PDF, bắt đầu bằng 1. Mở liên kết nguồn bên dưới để xem sơ đồ, bảng và mã đầy đủ.
+::: Đáp án
+`top()` trả `20` (stack vẫn còn `[10, 20]`); `pop()` đầu tiên trả `20` (còn `[10]`); `pop()` thứ hai trả `10` (stack rỗng).
+:::

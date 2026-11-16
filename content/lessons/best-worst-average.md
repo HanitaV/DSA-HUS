@@ -1,17 +1,82 @@
-## Nội dung chính
+## Vì sao cần
 
-Giữ nguyên kích thước n rồi xét các mẫu dữ liệu đầu vào. Chi phí nhỏ nhất và lớn nhất xác định hai trường hợp tốt nhất và xấu nhất.
+Từ [[running-time-model]], $T(n)$ phụ thuộc kích thước $n$. Nhưng với cùng $n$, nhiều thuật toán chạy nhanh hay chậm tùy dữ liệu cụ thể. Một mảng đã sắp sẵn và một mảng sắp ngược có thể khiến cùng một thuật toán tốn thời gian rất khác nhau. Vì thế ta tách ra ba cách báo cáo: tốt nhất, xấu nhất, trung bình.
 
-Bản Bubble Sort có cờ dừng sớm nhận ra dãy đã sắp sau một lượt. Khi phân tích trung bình cần nêu cách chọn hoặc phân bố các đầu vào.
+## Định nghĩa
+
+Theo slide, với một hàm cho trước, tùy theo mẫu dữ liệu vào, $T(n)$ có thể nhận các giá trị:
+
+- $T_{\min}(n)$: nhỏ nhất, độ phức tạp trong **trường hợp tốt nhất**.
+- $T_{\max}(n)$: lớn nhất, độ phức tạp trong **trường hợp xấu nhất**.
+- $T_{aver}(n)$: ứng với dữ liệu ngẫu nhiên, độ phức tạp trong **trường hợp trung bình**.
+
+Với mọi dữ liệu kích thước $n$ ta có $T_{\min}(n) \le T(n) \le T_{\max}(n)$. Khi nói "thuật toán này có độ phức tạp $O(\dots)$" mà không nói rõ, người ta thường hiểu là trường hợp xấu nhất vì nó là bảo đảm: thuật toán không bao giờ chậm hơn.
+
+Trường hợp trung bình là kỳ vọng của $T$ trên một phân phối giả định của dữ liệu vào (thường là đồng đều). Tính nó cần giả thiết xác suất, nên khó hơn hai trường hợp kia.
+
+## Ví dụ chạy tay: nổi bọt cải tiến
+
+[[bubble-sort]] phiên bản 2.0 dừng sớm nếu một lượt duyệt không có hoán đổi nào. Theo slide của bài sắp xếp:
+
+| Trường hợp | Dữ liệu | Thời gian |
+|---|---|---|
+| Tốt nhất | mảng đã tăng dần, chỉ một lượt ngoài rồi dừng | $O(n)$ |
+| Xấu nhất | mảng giảm dần, vẫn đủ các lượt | $O(n^2)$ |
+| Trung bình | mảng lộn xộn | $O(n^2)$ |
+
+Minh họa với $n = 4$ bằng số phép so sánh:
+
+| Mảng | Lượt 1 | Lượt 2 | Lượt 3 | Tổng so sánh |
+|---|---|---|---|---|
+| `[1, 2, 3, 4]` | 3 so sánh, không đổi chỗ, dừng | | | 3 |
+| `[4, 3, 2, 1]` | 3 so sánh, 3 đổi chỗ | 2 | 1 | 6 |
+
+Với $n$ phần tử, tốt nhất là $n-1$ so sánh, xấu nhất là $(n-1) + (n-2) + \dots + 1 = n(n-1)/2$. Chi tiết số lượt nằm ở [[bubble-sort-cost]].
+
+## So sánh với sắp xếp chèn
+
+[[insertion-sort]] cũng khác biệt rõ. Khi mảng đã tăng dần, mỗi phần tử so sánh một lần và dừng ngay: $O(n)$. Khi mảng giảm dần, phần tử thứ $i$ phải dịch qua $i$ vị trí: $O(n^2)$. Nhờ vậy sắp xếp chèn là lựa chọn tốt cho dữ liệu gần như đã sắp. Ngược lại [[selection-sort]] luôn tốn $O(n^2)$ so sánh dù dữ liệu thế nào, nên tốt nhất và xấu nhất đều là $O(n^2)$.
+
+## Cách dùng khi phân tích
+
+1. Xác định dữ liệu nào làm mọi nhánh rẽ đều tốn kém nhất (xấu nhất) và dữ liệu nào làm điều kiện dừng sớm xảy ra (tốt nhất).
+2. Tính $T$ cho từng trường hợp bằng [[sum-product-rules]], rồi viết dưới dạng $O$ ([[big-o]]).
+3. Báo cáo cả ba nếu khác nhau; nếu chỉ báo một, nói rõ đó là trường hợp nào.
+
+## Lỗi thường gặp
+
+- Báo "nổi bọt là $O(n)$" vì thấy ví dụ mảng đã sắp: đó là trường hợp tốt nhất, không phải của thuật toán nói chung.
+- Nhầm "trường hợp tốt nhất" với "$n$ nhỏ nhất": cả ba trường hợp đều xét **cùng một $n$**, chỉ khác dữ liệu.
+- Với phiên bản nổi bọt không có cờ dừng sớm, tốt nhất cũng là $O(n^2)$; cải tiến mới là thứ tạo ra $O(n)$.
+- Cho rằng trung bình luôn nằm đúng giữa tốt nhất và xấu nhất theo bậc: với nổi bọt, trung bình cùng bậc với xấu nhất.
+- Nhầm cận $O$ với trường hợp: "$O$" là cận trên của hàm, còn "xấu nhất" là một cách chọn dữ liệu. Hai khái niệm độc lập.
+
+## Luyện tập
+
+- [[bubble-sort-cost]]: tính chính xác số lượt và số so sánh của nổi bọt.
+- [[ex-count-pairs]]: xem bài toán có lời giải khác nhau về độ phức tạp tùy cách tổ chức dữ liệu.
+- Tự luyện: tìm kiếm tuần tự ([[sequential-search]]) một giá trị trong mảng $n$ phần tử. Nêu $T_{\min}$ và $T_{\max}$.
+
+::: Đáp án tự luyện
+Tốt nhất: phần tử cần tìm ở vị trí đầu, 1 phép so sánh, $O(1)$. Xấu nhất: ở cuối hoặc không có, $n$ so sánh, $O(n)$. Trung bình (nếu vị trí đều): khoảng $(n+1)/2$, vẫn $O(n)$.
+:::
 
 ## Tự kiểm tra
 
-Bubble Sort dừng sớm trên dãy đã sắp có phải vẫn thực hiện mọi lượt không?
+1. Một thuật toán có $T_{\min} = O(n)$ và $T_{\max} = O(n^2)$. Có thể nói nó là $O(n)$ không?
 
-## Gợi ý đối chiếu
+::: Đáp án
+Không. Tuyên bố $O(\cdot)$ chung cho thuật toán phải đúng với mọi dữ liệu, nên là $O(n^2)$. Có thể nói riêng "tốt nhất là $O(n)$".
+:::
 
-Không. Một lượt không có đổi chỗ cho phép dừng, nên trường hợp này chỉ cần số phép so sánh tuyến tính.
+2. Vì sao sắp xếp chọn có tốt nhất và xấu nhất cùng bậc?
 
-## Đọc cùng tài liệu
+::: Đáp án
+Mỗi lượt đều quét hết phần chưa sắp để tìm phần tử nhỏ nhất, bất kể dữ liệu; nên luôn $n(n-1)/2$ so sánh.
+:::
 
-Bài học được biên soạn từ: Bai 1 - Cac khai niem co ban.pdf, trang 14; L2- Sorting.pdf, trang 16. Số trang được tính từ trang đầu của tệp PDF, bắt đầu bằng 1. Mở liên kết nguồn bên dưới để xem sơ đồ, bảng và mã đầy đủ.
+3. Tính số so sánh của nổi bọt có cờ dừng sớm trên `[2, 1, 3, 4]`.
+
+::: Đáp án
+Lượt 1: so sánh (2,1) đổi chỗ, (2,3), (3,4): 3 so sánh, có đổi chỗ. Mảng thành `[1, 2, 3, 4]`. Lượt 2: 2 so sánh (nếu dùng chặn phần đã xếp) hoặc 3 so sánh, không đổi chỗ, dừng. Tổng 5 hoặc 6 tùy cài đặt; bậc là $O(n)$ vì chỉ cần hằng số lượt.
+:::

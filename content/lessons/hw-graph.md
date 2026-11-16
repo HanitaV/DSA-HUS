@@ -1,17 +1,36 @@
-## Nội dung chính
+## Mục tiêu thực hành
 
-Phiếu giao các bài cài biểu diễn đồ thị và thuật toán duyệt. Chọn gói bài theo yêu cầu nguồn, không suy ra mọi mục luyện thêm là bắt buộc.
+Phiếu bài tập tổng hợp cài đặt biểu diễn đồ thị ([[graph-representation]]) và các thuật toán cốt lõi: [[dfs]], [[bfs]], cây khung nhỏ nhất ([[prim]], [[kruskal]]) và đường đi ngắn nhất ([[dijkstra]]).
 
-Thử đồ thị một đỉnh, không liên thông, có chu trình và các trường hợp trọng số theo thuật toán được chọn. Ghi rõ quy ước biểu diễn cạnh.
+## Khung code thực hành: Duyệt toàn bộ đồ thị không liên thông
+
+Khi đồ thị có nhiều thành phần liên thông, một lần gọi `dfs(0)` hoặc `bfs(0)` không đi hết mọi đỉnh. Cần bọc thêm vòng lặp qua tất cả các đỉnh `0..n-1`:
+
+```java
+static void traverseAll(List<List<Integer>> adj) {
+    int n = adj.size();
+    boolean[] visited = new boolean[n];
+    int components = 0;
+    for (int u = 0; u < n; u++) {
+        if (!visited[u]) {
+            components++;
+            bfsFrom(u, adj, visited);
+        }
+    }
+}
+```
+
+## Checklist kiểm thử bắt buộc
+
+- **Đồ thị 1 đỉnh & đồ thị rỗng cạnh:** kiểm tra không lỗi chỉ số.
+- **Đồ thị không liên thông:** đếm đúng số thành phần liên thông.
+- **Đồ thị có chu trình:** đảm bảo `visited[u] = true` được đánh dấu trước khi đẩy hàng đợi / gọi đệ quy để không lặp vô hạn.
+- **Đồ thị có hướng vs vô hướng:** với cạnh vô hướng `(u, v)`, nhớ thêm cả `adj[u].add(v)` và `adj[v].add(u)`.
 
 ## Tự kiểm tra
 
-Vì sao cần kiểm tra đồ thị không liên thông khi cài DFS/BFS?
+1. Nếu đồ thị có 6 đỉnh và gồm 2 thành phần liên thông rời nhau, chạy `bfs(0)` một lần duy nhất sẽ bỏ sót điều gì?
 
-## Gợi ý đối chiếu
-
-Một lần duyệt từ một đỉnh không tự bao phủ mọi thành phần.
-
-## Đọc cùng tài liệu
-
-Bài học được biên soạn từ: Hw8_Graph.pdf, trang 2. Số trang được tính từ trang đầu của tệp PDF, bắt đầu bằng 1. Mở liên kết nguồn bên dưới để xem sơ đồ, bảng và mã đầy đủ.
+::: Đáp án
+Chỉ thăm được các đỉnh thuộc cùng thành phần liên thông chứa đỉnh `0`, bỏ sót hoàn toàn các đỉnh ở thành phần còn lại.
+:::

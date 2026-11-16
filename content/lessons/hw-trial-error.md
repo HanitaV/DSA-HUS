@@ -1,17 +1,36 @@
-## Nội dung chính
+## Mục tiêu thực hành
 
-Chọn các bài theo phiếu: khớp xâu, sinh nhị phân, xếp hậu và các bài cấu hình khác. Trước khi cài, định nghĩa thành phần x[i] và miền giá trị.
+Phiếu bài tập rèn luyện kỹ năng thiết kế lời giải thử và sai ([[brute-force]], [[backtracking]], [[branch-and-bound]]) qua các bài sinh cấu hình ([[binary-strings]]), xếp hậu ([[n-queens]]), tìm đường mê cung và bài toán người du lịch ([[tsp-bnb]]).
 
-Tách điều kiện chấp nhận lựa chọn, điều kiện hoàn chỉnh và bước khôi phục trạng thái. Đối chiếu số nghiệm trên đầu vào nhỏ có thể kiểm tra tay.
+## Khung code mẫu: Sinh cấu hình tổng quát bằng quay lui
+
+Mọi bài quay lui đều tách rõ 3 phần: điều kiện dừng, vòng lặp chọn giá trị hợp lệ, và khôi phục trạng thái sau đệ quy:
+
+```java
+static void backtrack(int idx, int n, int[] x, boolean[] used) {
+    if (idx == n) {
+        System.out.println(Arrays.toString(x));
+        return;
+    }
+    for (int val = 1; val <= n; val++) {
+        if (used[val]) continue;
+        x[idx] = val;
+        used[val] = true;
+        backtrack(idx + 1, n, x, used);
+        used[val] = false; // khôi phục trạng thái
+    }
+}
+```
+
+## Checklist kiểm thử bắt buộc
+
+- Kiểm tra trên đầu vào nhỏ ($n = 2, 3, 4$) và đếm bằng tay để phát hiện nghiệm thiếu hoặc trùng.
+- Với [[branch-and-bound]], kiểm tra điều kiện cắt nhánh: chi phí hiện tại `curCost + lowerBound >= bestCost` chỉ được cắt khi cận dưới hợp lệ (ví dụ mọi trọng số còn lại không âm).
 
 ## Tự kiểm tra
 
-Vì sao đầu vào nhỏ hữu ích khi kiểm tra bộ sinh nghiệm?
+1. Trong khung sinh hoán vị trên, nếu quên dòng `used[val] = false;` thì kết quả thu được sẽ gặp lỗi gì?
 
-## Gợi ý đối chiếu
-
-Có thể liệt kê tay để phát hiện nghiệm thiếu, trùng hoặc sai thứ tự.
-
-## Đọc cùng tài liệu
-
-Bài học được biên soạn từ: Homework3_Trial and Error.pdf, trang 2; Quay lui.pdf, trang 1-2; Nhanh can.pdf, trang 1. Số trang được tính từ trang đầu của tệp PDF, bắt đầu bằng 1. Mở liên kết nguồn bên dưới để xem sơ đồ, bảng và mã đầy đủ.
+::: Đáp án
+Sau khi tạo xong hoán vị đầu tiên (`[1, 2, ..., n]`), toàn bộ mảng `used` vẫn là `true` nên không thể sinh thêm bất kỳ hoán vị nào khác.
+:::

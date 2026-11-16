@@ -31,7 +31,17 @@ test('storage restrictions and malformed JSON do not break learning', () => {
     assert.equal(saveProgress({ setItem() { throw new Error('quota'); } }, new Set(['a'])), false);
     assert.deepEqual([...loadProgress({ getItem: () => '["a", 12, null]' }).learned], ['a']);
 });
-test('routes round-trip with optional course and piece', () => {
+test('routes round-trip with optional course, piece and track', () => {
     assert.deepEqual(readRoute(route({ piece: 'big-o', course: 'MAT3514' })), { piece: 'big-o', course: 'MAT3514' });
-    assert.equal(route({ piece: 'big-o' }, 'lesson.html'), 'lesson.html#piece=big-o');
+    assert.deepEqual(readRoute(route({ piece: 'big-o', track: 'math' })), { piece: 'big-o', course: null, track: 'math' });
+    assert.equal(route({ piece: 'big-o', track: 'algorithm' }, 'lesson.html'), 'lesson.html#piece=big-o');
+});
+test('recommendations can filter by track without blocking algorithm track', () => {
+    const byId = new Map([
+        ['m1', { id: 'm1', track: 'math' }],
+        ['a1', { id: 'a1', track: 'algorithm' }],
+    ]);
+    const course = { chapters: [{ pieces: ['m1', 'a1'] }] };
+    assert.equal(recommend(course, [], new Set(), 'algorithm', byId), 'a1');
+    assert.equal(recommend(course, [], new Set(), 'math', byId), 'm1');
 });

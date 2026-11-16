@@ -1,17 +1,43 @@
-## Nội dung chính
+## Vì sao cần
 
-Stack cho thứ tự đảo ngược; queue cho thứ tự ban đầu. Đưa cùng chuỗi vào cả hai rồi so sánh các phần tử lấy ra.
+Bài toán kiểm tra chuỗi đối xứng (Palindrome) minh họa rõ sự đối lập giữa LIFO ([[stack-adt]]) và FIFO ([[queue-adt]]): cùng một dãy ký tự đưa vào, Stack trả về theo thứ tự **ngược**, còn Queue trả về theo thứ tự **xuôi**.
 
-Các ví dụ câu trong slide có khoảng trắng và dấu câu; cần nêu quy tắc chuẩn hóa trước khi kiểm tra một câu thay vì một chuỗi ký tự nguyên trạng.
+## Ý tưởng
+
+1. Chuẩn hóa chuỗi (bỏ khoảng trắng nếu đề yêu cầu, chuyển về chữ thường).
+2. Đẩy từng ký tự vào cả `Stack` và `Queue`.
+3. Lần lượt lấy `stack.pop()` và `queue.dequeue()` để so sánh từng cặp; nếu có cặp khác nhau thì không phải palindrome.
+
+## Cài đặt
+
+```java
+static boolean isPalindrome(String s) {
+    String clean = s.replaceAll("\\s+", "").toLowerCase();
+    Stack<Character> stack = new Stack<>();
+    Queue<Character> queue = new LinkedList<>();
+    for (int i = 0; i < clean.length(); i++) {
+        char ch = clean.charAt(i);
+        stack.push(ch);
+        queue.add(ch);
+    }
+    while (!stack.isEmpty()) {
+        if (!stack.pop().equals(queue.poll())) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+## Lỗi thường gặp
+
+- Không chuẩn hóa chữ hoa/thường hoặc dấu cách trước khi so sánh (ví dụ `"Radar"` hoặc `"nurses run"`).
+- Dùng `==` so sánh hai đối tượng `Character` thay vì `.equals()` trong Java (có thể sai với ký tự Unicode ngoài vùng cache).
 
 ## Tự kiểm tra
 
-Với chuỗi radar, hai thứ tự lấy ra có khác nhau không?
+1. Với chuỗi `"abca"`, ở lần `pop()`/`poll()` thứ mấy thì hàm phát hiện không đối xứng và trả về `false`?
 
-## Gợi ý đối chiếu
-
-Không. Chuỗi đọc xuôi và ngược giống nhau, nên mọi cặp ký tự đều khớp.
-
-## Đọc cùng tài liệu
-
-Bài học được biên soạn từ: L4b- Queue ADT.pdf, trang 29-30; Hw4_Stack and Queue.pdf, trang 4. Số trang được tính từ trang đầu của tệp PDF, bắt đầu bằng 1. Mở liên kết nguồn bên dưới để xem sơ đồ, bảng và mã đầy đủ.
+::: Đáp án
+Ở lần lấy thứ 2: `stack.pop()` cho `'c'`, còn `queue.poll()` cho `'b'`.
+:::

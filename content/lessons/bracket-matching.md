@@ -1,19 +1,49 @@
-## Nội dung chính
+## Vì sao cần
 
-Gặp ngoặc mở thì đẩy loại ngoặc vào stack. Gặp ngoặc đóng, stack phải không rỗng và đỉnh phải là ngoặc mở cùng loại.
+Trình biên dịch và trình soạn thảo code cần kiểm tra các cặp dấu ngoặc `()`, `[]`, `{}` có đóng mở đúng cặp và đúng thứ tự lồng nhau hay không. Đây là ứng dụng kinh điển nhất của [[stack-adt]].
 
-Sau khi khớp một cặp, pop ngoặc mở tương ứng. Cuối chuỗi, stack phải rỗng; chỉ đếm số ngoặc mở và đóng là chưa đủ.
+## Ý tưởng
 
-Với chuỗi ([)], số lượng từng loại ngoặc cân bằng nhưng stack phát hiện sai ngay khi gặp dấu ) vì đỉnh đang là [.
+Duyệt chuỗi từ trái sang phải:
+
+1. Gặp ngoặc **mở** (`(`, `[`, `{`): đẩy vào stack.
+2. Gặp ngoặc **đóng** (`)`, `]`, `}`):
+   - Nếu stack đang rỗng → sai (dư ngoặc đóng).
+   - Lấy phần tử đỉnh `top = stack.pop()`; nếu không khớp cặp với ngoặc đóng hiện tại → sai.
+3. Duyệt hết chuỗi: hợp lệ khi và chỉ khi **stack rỗng** (không còn ngoặc mở nào chưa đóng).
+
+## Cài đặt
+
+```java
+static boolean isValidBrackets(String s) {
+    Stack<Character> stack = new Stack<>();
+    for (int i = 0; i < s.length(); i++) {
+        char ch = s.charAt(i);
+        if (ch == '(' || ch == '[' || ch == '{') {
+            stack.push(ch);
+        } else if (ch == ')' || ch == ']' || ch == '}') {
+            if (stack.isEmpty()) return false;
+            char top = stack.pop();
+            if ((ch == ')' && top != '(')
+                || (ch == ']' && top != '[')
+                || (ch == '}' && top != '{')) {
+                return false;
+            }
+        }
+    }
+    return stack.isEmpty();
+}
+```
+
+## Lỗi thường gặp
+
+- Quên kiểm tra `stack.isEmpty()` trước khi `pop()` khi gặp ngoặc đóng ở đầu chuỗi như `")()"`.
+- Trả về `true` ngay sau vòng lặp mà quên kiểm tra `stack.isEmpty()`, khiến chuỗi `"(()"` bị nhận nhầm là hợp lệ.
 
 ## Tự kiểm tra
 
-Vì sao chuỗi (() bị từ chối dù không gặp ngoặc đóng sai loại?
+1. Với chuỗi `"([)]"`, thuật toán phát hiện sai ở ký tự nào và vì sao?
 
-## Gợi ý đối chiếu
-
-Cuối chuỗi vẫn còn một ngoặc mở trong stack, nên còn cặp chưa được đóng.
-
-## Đọc cùng tài liệu
-
-Bài học được biên soạn từ: L4a- Stack ADT.pdf, trang 24-25; Hw4_Stack and Queue.pdf, trang 3; Hw4_Stack and Queue.pdf, trang 5. Số trang được tính từ trang đầu của tệp PDF, bắt đầu bằng 1. Mở liên kết nguồn bên dưới để xem sơ đồ, bảng và mã đầy đủ.
+::: Đáp án
+Phát hiện sai ở ký tự `')'` (vị trí thứ 3): đỉnh stack đang là `'['` chứ không phải `'('`.
+:::

@@ -729,21 +729,23 @@ export class KnowledgeGraph {
       const p = this.pos.get(piece.id);
       if (!p) continue;
       const typeLabel = TYPES[piece.type] || piece.type;
+      const track = piece.track === 'math' ? 'math' : 'algorithm';
       const isLearned = learned.has(piece.id);
       const g = el('g', {
-        class: `graph-node type-${piece.type}${isLearned ? ' learned' : ''}`,
+        class: `graph-node type-${piece.type} track-${track}${isLearned ? ' learned' : ''}`,
         transform: `translate(${p.x} ${p.y})`,
         'data-id': piece.id,
         'data-type': piece.type,
+        'data-track': track,
         tabindex: '0',
         role: 'button',
-        'aria-label': `${piece.title} (${typeLabel}${isLearned ? ', đã học' : ''})`,
+        'aria-label': `${piece.title} (${track === 'math' ? 'Lý thuyết Toán học' : 'Thuật toán & Code'} · ${typeLabel}${isLearned ? ', đã học' : ''})`,
       });
 
       g.append(el('rect', { class: 'hit-area', x: -4, y: -4, width: CARD_W + 8, height: CARD_H + 8, rx: 12 }));
       g.append(el('rect', { class: 'node-card', x: 0, y: 0, width: CARD_W, height: CARD_H, rx: 10 }));
       g.append(el('circle', { class: 'node-dot', cx: 15, cy: 17, r: 4 }));
-      g.append(el('text', { class: 'node-type', x: 25, y: 20.5 }, typeLabel));
+      g.append(el('text', { class: 'node-type', x: 25, y: 20.5 }, track === 'math' ? `Toán · ${typeLabel}` : typeLabel));
 
       const checkGroup = el('g', { class: 'node-check', transform: `translate(${CARD_W - 22} 9)` });
       checkGroup.append(el('circle', { cx: 7, cy: 7, r: 7 }));

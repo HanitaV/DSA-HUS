@@ -1,17 +1,45 @@
-## Nội dung chính
+## Vì sao cần
 
-Danh sách là dãy có thứ tự theo vị trí. get, set, add và remove thao tác tại các chỉ số theo đặc tả của ADT.
+Mảng tĩnh có kích thước cố định, còn bài toán thực tế thường cần thêm hoặc bớt phần tử linh hoạt theo thứ tự vị trí. `List ADT` định nghĩa một dãy có thứ tự gồm các phần tử truy cập theo chỉ số `0..size-1`, làm nền tảng cho [[array-list]] và [[linked-list]].
 
-Phân biệt vị trí với giá trị: hai phần tử có thể bằng giá trị nhưng ở hai vị trí khác nhau. Khi chèn hoặc xóa, vị trí các phần tử sau đó thay đổi.
+## Ý tưởng
+
+Một `List<T>` chuẩn hỗ trợ các nhóm thao tác:
+
+- Truy cập theo vị trí: `get(i)`, `set(i, x)`.
+- Thêm / xóa: `add(x)`, `add(i, x)`, `remove(i)`.
+- Kiểm tra: `size()`, `isEmpty()`, `contains(x)`.
+
+## Cài đặt
+
+```java
+public interface SimpleList<T> {
+    int size();
+    boolean isEmpty();
+    T get(int index);
+    void set(int index, T value);
+    void add(int index, T value);
+    T remove(int index);
+}
+```
+
+## So sánh hai cách cài phổ biến
+
+| Thao tác | `ArrayList` (Mảng động) | `LinkedList` (Liên kết đơn) |
+|---|---|---|
+| `get(i)` | $O(1)$ | $O(n)$ |
+| `add` cuối | $O(1)$ khấu hao | $O(1)$ nếu có `tail` |
+| `add(0, x)` / `remove(0)` | $O(n)$ (dịch mảng) | $O(1)$ |
+
+## Lỗi thường gặp
+
+- Truy cập chỉ số `index < 0` hoặc `index >= size()` mà không kiểm tra biên trước khi đọc dữ liệu.
+- Nhầm `size` (số phần tử hiện có) với `capacity` (sức chứa mảng cấp phát).
 
 ## Tự kiểm tra
 
-Vì sao một danh sách có thể chứa hai giá trị bằng nhau?
+1. Khi gọi `add(index, value)` trên danh sách đang có `size` phần tử, giá trị `index` hợp lệ nằm trong khoảng nào?
 
-## Gợi ý đối chiếu
-
-Đặc tả danh sách dựa vào thứ tự vị trí, không yêu cầu các giá trị phải phân biệt.
-
-## Đọc cùng tài liệu
-
-Bài học được biên soạn từ: L3b- List ADT.pdf, trang 5-9. Số trang được tính từ trang đầu của tệp PDF, bắt đầu bằng 1. Mở liên kết nguồn bên dưới để xem sơ đồ, bảng và mã đầy đủ.
+::: Đáp án
+`0 <= index <= size` (cho phép `index == size` để chèn vào ngay sau phần tử cuối cùng).
+:::

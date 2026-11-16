@@ -4,7 +4,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
-const piece = id => ({ id, title: id, summary: 'Kiểm tra', type: 'concept', difficulty: 1, tags: [], sources: [{ file: 'docs/test.pdf', page: 1 }], lesson: '' });
+const piece = id => ({ id, title: id, summary: 'Kiểm tra', type: 'concept', track: 'algorithm', difficulty: 1, tags: [], sources: [{ file: 'docs/test.pdf', page: 1 }], lesson: '' });
 function validate(mutate) {
     const root = mkdtempSync(join(tmpdir(), 'hus-validator-'));
     const data = { pieces: [piece('a'), piece('b')], edges: [{ source: 'a', target: 'b', relation: 'prerequisite' }] };

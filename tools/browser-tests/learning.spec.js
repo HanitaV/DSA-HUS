@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test('exploration, accentless search, graph selection and keyboard', async ({ page }) => {
     const errors = []; page.on('pageerror', e => errors.push(e.message));
     await page.goto('/');
+    await page.locator('#track-all').click();
     await expect(page.locator('.graph-node')).toHaveCount(71);
     await expect(page.locator('#detail')).toBeHidden();
     await page.locator('#search').fill('DE QUY');
@@ -63,10 +64,14 @@ test('blocked storage keeps current-session learning usable', async ({ page }) =
     await expect(page.locator('#mark-learned')).toHaveAttribute('aria-pressed', 'true');
 });
 
-test('all lesson files and cited local PDFs are served', async ({ request }) => {
+test('all lesson files are served and contain no PDF links', async ({ request }) => {
     const data = await (await request.get('/data/pieces.json')).json();
-    const paths = [...new Set(data.pieces.flatMap(p => [p.lesson, ...p.sources.map(s => s.file)]))];
-    for (const path of paths) expect((await request.get('/' + path.split('/').map(encodeURIComponent).join('/'))).ok(), path).toBeTruthy();
+    const paths = [...new Set(data.pieces.flatMap(p => [p.lesson]))];
+    for (const path of paths) {
+        const res = await request.get('/' + path.split('/').map(encodeURIComponent).join('/'));
+        expect(res.ok(), path).toBeTruthy();
+        expect(await res.text(), path).not.toMatch(/\.pdf|DOCUMENTS\.md/i);
+    }
 });
 
 test('mobile layout, list access and reduced motion', async ({ page }) => {
@@ -90,6 +95,7 @@ test('mobile layout, list access and reduced motion', async ({ page }) => {
 
 test('titles avoid unrendered math or markdown markers', async ({ page }) => {
     await page.goto('/');
+    await page.locator('#track-all').click();
     await expect(page.locator('.graph-node')).toHaveCount(71);
     await page.locator('#filter-toggle').click();
     await page.locator('#toggle-examples').check();
@@ -102,6 +108,7 @@ test('titles avoid unrendered math or markdown markers', async ({ page }) => {
 test('collapsible sidebar, filter bar, DAG direction, edge toggles, examples and minimap', async ({ page }) => {
     const errors = []; page.on('pageerror', e => errors.push(e.message));
     await page.goto('/');
+    await page.locator('#track-all').click();
     await expect(page.locator('#minimap .minimap-node')).toHaveCount(71);
     await expect(page.locator('#minimap .minimap-viewport')).toBeVisible();
 
@@ -143,6 +150,7 @@ test('invalid shared URLs fail gracefully and browser history restores selection
 test('touchpad two-finger swipe, pinch zoom and node-surface dragging', async ({ page }) => {
     const errors = []; page.on('pageerror', e => errors.push(e.message));
     await page.goto('/');
+    await page.locator('#track-all').click();
     const svg = page.locator('#graph svg');
     const getView = () => svg.getAttribute('viewBox').then(v => v.split(' ').map(Number));
     const initial = await getView();
@@ -183,5 +191,29 @@ test('touchpad two-finger swipe, pinch zoom and node-surface dragging', async ({
     await page.locator('.graph-node[data-id="big-o"]').click();
     await expect(page.locator('#detail')).toBeVisible();
     await expect(page.locator('#detail h2')).toContainText('O lớn');
+    expect(errors).toEqual([]);
+});
+
+test('tracks are separated and no PDF links are rendered', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('#track-algorithm')).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.graph-node.track-math')).toHaveCount(0);
+    await page.locator('#track-math').click();
+    await expect(page.locator('.graph-node:not(.track-math)')).toHaveCount(0);
+    await page.goto('/#piece=quick-sort');
+    await expect(page.locator('a[href*="pdf"], a[href*="DOCUMENTS"]')).toHaveCount(0);
+});
+
+test('visualizers run on every lesson without errors', async ({ page, request }) => {
+    test.setTimeout(300000);
+    const errors = []; page.on('pageerror', e => errors.push(e.message));
+    const data = await (await request.get('/data/pieces.json')).json();
+    for (const p of data.pieces) {
+        await page.goto('/lesson.html#piece=' + p.id);
+        await expect(page.locator('#algorithm-animation .viz-controls'), p.id).toBeVisible();
+        await page.locator('#algorithm-animation .viz-btn', { hasText: 'Bước tiếp' }).click();
+        await expect(page.locator('.katex-error'), p.id).toHaveCount(0);
+        await expect(page.locator('#lesson-content a[href*=".pdf"]'), p.id).toHaveCount(0);
+    }
     expect(errors).toEqual([]);
 });

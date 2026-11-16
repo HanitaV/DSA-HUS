@@ -10,6 +10,7 @@ const rootArg = process.argv.indexOf('--root');
 const ROOT = rootArg >= 0 ? process.argv[rootArg + 1] : join(dirname(fileURLToPath(import.meta.url)), "..");
 const STRICT = process.argv.includes("--strict");
 const TYPES = new Set(["concept", "theorem", "formula", "example", "exercise"]);
+const TRACKS = new Set(["algorithm", "math"]);
 const RELATIONS = new Set(["prerequisite", "applies", "related"]);
 const ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 
@@ -43,6 +44,7 @@ for (const [i, p] of pieces.entries()) {
   byId.set(p.id, p);
   if (!p.title || typeof p.title !== "string") err(`${where}: thiếu title`);
   if (!TYPES.has(p.type)) err(`${where}: type "${p.type}" không thuộc ${[...TYPES].join(" | ")}`);
+  if (!TRACKS.has(p.track)) err(`${where}: track "${p.track}" phải là "algorithm" hoặc "math"`);
   if (![1, 2, 3].includes(p.difficulty)) err(`${where}: difficulty phải là 1, 2 hoặc 3`);
   if (!p.summary || typeof p.summary !== "string") err(`${where}: thiếu summary`);
   else if ((p.summary.match(/(?<!\\)\$/g) || []).length % 2) err(`${where}: summary có số dấu $ lẻ (công thức KaTeX chưa đóng)`);
@@ -56,6 +58,25 @@ for (const [i, p] of pieces.entries()) {
   if (p.source !== undefined && p.source !== "ngoài docs") err(`${where}: trường "source" chỉ nhận giá trị "ngoài docs"`);
   if (p.lesson === undefined) err(`${where}: thiếu trường lesson (để "" nếu chưa có bài học)`);
   else if (p.lesson && !existsSync(join(ROOT, p.lesson))) err(`${where}: không tìm thấy file bài học ${p.lesson}`);
+  else if (p.lesson) {
+    const mdText = readFileSync(join(ROOT, p.lesson), "utf8");
+    if (/\.pdf\b|Mở liên kết nguồn/i.test(mdText)) err(`${where}: bài học ${p.lesson} còn tham chiếu file PDF`);
+    const stripped = mdText.replace(/```[\s\S]*?```/g, "").replace(/`[^`]*`/g, "");
+    if ((stripped.match(/(?<!\\)\$/g) || []).length % 2) err(`${where}: bài học ${p.lesson} có dấu $ KaTeX chưa đóng`);
+  }
+}
+
+// cross-lesson links [[id]] and collapsible ::: blocks
+for (const p of pieces) {
+  if (!p.lesson || !existsSync(join(ROOT, p.lesson))) continue;
+  const mdText = readFileSync(join(ROOT, p.lesson), "utf8").replace(/```[\s\S]*?```/g, "");
+  for (const [, id] of mdText.matchAll(/\[\[([a-z0-9-]+)(?:\|[^\]]+)?\]\]/g)) {
+    if (!byId.has(id)) err(`${p.lesson}: liên kết [[${id}]] không trỏ tới mảnh nào`);
+    else if (id === p.id) warn(`${p.lesson}: bài tự liên kết tới chính nó`);
+  }
+  const fences = mdText.split(/\r?\n/).filter((l) => /^:::/.test(l));
+  if (fences.filter((l) => l.trim() === ":::").length !== fences.filter((l) => l.trim() !== ":::").length)
+    err(`${p.lesson}: khối ::: chưa đóng`);
 }
 
 // lesson files not referenced
@@ -82,6 +103,11 @@ for (const [i, e] of edges.entries()) {
   seen.add(key);
   if (e.relation === "applies" && !e.note) warn(`${where}: cạnh applies nên có note nói cách áp dụng`);
   if (e.relation === "prerequisite") {
+    const srcPiece = byId.get(e.source);
+    const tgtPiece = byId.get(e.target);
+    if (srcPiece?.track === "math" && tgtPiece?.track === "algorithm") {
+      err(`${where}: không đặt lý thuyết toán ("${e.source}") làm tiên quyết chặn thuật toán ("${e.target}")`);
+    }
     if (!prereqOut.has(e.source)) prereqOut.set(e.source, []);
     prereqOut.get(e.source).push(e.target);
   }

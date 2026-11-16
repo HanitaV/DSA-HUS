@@ -1,17 +1,38 @@
-## Nội dung chính
+## Vì sao cần
 
-Queue thêm ở đuôi và lấy ở đầu theo FIFO. first đọc phần tử đầu, dequeue đọc rồi bỏ phần tử đầu.
+Khi cần xử lý yêu cầu theo đúng thứ tự đến trước phục vụ trước (FIFO — First-In, First-Out) như hàng chờ in ấn, lập lịch tiến trình hoặc thuật toán duyệt theo chiều rộng ([[bfs]]), ta dùng Hàng đợi (`Queue`).
 
-So sánh với stack bằng cùng một chuỗi thêm phần tử để thấy thứ tự lấy ra khác nhau. Phiếu dùng queue cho các bài xử lý tuần tự.
+## Ý tưởng
+
+Queue thao tác ở hai đầu khác nhau:
+
+- `enqueue(x)` (thêm): đưa `x` vào **cuối** hàng đợi (`rear`).
+- `dequeue()` (lấy ra): lấy và xóa phần tử ở **đầu** hàng đợi (`front`).
+- `first()` / `peek()`: xem phần tử đầu mà không xóa.
+
+Có hai cách cài đạt $O(1)$ cho mọi thao tác: [[circular-array-queue|mảng vòng]] và [[linked-queue|danh sách liên kết]].
+
+## Cài đặt
+
+```java
+public interface SimpleQueue<T> {
+    void enqueue(T item);
+    T dequeue();
+    T first();
+    boolean isEmpty();
+    int size();
+}
+```
+
+## Lỗi thường gặp
+
+- Cài `Queue` bằng mảng thẳng (không vòng) rồi dịch trái toàn bộ mảng mỗi lần `dequeue()`, làm `dequeue()` chậm thành $O(n)$ thay vì $O(1)$.
+- Gọi `dequeue()` trên hàng đợi rỗng mà không kiểm tra `isEmpty()`.
 
 ## Tự kiểm tra
 
-Enqueue A rồi B thì dequeue trả gì?
+1. Thực hiện `enqueue(1)`, `enqueue(2)`, `dequeue()`, `enqueue(3)`, `dequeue()`. Phần tử còn lại trong hàng đợi là gì?
 
-## Gợi ý đối chiếu
-
-A, vì A được thêm vào trước.
-
-## Đọc cùng tài liệu
-
-Bài học được biên soạn từ: L4b- Queue ADT.pdf, trang 6-13; L4b- Queue ADT.pdf, trang 31. Số trang được tính từ trang đầu của tệp PDF, bắt đầu bằng 1. Mở liên kết nguồn bên dưới để xem sơ đồ, bảng và mã đầy đủ.
+::: Đáp án
+Còn lại `[3]` (`1` ra trước, sau đó `2` ra, cuối cùng chỉ còn `3`).
+:::
