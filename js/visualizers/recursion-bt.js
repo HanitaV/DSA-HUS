@@ -1,4 +1,4 @@
-import { createStepper, el, renderCells, renderMatrix } from './shared.js';
+import { createStepper, el, renderCells, renderMatrix, svgEl } from './shared.js';
 
 function textStage(stage, f) {
     if (f.cells) renderCells(stage, f.cells, f.hi || {}, f.caption || '');
@@ -21,16 +21,236 @@ function hanoiSteps(n) {
     return steps;
 }
 
-function fibSteps(n) {
-    const calls = [];
+function factorialCallStackSteps(n = 4) {
+    const steps = [];
+    const stack = [];
+    const snap = () => stack.map(item => ({ ...item }));
+    steps.push({ stack: [], line: 0, msg: `Bắt đầu gọi fact(${n}): mỗi lời gọi đẩy 1 khung mới vào ngăn xếp (Call Stack).` });
+
+    function solve(k) {
+        stack.push({ call: `fact(${k})`, note: k <= 1 ? 'Cơ sở → trả 1' : `Chờ ${k} × fact(${k - 1})`, state: k <= 1 ? 'base' : 'wait' });
+        steps.push({
+            stack: snap(),
+            line: k <= 1 ? 1 : 2,
+            msg: k <= 1
+                ? `Gặp điểm dừng (Base Case): fact(${k}) trả về 1 ngay lập tức.`
+                : `Đẩy fact(${k}) vào stack, tạm dừng để tính fact(${k - 1}).`
+        });
+        if (k <= 1) {
+            stack.pop();
+            return 1;
+        }
+        const sub = solve(k - 1);
+        const res = k * sub;
+        stack[stack.length - 1] = { call: `fact(${k})`, note: `${k} × ${sub} = ${res}`, state: 'ret' };
+        steps.push({
+            stack: snap(),
+            line: 2,
+            msg: `Nhận fact(${k - 1}) = ${sub} → tính ${k} × ${sub} = ${res} và trả lên tầng trên.`
+        });
+        stack.pop();
+        return res;
+    }
+
+    const ans = solve(n);
+    steps.push({ stack: [], line: 3, msg: `Ngăn xếp rỗng! Kết quả cuối cùng: fact(${n}) = ${ans}.` });
+    return steps;
+}
+
+function sumCallStackSteps(n = 4) {
+    const steps = [];
+    const stack = [];
+    const snap = () => stack.map(item => ({ ...item }));
+    steps.push({ stack: [], line: 0, msg: `Tính tổng 1 + 2 + ... + ${n} bằng đệ quy.` });
+
+    function solve(k) {
+        stack.push({ call: `sum(${k})`, note: k <= 1 ? 'Cơ sở → trả 1' : `Chờ ${k} + sum(${k - 1})`, state: k <= 1 ? 'base' : 'wait' });
+        steps.push({
+            stack: snap(),
+            line: k <= 1 ? 1 : 2,
+            msg: k <= 1 ? `Điểm dừng: sum(${k}) = 1.` : `Đẩy sum(${k}) vào stack, gọi tiếp sum(${k - 1}).`
+        });
+        if (k <= 1) { stack.pop(); return 1; }
+        const sub = solve(k - 1);
+        const res = k + sub;
+        stack[stack.length - 1] = { call: `sum(${k})`, note: `${k} + ${sub} = ${res}`, state: 'ret' };
+        steps.push({
+            stack: snap(),
+            line: 2,
+            msg: `Nhận sum(${k - 1}) = ${sub} → trả về ${k} + ${sub} = ${res}.`
+        });
+        stack.pop();
+        return res;
+    }
+
+    const ans = solve(n);
+    steps.push({ stack: [], line: 3, msg: `Hoàn tất! sum(${n}) = ${ans}.` });
+    return steps;
+}
+
+function renderCallStack(stage, f) {
+    const wrap = el('div', { class: 'viz-callstack-wrap' });
+    if (!f.stack.length) {
+        wrap.append(el('div', { class: 'viz-callstack-empty', text: 'Ngăn xếp lời gọi (Call Stack) đang rỗng' }));
+    } else {
+        const list = el('div', { class: 'viz-callstack' });
+        [...f.stack].reverse().forEach((item, idx) => {
+            const isTop = idx === 0;
+            const cls = `viz-frame ${item.state === 'base' ? 'is-base' : item.state === 'ret' ? 'is-ret' : isTop ? 'is-top' : ''}`;
+            list.append(
+                el('div', { class: cls },
+                    el('strong', { text: item.call }),
+                    el('span', { text: item.note })
+                )
+            );
+        });
+        wrap.append(el('div', { class: 'viz-callstack-label', text: 'Đỉnh Stack (đang chạy ở trên cùng)' }), list);
+    }
+    stage.append(wrap);
+}
+
+function buildFibTree(n, useMemo) {
+    let nextId = 0;
+    const nodes = [];
+    const seen = new Set();
     const memo = new Map();
-    const steps = [{ calls: [], hits: 0, msg: `Tính fib(${n}) bằng đệ quy thuần: nhiều lời gọi lặp lại.` }];
-    (function f(k, d) {
-        calls.push(`${' '.repeat(d * 2)}fib(${k})`);
-        steps.push({ calls: [...calls], msg: `Gọi fib(${k}).` });
-        if (k > 1) { f(k - 1, d + 1); f(k - 2, d + 1); }
-    })(n, 0);
-    steps.push({ calls: [...calls], msg: `Tổng ${calls.length} lời gọi. Với ghi nhớ (memo) chỉ cần ${n + 1} giá trị khác nhau.` });
+    const steps = [];
+
+    function build(k, depth, xMin, xMax, parentId) {
+        const id = nextId++;
+        const x = (xMin + xMax) / 2;
+        const y = 34 + depth * 56;
+        const isRepeat = seen.has(k);
+        seen.add(k);
+        const node = { id, k, x, y, parentId, val: null, status: 'pending', isRepeat };
+        nodes.push(node);
+
+        if (useMemo && memo.has(k)) {
+            node.status = 'cached';
+            node.val = memo.get(k);
+            steps.push({
+                nodes: nodes.map(n0 => ({ ...n0 })),
+                activeId: id,
+                calls: nodes.length,
+                msg: `Gặp lại fib(${k}) — lấy ngay kết quả ${node.val} từ bảng nhớ (không gọi đệ quy tiếp)!`
+            });
+            return node.val;
+        }
+
+        node.status = 'active';
+        steps.push({
+            nodes: nodes.map(n0 => ({ ...n0 })),
+            activeId: id,
+            calls: nodes.length,
+            msg: k <= 1
+                ? `fib(${k}): trường hợp cơ sở, trả về ${k}.`
+                : isRepeat
+                    ? `Gọi lại fib(${k}) lần nữa (trùng bài toán con đã tính trước đó!).`
+                    : `Gọi fib(${k}) → tách thành fib(${k - 1}) + fib(${k - 2}).`
+        });
+
+        let val;
+        if (k <= 1) {
+            val = k;
+        } else {
+            const left = build(k - 1, depth + 1, xMin, x, id);
+            const right = build(k - 2, depth + 1, x, xMax, id);
+            val = left + right;
+        }
+        node.val = val;
+        node.status = 'done';
+        if (useMemo) memo.set(k, val);
+        steps.push({
+            nodes: nodes.map(n0 => ({ ...n0 })),
+            activeId: id,
+            calls: nodes.length,
+            msg: `fib(${k}) = ${val}.`
+        });
+        return val;
+    }
+
+    build(n, 0, 16, 504, null);
+    return steps;
+}
+
+function renderFibTree(stage, f) {
+    const W = 520, H = 290;
+    const svg = svgEl('svg', { class: 'viz-svg viz-tree-svg', viewBox: `0 0 ${W} ${H}` });
+    const byId = new Map(f.nodes.map(n => [n.id, n]));
+
+    f.nodes.forEach(n => {
+        if (n.parentId == null) return;
+        const p = byId.get(n.parentId);
+        svg.append(svgEl('line', {
+            x1: p.x, y1: p.y + 18, x2: n.x, y2: n.y - 18,
+            stroke: n.id === f.activeId ? '#1f2de6' : '#cbd5e1',
+            'stroke-width': n.id === f.activeId ? 2.5 : 1.5
+        }));
+    });
+
+    f.nodes.forEach(n => {
+        const isCurrent = n.id === f.activeId;
+        const fill = n.status === 'cached'
+            ? '#dcfce7'
+            : isCurrent
+                ? '#1f2de6'
+                : n.isRepeat
+                    ? '#fef3c7'
+                    : n.status === 'done'
+                        ? '#eef2ff'
+                        : '#fff';
+        const stroke = n.status === 'cached'
+            ? '#20694b'
+            : isCurrent
+                ? '#1f2de6'
+                : n.isRepeat
+                    ? '#d97706'
+                    : '#94a3b8';
+        const textColor = isCurrent ? '#fff' : '#0b0c0e';
+
+        svg.append(svgEl('rect', {
+            x: n.x - 27, y: n.y - 18, width: 54, height: 36, rx: 8,
+            fill, stroke, 'stroke-width': isCurrent ? 2.5 : 1.5
+        }));
+        svg.append(svgEl('text', {
+            x: n.x, y: n.y - 2, 'text-anchor': 'middle',
+            fill: textColor, 'font-size': 11, 'font-weight': 600
+        }, `f(${n.k})`));
+        svg.append(svgEl('text', {
+            x: n.x, y: n.y + 12, 'text-anchor': 'middle',
+            fill: isCurrent ? '#dbeafe' : '#475569', 'font-size': 10.5
+        }, n.val != null ? `= ${n.val}` : '...'));
+    });
+
+    stage.append(svg);
+}
+
+function fastPowerSteps(base = 2, exp = 6) {
+    const steps = [];
+    const trace = [];
+    function pow(a, n) {
+        trace.push(`pow(${a}, ${n})`);
+        if (n === 0) {
+            steps.push({ cells: [...trace], msg: 'n = 0 → trả về 1.' });
+            return 1;
+        }
+        if (n === 1) {
+            steps.push({ cells: [...trace], hi: { [trace.length - 1]: 'found' }, msg: `n = 1 → cơ sở trả về ${a}.` });
+            return a;
+        }
+        steps.push({ cells: [...trace], hi: { [trace.length - 1]: 'active' }, msg: `Giảm cỡ bài toán một nửa: tính pow(${a}, ${Math.floor(n / 2)}).` });
+        const half = pow(a, Math.floor(n / 2));
+        const res = n % 2 === 0 ? half * half : half * half * a;
+        steps.push({
+            cells: [...trace, `= ${res}`],
+            hi: { [trace.length]: 'found' },
+            msg: n % 2 === 0
+                ? `n = ${n} chẵn: bình phương ${half} × ${half} = ${res}.`
+                : `n = ${n} lẻ: ${half} × ${half} × ${a} = ${res}.`
+        });
+        return res;
+    }
+    pow(base, exp);
     return steps;
 }
 
@@ -139,8 +359,40 @@ export function mountRecursion(host, piece) {
             }
             stage.append(row);
         } };
-    } else if (id === 'fibonacci' || id === 'recursion' || id === 'decrease-transform-conquer') {
-        spec = { title: 'Cây gọi đệ quy fib(4)', steps: fibSteps(4), render: (stage, f) => stage.append(el('pre', { class: 'viz-code-trace', text: f.calls.join('\n') || '(chưa gọi)' })) };
+    } else if (id === 'recursion') {
+        spec = {
+            title: 'Ngăn xếp lời gọi (Call Stack) khi chạy đệ quy',
+            codeLines: [
+                'int fact(int n) {',
+                '    if (n <= 1) return 1;       // Điểm dừng',
+                '    return n * fact(n - 1);   // Gọi xuống & chờ trả về',
+                '}'
+            ],
+            presets: [
+                { label: 'Giai thừa fact(4)', steps: () => factorialCallStackSteps(4) },
+                { label: 'Tổng 1..n: sum(4)', steps: () => sumCallStackSteps(4) }
+            ],
+            steps: factorialCallStackSteps(4),
+            stats: f => [['Độ sâu Stack', f.stack.length]],
+            render: renderCallStack
+        };
+    } else if (id === 'fibonacci') {
+        spec = {
+            title: 'Cây đệ quy fib(4): đệ quy thuần vs có ghi nhớ (Memo)',
+            presets: [
+                { label: 'Đệ quy thuần (lặp lại)', steps: () => buildFibTree(4, false) },
+                { label: 'Có ghi nhớ (Memo)', steps: () => buildFibTree(4, true) }
+            ],
+            steps: buildFibTree(4, false),
+            stats: f => [['Số nút đã gọi', f.calls]],
+            render: renderFibTree
+        };
+    } else if (id === 'decrease-transform-conquer') {
+        spec = {
+            title: 'Giảm để trị: Lũy thừa nhanh 2^6 (giảm n một nửa mỗi bước)',
+            steps: fastPowerSteps(2, 6),
+            render: (s, f) => renderCells(s, f.cells, f.hi || {}, 'Chuỗi thu gọn kích thước')
+        };
     } else if (id === 'n-queens' || id === 'backtracking' || id === 'hw-trial-error') {
         spec = { title: 'Bài toán 6 quân hậu (quay lui)', steps: queensSteps(6), render: (stage, f) => {
             const n = 6;

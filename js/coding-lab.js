@@ -1,4 +1,11 @@
+import { PYTHON_CHALLENGES, getPythonPlaygroundStarter } from './python/challenges.js';
+import { createCodeEditor } from './python/editor.js';
+import { getSharedPythonEngine } from './python/engine.js';
+import { mountPythonTraceVisualizer } from './python/trace-visualizer.js';
+
 const CODE_KEY_PREFIX = 'hus.code.v1.';
+const PY_CODE_KEY_PREFIX = 'hus.py.code.v1.';
+const LANG_PREF_KEY = 'hus.code.lang.v1';
 const SOLVED_KEY = 'hus.solved.v1';
 
 function readStorage(key, fallback = null) {
@@ -377,6 +384,19 @@ export const CHALLENGES = {
             { name: 'Mảng rỗng', args: [[], 0, 7], expected: [7] }
         ]
     },
+    'recursion': {
+        title: 'Viết hàm đệ quy tính tổng chữ số',
+        prompt: 'Cho số nguyên không âm `n`. Dùng đệ quy tính tổng các chữ số của `n` (ví dụ `1234` → `1 + 2 + 3 + 4 = 10`).',
+        fnName: 'sumDigits',
+        starter: `static int sumDigits(int n) {\n    // TODO: trường hợp cơ sở khi n < 10, bước đệ quy n % 10 + sumDigits(n / 10)\n    \n    return 0;\n}`,
+        solution: `static int sumDigits(int n) {\n    if (n < 10) return n;\n    return (n % 10) + sumDigits(Math.floor(n / 10));\n}`,
+        hint: 'Điểm dừng là khi n < 10 (trả về n). Bước đệ quy lấy chữ số cuối (n % 10) cộng với sumDigits(Math.floor(n / 10)).',
+        tests: [
+            { name: 'Số nhiều chữ số', args: [1234], expected: 10 },
+            { name: 'Số 1 chữ số', args: [7], expected: 7 },
+            { name: 'Số 0', args: [0], expected: 0 }
+        ]
+    },
     'fibonacci': {
         title: 'Tính số Fibonacci thứ n trong O(n)',
         prompt: 'Tính số Fibonacci `F(n)` với `F(0) = 0, F(1) = 1` bằng phương pháp lặp (hoặc ghi nhớ) để tránh bùng nổ $O(2^n)$.',
@@ -572,83 +592,225 @@ export const CHALLENGES = {
     }
 };
 
+function escHtml(text) {
+    return String(text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function getPreferredLanguage(hasChallenge) {
+    if (!hasChallenge) return 'python';
+    const saved = readStorage(LANG_PREF_KEY, 'java');
+    return saved === 'python' ? 'python' : 'java';
+}
+
 export function hasCodingLab(pieceId) {
     return Object.hasOwn(CHALLENGES, pieceId);
 }
 
 export function mountCodingLab(host, piece) {
-    const ch = CHALLENGES[piece.id];
-    if (!ch || !host) return;
+    if (!host || !piece) return;
+    const ch = CHALLENGES[piece.id] || null;
+    const pyCh = PYTHON_CHALLENGES[piece.id] || null;
+    const hasChallenge = Boolean(ch);
+    if (!hasChallenge && piece.track === 'math') return;
 
-    const saved = readStorage(CODE_KEY_PREFIX + piece.id, null);
-    const solved = loadSolvedSet().has(piece.id);
+    let currentLang = getPreferredLanguage(hasChallenge);
+    const solved = hasChallenge && loadSolvedSet().has(piece.id);
+    const engine = getSharedPythonEngine();
+    let isRunning = false;
+
+    function getDraft(lang) {
+        if (lang === 'python') {
+            const savedPy = readStorage(PY_CODE_KEY_PREFIX + piece.id, null);
+            if (savedPy !== null) return savedPy;
+            return pyCh ? pyCh.starter : getPythonPlaygroundStarter(piece);
+        }
+        const savedJava = readStorage(CODE_KEY_PREFIX + piece.id, null);
+        return savedJava !== null ? savedJava : (ch?.starter || '');
+    }
+
+    function saveDraft(lang, code) {
+        const key = (lang === 'python' ? PY_CODE_KEY_PREFIX : CODE_KEY_PREFIX) + piece.id;
+        writeStorage(key, code);
+    }
+
+    const titleText = hasChallenge
+        ? `Thực hành viết &amp; chạy code: ${escHtml(ch.title)}`
+        : `Thực hành Python trực tiếp: ${escHtml(piece.title)}`;
+    const subtitleText = hasChallenge
+        ? ch.prompt.replace(/`([^`]+)`/g, '<code>$1</code>')
+        : 'Chạy code Python thực tế ngay trên trình duyệt bằng Pyodide (WebAssembly) và mô phỏng từng bước thực thi.';
 
     host.hidden = false;
     host.innerHTML = `
         <div class="viz-header">
             <div>
                 <div class="viz-title-row">
-                    <h3>Thực hành viết &amp; chạy code: ${ch.title}</h3>
-                    <span class="viz-badge ${solved ? 'solved' : ''}" id="coding-status-badge">${solved ? 'Đã vượt qua ✓' : 'Thử thách Code'}</span>
+                    <h3>${titleText}</h3>
+                    <span class="viz-badge ${solved ? 'solved' : ''}" id="coding-status-badge">${hasChallenge ? (solved ? 'Đã vượt qua ✓' : 'Thử thách Code') : 'Python Playground'}</span>
                 </div>
-                <p class="viz-subtitle">${ch.prompt.replace(/`([^`]+)`/g, '<code>$1</code>')}</p>
+                <p class="viz-subtitle">${subtitleText}</p>
             </div>
+            ${hasChallenge ? `
+                <div class="coding-lang-switch" role="group" aria-label="Chọn ngôn ngữ lập trình">
+                    <button type="button" id="lang-java-btn" class="coding-lang-btn ${currentLang === 'java' ? 'active' : ''}" aria-pressed="${currentLang === 'java'}">Java / JS</button>
+                    <button type="button" id="lang-python-btn" class="coding-lang-btn ${currentLang === 'python' ? 'active' : ''}" aria-pressed="${currentLang === 'python'}">Python (Pyodide)</button>
+                </div>
+            ` : ''}
         </div>
         <div class="coding-editor-wrap">
             <div class="coding-toolbar">
-                <span>Hỗ trợ cú pháp Java cơ bản / JS · Hàm mục tiêu: <code>${ch.fnName}</code></span>
-                <span>Ctrl + Enter để chạy</span>
+                <span id="coding-toolbar-info"></span>
+                <span class="coding-toolbar-right">
+                    <span id="py-runtime-status" class="py-runtime-status" hidden></span>
+                    <span>Ctrl + Enter để chạy</span>
+                </span>
             </div>
-            <textarea id="coding-editor" class="coding-editor" spellcheck="false" aria-label="Trình soạn thảo code thực hành"></textarea>
+            <div id="coding-editor-host"></div>
         </div>
         <div class="coding-actions">
-            <button type="button" id="run-tests-btn" class="viz-btn primary">▶ Chạy kiểm thử (${ch.tests.length} test)</button>
-            <button type="button" id="hint-code-btn" class="viz-btn">💡 Gợi ý</button>
+            ${hasChallenge ? `<button type="button" id="run-tests-btn" class="viz-btn primary">▶ Chạy kiểm thử (${ch.tests.length} test)</button>` : ''}
+            <button type="button" id="run-python-btn" class="viz-btn ${hasChallenge ? '' : 'primary'}" ${currentLang === 'python' ? '' : 'hidden'}>▶ Chạy Python</button>
+            <button type="button" id="trace-python-btn" class="viz-btn" ${currentLang === 'python' ? '' : 'hidden'}>🔍 Chạy &amp; Mô phỏng bước</button>
+            <button type="button" id="stop-python-btn" class="viz-btn danger" hidden disabled>⏹ Dừng</button>
+            ${hasChallenge ? '<button type="button" id="hint-code-btn" class="viz-btn">💡 Gợi ý</button>' : ''}
             <button type="button" id="reset-code-btn" class="viz-btn">↺ Khôi phục khung</button>
-            <button type="button" id="solution-code-btn" class="viz-btn">👁 Đáp án mẫu</button>
+            ${hasChallenge ? '<button type="button" id="solution-code-btn" class="viz-btn">👁 Đáp án mẫu</button>' : ''}
         </div>
         <p id="coding-hint-box" class="coding-hint" hidden></p>
         <div id="coding-results" class="coding-results" aria-live="polite"></div>
+        <div id="python-trace-host" class="py-trace-host" hidden></div>
     `;
 
-    const editor = host.querySelector('#coding-editor');
+    const editorHost = host.querySelector('#coding-editor-host');
     const resultsEl = host.querySelector('#coding-results');
+    const traceHost = host.querySelector('#python-trace-host');
     const hintBox = host.querySelector('#coding-hint-box');
     const badgeEl = host.querySelector('#coding-status-badge');
+    const toolbarInfo = host.querySelector('#coding-toolbar-info');
+    const runtimeStatusEl = host.querySelector('#py-runtime-status');
+    const btnRunTests = host.querySelector('#run-tests-btn');
+    const btnRunPy = host.querySelector('#run-python-btn');
+    const btnTracePy = host.querySelector('#trace-python-btn');
+    const btnStopPy = host.querySelector('#stop-python-btn');
+    const btnLangJava = host.querySelector('#lang-java-btn');
+    const btnLangPy = host.querySelector('#lang-python-btn');
 
-    editor.value = saved !== null ? saved : ch.starter;
-
-    editor.addEventListener('input', () => {
-        writeStorage(CODE_KEY_PREFIX + piece.id, editor.value);
-    });
-
-    editor.addEventListener('keydown', e => {
-        if (e.key === 'Tab') {
-            e.preventDefault();
-            const start = editor.selectionStart;
-            const end = editor.selectionEnd;
-            editor.value = editor.value.slice(0, start) + '    ' + editor.value.slice(end);
-            editor.selectionStart = editor.selectionEnd = start + 4;
-            writeStorage(CODE_KEY_PREFIX + piece.id, editor.value);
-        } else if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-            e.preventDefault();
-            runTests();
+    const editor = createCodeEditor(editorHost, {
+        initialValue: getDraft(currentLang),
+        language: currentLang,
+        onChange: val => saveDraft(currentLang, val),
+        onRun: () => {
+            if (currentLang === 'python') {
+                if (hasChallenge && pyCh) runPythonTests();
+                else runPythonFree();
+            } else if (hasChallenge) {
+                runJavaTests();
+            }
         }
     });
 
-    function runTests() {
-        const res = runChallengeTests(ch, editor.value);
-        if (res.error) {
-            resultsEl.innerHTML = `<div class="coding-error">${res.error.replace(/</g, '&lt;')}</div>`;
+    function updateStatusPill(status, message) {
+        if (currentLang !== 'python') {
+            runtimeStatusEl.hidden = true;
             return;
         }
+        runtimeStatusEl.hidden = false;
+        const labels = {
+            idle: 'Python: Chưa tải',
+            loading: 'Đang tải Pyodide…',
+            ready: 'Python sẵn sàng',
+            running: 'Đang chạy…',
+            terminated: 'Đã dừng',
+            error: 'Lỗi runtime'
+        };
+        runtimeStatusEl.textContent = labels[status] || message || status;
+        runtimeStatusEl.dataset.state = status;
+    }
+
+    const unsubscribeStatus = engine.onStatusChange((status, message) => {
+        updateStatusPill(status, message);
+    });
+
+    function setRunningUI(running) {
+        isRunning = running;
+        if (btnRunTests) btnRunTests.disabled = running;
+        btnRunPy.disabled = running;
+        btnTracePy.disabled = running;
+        btnStopPy.hidden = !running;
+        btnStopPy.disabled = !running;
+    }
+
+    function syncLanguageUI() {
+        const isPy = currentLang === 'python';
+        if (btnLangJava && btnLangPy) {
+            btnLangJava.classList.toggle('active', !isPy);
+            btnLangJava.setAttribute('aria-pressed', String(!isPy));
+            btnLangPy.classList.toggle('active', isPy);
+            btnLangPy.setAttribute('aria-pressed', String(isPy));
+        }
+        if (isPy) {
+            const fnLabel = pyCh ? pyCh.fnName : null;
+            toolbarInfo.innerHTML = fnLabel
+                ? `Python 3 (Pyodide WebAssembly) · Hàm mục tiêu: <code>${escHtml(fnLabel)}</code>`
+                : 'Python 3 (Pyodide WebAssembly) · Hỗ trợ <code>print()</code>, <code>sys.settrace()</code>';
+        } else {
+            toolbarInfo.innerHTML = `Hỗ trợ cú pháp Java cơ bản / JS · Hàm mục tiêu: <code>${escHtml(ch.fnName)}</code>`;
+        }
+        btnRunPy.hidden = !isPy;
+        btnTracePy.hidden = !isPy;
+        if (!isPy) {
+            btnStopPy.hidden = true;
+            traceHost.hidden = true;
+            traceHost.innerHTML = '';
+        }
+        updateStatusPill(engine.status);
+    }
+
+    function switchLanguage(nextLang) {
+        if (nextLang === currentLang || isRunning) return;
+        saveDraft(currentLang, editor.getValue());
+        currentLang = nextLang;
+        writeStorage(LANG_PREF_KEY, currentLang);
+        editor.setLanguage(currentLang);
+        editor.setValue(getDraft(currentLang));
+        resultsEl.innerHTML = '';
+        traceHost.hidden = true;
+        traceHost.innerHTML = '';
+        syncLanguageUI();
+    }
+
+    if (btnLangJava && btnLangPy) {
+        btnLangJava.addEventListener('click', () => switchLanguage('java'));
+        btnLangPy.addEventListener('click', () => switchLanguage('python'));
+    }
+
+    function renderPythonConsole(res) {
+        const parts = [];
+        if (res.error) {
+            parts.push(`<div class="coding-error"><strong>${escHtml(res.error)}</strong>${res.traceback ? `<details class="py-tb-details"><summary>Xem chi tiết Traceback</summary><pre class="py-traceback">${escHtml(res.traceback)}</pre></details>` : ''}</div>`);
+        }
+        if (res.stdout || res.stderr) {
+            parts.push(`
+                <div class="py-console">
+                    <div class="py-console-head"><span>Console Output</span><span>${res.durationMs != null ? `${res.durationMs} ms` : ''}</span></div>
+                    ${res.stdout ? `<pre class="py-stdout">${escHtml(res.stdout)}</pre>` : ''}
+                    ${res.stderr ? `<pre class="py-stderr">${escHtml(res.stderr)}</pre>` : ''}
+                </div>
+            `);
+        } else if (!res.error && (!res.results || !res.results.length)) {
+            parts.push(`<div class="py-console"><div class="py-console-head"><span>Thực thi hoàn tất (không có stdout)</span><span>${res.durationMs != null ? `${res.durationMs} ms` : ''}</span></div></div>`);
+        }
+        return parts.join('');
+    }
+
+    function renderTestResults(res) {
         const passed = res.results.filter(r => r.pass).length;
         if (res.ok) {
             markSolved(piece.id);
             badgeEl.textContent = 'Đã vượt qua ✓';
             badgeEl.classList.add('solved');
         }
-        resultsEl.innerHTML = `
+        return `
             <div class="coding-summary ${res.ok ? 'pass' : 'fail'}">
                 <strong>${res.ok ? `Xuất sắc! Đạt ${passed}/${res.results.length} test case.` : `Đạt ${passed}/${res.results.length} test case. Hãy kiểm tra lại các trường hợp chưa đạt:`}</strong>
             </div>
@@ -656,33 +818,138 @@ export function mountCodingLab(host, piece) {
                 ${res.results.map(r => `
                     <div class="coding-case ${r.pass ? 'pass' : 'fail'}">
                         <div class="coding-case-head">
-                            <span>${r.pass ? '✓' : '✗'} ${r.name}</span>
+                            <span>${r.pass ? '✓' : '✗'} ${escHtml(r.name)}</span>
                             <span>${r.pass ? 'PASS' : 'FAIL'}</span>
                         </div>
                         <div class="coding-case-meta">
-                            <div><strong>Đầu vào:</strong> <code>${r.input.replace(/</g, '&lt;')}</code></div>
-                            <div><strong>Kỳ vọng:</strong> <code>${r.expected.replace(/</g, '&lt;')}</code></div>
-                            ${r.pass ? '' : `<div><strong>Thực tế:</strong> <code>${(r.error || r.actual).replace(/</g, '&lt;')}</code></div>`}
+                            <div><strong>Đầu vào:</strong> <code>${escHtml(r.input)}</code></div>
+                            <div><strong>Kỳ vọng:</strong> <code>${escHtml(r.expected)}</code></div>
+                            ${r.pass ? '' : `<div><strong>Thực tế:</strong> <code>${escHtml(r.error || r.actual)}</code></div>`}
                         </div>
                     </div>
                 `).join('')}
             </div>
-            ${res.logs.length ? `<pre class="viz-code-trace">${res.logs.join('\n').replace(/</g, '&lt;')}</pre>` : ''}
         `;
     }
 
-    host.querySelector('#run-tests-btn').addEventListener('click', runTests);
-    host.querySelector('#hint-code-btn').addEventListener('click', () => {
-        hintBox.hidden = !hintBox.hidden;
-        if (!hintBox.hidden) hintBox.textContent = `Gợi ý: ${ch.hint}`;
+    function runJavaTests() {
+        editor.clearHighlights();
+        const res = runChallengeTests(ch, editor.getValue());
+        if (res.error) {
+            resultsEl.innerHTML = `<div class="coding-error">${escHtml(res.error)}</div>`;
+            return;
+        }
+        resultsEl.innerHTML = renderTestResults(res)
+            + (res.logs.length ? `<pre class="viz-code-trace">${escHtml(res.logs.join('\n'))}</pre>` : '');
+    }
+
+    async function runPythonTests() {
+        if (!ch || !pyCh) return;
+        editor.clearHighlights();
+        traceHost.hidden = true;
+        setRunningUI(true);
+        resultsEl.innerHTML = '<div class="py-running-note">Đang thực thi Python trong Web Worker…</div>';
+        const res = await engine.execute(editor.getValue(), {
+            tests: ch.tests,
+            fnName: pyCh.fnName,
+            inPlace: Boolean(ch.inPlace)
+        });
+        setRunningUI(false);
+        if (res.errorLine) editor.setErrorLine(res.errorLine);
+        if (res.error && (!res.results || !res.results.length)) {
+            resultsEl.innerHTML = renderPythonConsole(res);
+            return;
+        }
+        resultsEl.innerHTML = renderTestResults(res) + renderPythonConsole(res);
+    }
+
+    async function runPythonFree() {
+        editor.clearHighlights();
+        traceHost.hidden = true;
+        setRunningUI(true);
+        resultsEl.innerHTML = '<div class="py-running-note">Đang thực thi Python trong Web Worker…</div>';
+        const res = await engine.execute(editor.getValue());
+        setRunningUI(false);
+        if (res.errorLine) editor.setErrorLine(res.errorLine);
+        resultsEl.innerHTML = renderPythonConsole(res);
+    }
+
+    async function tracePython() {
+        editor.clearHighlights();
+        setRunningUI(true);
+        resultsEl.innerHTML = '<div class="py-running-note">Đang chạy &amp; ghi lại trace từng bước…</div>';
+        let codeToTrace = editor.getValue();
+        // If user is in a challenge without a call to the target function, append a sample call so trace shows execution!
+        if (hasChallenge && pyCh && ch?.tests?.length) {
+            const callRe = new RegExp(`\\b${pyCh.fnName}\\s*\\(`);
+            const hasCall = codeToTrace.split('\n').some(line => !/^\s*def\s+/.test(line) && callRe.test(line));
+            if (!hasCall) {
+                const sampleArgs = ch.tests[0].args.map(a => JSON.stringify(a)).join(', ');
+                codeToTrace = `${codeToTrace}\n# Tự động gọi thử với test đầu tiên để mô phỏng\n${pyCh.fnName}(${sampleArgs})`;
+            }
+        }
+        const res = await engine.trace(codeToTrace);
+        setRunningUI(false);
+        if (res.errorLine) editor.setErrorLine(res.errorLine);
+        resultsEl.innerHTML = renderPythonConsole(res);
+        if (res.steps && res.steps.length) {
+            mountPythonTraceVisualizer(traceHost, res, codeToTrace, {
+                onStepLine: ln => editor.setActiveLine(ln)
+            });
+        } else {
+            traceHost.hidden = true;
+            traceHost.innerHTML = '';
+        }
+    }
+
+    if (btnRunTests) {
+        btnRunTests.addEventListener('click', () => {
+            if (currentLang === 'python') runPythonTests();
+            else runJavaTests();
+        });
+    }
+    btnRunPy.addEventListener('click', runPythonFree);
+    btnTracePy.addEventListener('click', tracePython);
+    btnStopPy.addEventListener('click', () => {
+        engine.terminate();
+        setRunningUI(false);
     });
+
+    const btnHint = host.querySelector('#hint-code-btn');
+    if (btnHint) {
+        btnHint.addEventListener('click', () => {
+            hintBox.hidden = !hintBox.hidden;
+            if (!hintBox.hidden) hintBox.textContent = `Gợi ý: ${ch.hint}`;
+        });
+    }
+
     host.querySelector('#reset-code-btn').addEventListener('click', () => {
-        editor.value = ch.starter;
-        writeStorage(CODE_KEY_PREFIX + piece.id, ch.starter);
+        const starter = currentLang === 'python'
+            ? (pyCh ? pyCh.starter : getPythonPlaygroundStarter(piece))
+            : ch.starter;
+        editor.setValue(starter);
+        saveDraft(currentLang, starter);
         resultsEl.innerHTML = '';
+        traceHost.hidden = true;
+        traceHost.innerHTML = '';
     });
-    host.querySelector('#solution-code-btn').addEventListener('click', () => {
-        editor.value = ch.solution;
-        writeStorage(CODE_KEY_PREFIX + piece.id, ch.solution);
-    });
+
+    const btnSol = host.querySelector('#solution-code-btn');
+    if (btnSol) {
+        btnSol.addEventListener('click', () => {
+            const sol = currentLang === 'python' ? (pyCh ? pyCh.solution : '') : ch.solution;
+            if (!sol) return;
+            editor.setValue(sol);
+            saveDraft(currentLang, sol);
+        });
+    }
+
+    const cleanupOnLeave = () => {
+        unsubscribeStatus();
+        if (isRunning) engine.terminate();
+    };
+    window.addEventListener('pagehide', cleanupOnLeave, { once: true });
+    window.addEventListener('hashchange', cleanupOnLeave, { once: true });
+
+    syncLanguageUI();
 }

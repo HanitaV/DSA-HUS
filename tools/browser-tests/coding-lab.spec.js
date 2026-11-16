@@ -51,5 +51,15 @@ test('explore guide, smart lesson bar, syntax highlighting and interactive codin
         }
     }
 
+    // 6. Visual Call Stack for recursion & SVG tree for fibonacci
+    await page.goto('/lesson.html#piece=recursion');
+    await page.locator('#algorithm-animation .viz-btn', { hasText: 'Bước tiếp' }).click();
+    await expect(page.locator('.viz-callstack .viz-frame')).toHaveCount(1);
+    await expect(page.locator('#coding-lab')).toBeVisible();
+
+    await page.goto('/lesson.html#piece=fibonacci');
+    await page.locator('#algorithm-animation .viz-btn', { hasText: 'Bước tiếp' }).click();
+    await expect(page.locator('.viz-tree-svg rect').first()).toBeVisible();
+
     expect(errors).toEqual([]);
 });

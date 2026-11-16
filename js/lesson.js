@@ -97,7 +97,7 @@ async function start() {
     const codingAvailable = hasCodingLab(piece.id);
     const jumpPills = [
         { id: 'algorithm-animation', label: 'Mô phỏng' },
-        ...(codingAvailable ? [{ id: 'coding-lab', label: 'Thực hành Code' }] : []),
+        ...(codingAvailable ? [{ id: 'coding-lab', label: 'Thực hành Code' }] : track !== 'math' ? [{ id: 'coding-lab', label: 'Python Playground' }] : []),
         ...navItems.slice(0, 5)
     ];
 
