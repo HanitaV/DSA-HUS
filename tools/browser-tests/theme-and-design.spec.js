@@ -1,0 +1,76 @@
+import { test, expect } from '@playwright/test';
+
+test('education shell, dark mode toggle persistence, and code editor contrast', async ({ page }) => {
+    const errors = [];
+    page.on('pageerror', e => errors.push(e.message));
+
+    // 1. Education dashboard & process bar on index.html
+    await page.goto('/');
+    await expect(page.locator('#study-dashboard')).toBeVisible();
+    await expect(page.locator('.study-process')).toBeVisible();
+    await expect(page.locator('#study-next')).toBeVisible();
+
+    // 2. Toggle dark mode on index.html and verify persistence
+    const toggle = page.locator('#theme-toggle');
+    await expect(toggle).toBeVisible();
+    await toggle.click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+
+    const indexDarkBg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+    expect(indexDarkBg).toBe('rgb(11, 17, 32)');
+
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+
+    // 3. Navigate to lesson.html and verify dark mode persists + education roadmap renders
+    await page.goto('/lesson.html#piece=quick-sort');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await expect(page.locator('#lesson-roadmap')).toBeVisible();
+    await expect(page.locator('.reading-progress')).toBeAttached();
+
+    // 4. Verify interactive code editor (.ce-highlight) has transparent bg (not light-gray <pre>) and crisp contrast
+    const editorStyles = await page.evaluate(() => {
+        const shell = document.querySelector('.ce-shell');
+        const highlight = document.querySelector('.ce-highlight');
+        const toolbarCode = document.querySelector('.coding-toolbar code');
+        const codeBlockPre = document.querySelector('.code-block pre');
+        return {
+            shellBg: shell ? getComputedStyle(shell).backgroundColor : null,
+            highlightBg: highlight ? getComputedStyle(highlight).backgroundColor : null,
+            highlightBorder: highlight ? getComputedStyle(highlight).borderTopWidth : null,
+            highlightColor: highlight ? getComputedStyle(highlight).color : null,
+            toolbarCodeBg: toolbarCode ? getComputedStyle(toolbarCode).backgroundColor : null,
+            codeBlockPreBg: codeBlockPre ? getComputedStyle(codeBlockPre).backgroundColor : null,
+            codeBlockPreColor: codeBlockPre ? getComputedStyle(codeBlockPre).color : null
+        };
+    });
+
+    expect(editorStyles.shellBg).toBe('rgb(15, 23, 42)');
+    expect(editorStyles.highlightBg).toBe('rgba(0, 0, 0, 0)');
+    expect(editorStyles.highlightBorder).toBe('0px');
+    expect(editorStyles.highlightColor).toBe('rgb(226, 232, 240)');
+    expect(editorStyles.toolbarCodeBg).not.toBe('rgb(233, 236, 242)');
+    expect(editorStyles.codeBlockPreBg).toBe('rgb(13, 21, 38)');
+    expect(editorStyles.codeBlockPreColor).toBe('rgb(226, 232, 240)');
+
+    // 5. Switch back to light mode and verify .ce-highlight stays transparent and .code-block switches to light
+    await page.locator('#theme-toggle').click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+    const lightStyles = await page.evaluate(() => ({
+        highlightBg: getComputedStyle(document.querySelector('.ce-highlight')).backgroundColor,
+        codeBlockPreBg: getComputedStyle(document.querySelector('.code-block pre')).backgroundColor
+    }));
+    expect(lightStyles.highlightBg).toBe('rgba(0, 0, 0, 0)');
+    expect(lightStyles.codeBlockPreBg).toBe('rgb(248, 250, 253)');
+
+    // 6. Mobile viewport check (390px) without horizontal overflow
+    await page.setViewportSize({ width: 390, height: 844 });
+    for (const url of ['/', '/lesson.html#piece=quick-sort']) {
+        await page.goto(url);
+        const noOverflow = await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth);
+        expect(noOverflow, `overflow at 390px on ${url}`).toBeTruthy();
+    }
+
+    expect(errors).toEqual([]);
+});

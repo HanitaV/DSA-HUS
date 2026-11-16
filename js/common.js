@@ -17,6 +17,36 @@ export async function loadData() {
 }
 let storage;
 try { storage = window.localStorage; } catch { storage = null; }
+const THEME_KEY = 'hus.theme.v1';
+function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.content = isDark ? '#0b1120' : '#f7f8fc';
+    const btn = $('#theme-toggle');
+    if (btn) {
+        btn.setAttribute('aria-pressed', String(isDark));
+        btn.textContent = isDark ? '☀️ Sáng' : '🌙 Tối';
+        btn.title = isDark ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối';
+    }
+}
+function initTheme() {
+    let saved = null;
+    try { saved = storage?.getItem(THEME_KEY); } catch { saved = null; }
+    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved === 'dark' || saved === 'light' ? saved : (prefersDark ? 'dark' : 'light'));
+    $('#theme-toggle')?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        try { storage?.setItem(THEME_KEY, next); } catch { /* ignore storage errors */ }
+    });
+    window.matchMedia?.('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        let current = null;
+        try { current = storage?.getItem(THEME_KEY); } catch { current = null; }
+        if (current !== 'dark' && current !== 'light') applyTheme(e.matches ? 'dark' : 'light');
+    });
+}
+initTheme();
 const initial = loadProgress(storage);
 export const progress = { ...initial, toggle(id) {
     this.learned.has(id) ? this.learned.delete(id) : this.learned.add(id);
