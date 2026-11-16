@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/education.css">
+  <link rel="stylesheet" href="css/minimal.css">
   <script defer src="assets/vendor/katex/katex.min.js"></script>
   <script defer src="assets/vendor/katex/auto-render.min.js"></script>
   <script type="module" src="js/app.js"></script>
@@ -23,20 +24,20 @@
 <!-- Software workspace. Palette cool-grey-cobalt; graph is the main learning interface. -->
 <a class="skip-link" href="#workspace">Đi tới nội dung</a>
 <header class="topbar">
-  <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">h.</span><span>HUS <span class="brand-sub">/ Bản đồ kiến thức</span></span></a>
+  <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">H</span><span>DSA <span class="brand-sub">/ HUS</span></span></a>
   <nav class="mode-switch" aria-label="Chế độ học"><a id="explore-link" class="active" href="#">Khám phá</a><button id="course-mode">Theo khóa học</button></nav>
-  <button id="sidebar-toggle" class="mobile-toggle" aria-expanded="false" aria-controls="sidebar">Danh sách</button>
-  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Chuyển giao diện sáng tối" title="Chuyển giao diện sáng tối" aria-pressed="false">🌙 Tối</button>
+  <div class="header-actions"><button id="sidebar-toggle" class="mobile-toggle" aria-expanded="false" aria-controls="sidebar" aria-label="Mở danh sách kiến thức">☰</button>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Chuyển giao diện sáng tối" title="Chuyển giao diện sáng tối" aria-pressed="false">🌙 Tối</button></div>
 </header>
 <div class="app-shell">
   <aside id="sidebar" class="sidebar" aria-label="Tìm kiếm và danh sách kiến thức">
     <div class="sidebar-top">
-      <div class="sidebar-top-row"><span class="eyebrow">Không gian học tập</span><button id="collapse-sidebar" class="sidebar-collapse-btn" type="button" aria-expanded="true" aria-controls="sidebar" aria-label="Thu gọn thanh bên" title="Thu gọn thanh bên">« Thu gọn</button></div>
+      <div class="sidebar-top-row"><span class="eyebrow">Thư viện kiến thức</span><button id="collapse-sidebar" class="sidebar-collapse-btn" type="button" aria-expanded="true" aria-controls="sidebar" aria-label="Thu gọn thanh bên" title="Thu gọn thanh bên">Thu gọn</button></div>
     </div>
     <label class="search-label sr-only" for="search">Tìm mảnh kiến thức</label>
-    <div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Tìm kiến thức (ví dụ: đệ quy, cây…)" autocomplete="off"><kbd>/</kbd></div>
+    <div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Tìm chủ đề..." autocomplete="off"><kbd>/</kbd></div>
     <label class="search-label" for="course-select">Khóa học</label><select id="course-select"><option value="">Tất cả kiến thức</option></select>
-    <div class="list-heading"><h2 id="list-title">Mảnh kiến thức</h2><span id="result-count" role="status"></span></div>
+    <div class="list-heading"><h2 id="list-title">Chủ đề</h2><span id="result-count" role="status"></span></div>
     <div class="filter-row"><label for="status-filter" class="sr-only">Lọc theo tiến độ</label><select id="status-filter"><option value="all">Tất cả trạng thái</option><option value="ready">Sẵn sàng học</option><option value="learned">Đã học</option><option value="unlearned">Chưa học</option></select></div>
     <div id="piece-list" class="piece-list"><p>Đang tải kiến thức…</p></div>
     <div class="sidebar-footer"><span id="total-progress"></span><progress id="global-progress" max="100" value="0" aria-label="Tiến độ toàn bộ kiến thức"></progress><small id="storage-status" role="status"></small></div>
@@ -47,12 +48,12 @@
         <button id="reopen-sidebar" class="reopen-sidebar-btn" type="button" hidden aria-expanded="false" aria-controls="sidebar">☰ Danh sách</button>
         <div><span id="mode-label" class="eyebrow">Chế độ khám phá · Thuật toán &amp; Code</span><h1 id="workspace-title">Học thuật toán trực quan để dễ viết code.</h1><p id="workspace-description" class="sr-only">Lý thuyết toán học được tách sang nhánh riêng. Kéo để di chuyển, Ctrl + cuộn để thu phóng, chọn thẻ để xem bài học trực quan.</p></div>
       </div>
-      <button id="filter-toggle" class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-bar">Bộ lọc</button>
+      <button id="filter-toggle" class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-bar">Tùy chỉnh</button>
     </div>
     <div id="track-switch" class="track-bar" role="group" aria-label="Tách nhánh học">
       <div class="track-pills">
-        <button id="track-algorithm" class="track-btn active" type="button" data-track="algorithm" aria-pressed="true">Thuật toán &amp; Code</button>
-        <button id="track-math" class="track-btn" type="button" data-track="math" aria-pressed="false">Lý thuyết Toán học</button>
+        <button id="track-algorithm" class="track-btn active" type="button" data-track="algorithm" aria-pressed="true">Thuật toán</button>
+        <button id="track-math" class="track-btn" type="button" data-track="math" aria-pressed="false">Toán học</button>
         <button id="track-all" class="track-btn" type="button" data-track="all" aria-pressed="false">Tất cả</button>
       </div>
       <span id="track-hint" class="track-hint">Ưu tiên cấu trúc dữ liệu, hình dung bước chạy và code mẫu.</span>
@@ -79,7 +80,7 @@
         <div class="legend-items"><span class="legend-chip"><i class="legend-line"></i>Tiên quyết</span><span class="legend-chip"><i class="legend-line applies"></i>Áp dụng</span><span class="legend-chip"><i class="legend-line related"></i>Liên quan</span></div>
       </div>
     </section>
-    <section id="course-path" class="course-path" hidden aria-label="Lộ trình theo chương"></section>
+    <details class="outline-disclosure" id="course-outline"><summary>Xem lộ trình theo chương</summary><section id="course-path" class="course-path" hidden aria-label="Lộ trình theo chương"></section></details>
     <p id="app-message" class="notice" role="status" hidden></p>
   </main>
   <aside id="detail" class="detail" hidden aria-label="Chi tiết mảnh kiến thức"></aside>
