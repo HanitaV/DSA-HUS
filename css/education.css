@@ -1,0 +1,151 @@
+/* DSA-HUS Education Edition: visual shell layered over the original system.
+   Intentionally does not override visualizer internals or code editor syntax colors. */
+:root {
+  --p-bg: #f7f8fc;
+  --p-surface: #eef2f9;
+  --p-ink: #17243c;
+  --p-muted: #67748b;
+  --p-accent: #4058d6;
+  --p-action: #4058d6;
+  --p-inv-bg: #101a32;
+  --p-inv-surface: #1a2946;
+  --p-inv-ink: #f8fbff;
+  --line: #e4e8f2;
+  --green: #168768;
+  --radius: 16px;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--p-bg); color: var(--p-ink); }
+.topbar {
+  position: relative; z-index: 15; background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--line); box-shadow: 0 1px 12px #20315707;
+}
+.brand-mark { background: #4058d6; border-radius: 13px; letter-spacing: -2px; }
+.header-badge { background: #f0f5ff; color: #3551ae; border-color: #dfe9ff; }
+.mode-switch { background: #f1f3f9; }
+.mode-switch .active { color: #2e48b8; }
+.sidebar { background: #fff; border-color: var(--line); }
+.sidebar-title { letter-spacing: -.04em; font-weight: 700; }
+.search-box { border-radius: 12px; background: #f8faff; border-color: #e3e8f3; }
+.list-item { border-radius: 10px; }
+.list-item.selected { background: #eef2ff; color: #334ac4; }
+.workspace { padding: 24px clamp(16px, 2.5vw, 44px) 44px; }
+.workspace-heading { align-items: center; margin-bottom: 16px; }
+.workspace-heading h1 { font-size: clamp(20px, 2vw, 26px); font-weight: 700; }
+.workspace-heading p { font-size: 13px; max-width: 780px; }
+.eyebrow { color: #718099; }
+.study-dashboard {
+  display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(230px, .8fr);
+  background: #fff; border: 1px solid #e0e7f5; border-radius: 22px;
+  box-shadow: 0 16px 45px rgba(25,49,94,.045);
+  overflow: hidden; margin-bottom: 14px;
+}
+.study-lead { padding: clamp(22px, 3vw, 40px); position: relative; isolation: isolate; }
+.study-lead::before {
+  content: ''; position: absolute; inset: auto -85px -130px auto;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, #dfeaff 0%, transparent 70%); z-index: -1;
+}
+.study-kicker { font-size: 11px; letter-spacing: .1em; color: #3d61b4; font-weight: 800; }
+.study-kicker span { font-size: 16px; vertical-align: middle; margin-right: 4px; }
+.study-lead h2 { margin: 12px 0 10px; font-size: clamp(27px, 3vw, 44px); font-weight: 750; letter-spacing: -.052em; line-height: 1.12; }
+.study-lead p { max-width: 470px; font-size: 14px; color: #5b6b83; }
+.study-actions { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
+.study-primary, .study-outline {
+  display: inline-flex; justify-content: center; align-items: center; gap: 16px;
+  min-height: 44px; padding: 10px 18px; border-radius: 11px; font-weight: 650;
+  font-size: 13px; text-decoration: none;
+}
+.study-primary, .study-primary:hover { background: #3b54d1; color: white; text-decoration: none; }
+.study-primary:hover { background: #2e45b4; }
+.study-outline { border: 1px solid #dce3f3; background: white; color: #30415d; }
+.study-outline:hover { text-decoration: none; background: #f4f7fe; }
+.study-status {
+  background: linear-gradient(160deg,#f0f5ff,#f9fbff); padding: 26px;
+  border-left: 1px solid #e1e8fa; display: flex; flex-direction: column;
+  justify-content: center; min-width: 0;
+}
+.study-status-label { color: #697b99; font-size: 10px; font-weight: 800; letter-spacing: .09em; }
+.study-progress-number { display: flex; align-items: baseline; gap: 7px; margin: 12px 0 3px; }
+.study-progress-number strong { font-size: clamp(30px, 3vw, 46px); letter-spacing: -.05em; line-height: 1.1; }
+.study-progress-number span { font-size: 12px; color: #72809a; }
+.study-status progress { height: 8px; margin: 14px 0; }
+.study-status p { font-size: 12px; line-height: 1.5; color: #64728b; min-height: 36px; }
+.study-course-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.study-course-links a {
+  color: #334cae; background: #fff; border: 1px solid #e1e7f4;
+  border-radius: 9px; padding: 7px 10px; font-size: 12px; font-weight: 700;
+}
+.study-course-links a:hover { background: #e8eeff; text-decoration: none; }
+.study-process {
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  background: #fff; border: 1px solid var(--line); border-radius: 13px;
+  padding: 11px 16px; color: #5d6a80; font-size: 12px; margin-bottom: 14px;
+}
+.study-process b { color: #526cda; margin-right: 7px; font-family: var(--font-mono); }
+.study-separator { color: #b4c0d7; }
+.track-bar { background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+.graph-panel { background: #fbfcff; border-radius: 16px; box-shadow: 0 4px 20px #20315708; }
+.graph-host { background-image: radial-gradient(#d5ddeb .85px,transparent .85px); background-size: 20px 20px; }
+.legend-strip { padding: 2px 3px 0; }
+.course-overview, .chapter, .filter-bar { border-radius: 14px; }
+.course-overview { box-shadow: 0 6px 20px #20315706; }
+.detail { background: #fff; border-left: 1px solid var(--line); }
+.detail .primary, .course-overview .primary { border-radius: 11px; }
+.lesson-page { background: #f7f9fd; }
+.lesson-layout { max-width: 1320px; gap: clamp(24px, 4vw, 64px); grid-template-columns: minmax(0, 840px) minmax(220px, 270px); margin-top: 38px; }
+.lesson-content {
+  background: white; padding: clamp(20px, 3vw, 42px);
+  border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: 0 10px 35px #17243c08;
+}
+.lesson-content h1 { font-weight: 750; font-size: clamp(30px, 3.4vw, 45px); letter-spacing: -.048em; margin-bottom: 18px; }
+.lesson-content h2 { font-weight: 720; color: #1d2b48; }
+.lesson-content .summary { background: #f4f7ff; border-left: 4px solid #6479e1; border-radius: 0 12px 12px 0; padding: 14px 18px; font-size: 16px; line-height: 1.7; }
+.lesson-content p, .lesson-content li { line-height: 1.75; }
+.lesson-context { position: sticky; top: 24px; align-self: start; }
+.lesson-context .detail-section { background: #fff; border: 1px solid var(--line); padding: 16px; border-radius: 13px; margin-bottom: 14px; }
+.lesson-context .detail-section h2 { margin: 0 0 12px; }
+.lesson-roadmap {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin: 12px 0 24px; padding: 10px; background: #f6f8fc;
+  border: 1px solid #e6eaf4; border-radius: 14px;
+}
+.lesson-roadmap-item {
+  display: flex; align-items: center; gap: 7px; min-height: 40px;
+  border: 1px solid transparent; background: #fff; border-radius: 9px;
+  font-size: 12px; font-weight: 600; padding: 8px 10px; color: #445576;
+}
+.lesson-roadmap-item:hover { background: #eef3ff; border-color: #d4def9; }
+.lesson-roadmap-item strong { font-size: 11px; font-family: var(--font-mono); color: #4160c1; }
+.reading-progress { position: fixed; z-index: 99; top: 0; left: 0; right: 0; height: 3px; pointer-events: none; }
+.reading-progress-fill { height: 100%; width: 0; background: #4058d6; }
+.viz-card { border-radius: 15px; }
+.coding-slot { scroll-margin-top: 35px; }
+#algorithm-animation { scroll-margin-top: 35px; }
+@media(max-width: 1190px) {
+  .study-dashboard { grid-template-columns: minmax(0,1fr) minmax(210px,.7fr); }
+  .lesson-layout { grid-template-columns: minmax(0,1fr) 240px; gap: 22px; }
+}
+@media(max-width: 900px) {
+  .study-dashboard { grid-template-columns: 1fr; }
+  .study-status { border-left: 0; border-top: 1px solid #e1e8fa; }
+  .study-status p { min-height: auto; }
+  .lesson-layout { display: block; }
+  .lesson-context { position: static; margin-top: 20px; }
+}
+@media(max-width: 760px) {
+  .workspace { padding: 16px; }
+  .study-lead { padding: 24px 20px; }
+  .study-status { padding: 20px; }
+  .study-lead h2 { font-size: 30px; }
+  .study-separator { display: none; }
+  .study-process { gap: 8px 16px; }
+  .lesson-layout { padding: 0 12px; margin: 16px auto; }
+  .lesson-content { padding: 20px 17px; border-radius: 15px; }
+  .lesson-content h1 { font-size: 29px; }
+  .lesson-content .summary { font-size: 14px; }
+  .lesson-roadmap { gap: 6px; }
+  .lesson-roadmap-item { flex: 1 1 42%; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
