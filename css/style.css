@@ -3289,12 +3289,29 @@ pre code {
     background-color: #0b1120;
     background-image: radial-gradient(#24324d 1px, transparent 1px);
 }
-[data-theme="dark"] .graph-controls button,
+[data-theme="dark"] .graph-controls,
 [data-theme="dark"] .graph-minimap,
 [data-theme="dark"] .graph-overlay-top {
-    background: rgba(17, 26, 46, 0.92);
+    background: rgba(17, 26, 46, 0.94);
     border-color: var(--line);
     color: var(--p-ink);
+}
+[data-theme="dark"] .graph-controls button {
+    background: #162038;
+    border-color: var(--line);
+    color: var(--p-ink);
+}
+[data-theme="dark"] .track-btn.active {
+    background: #1d2d52;
+    border-color: #3b5599;
+    color: #bfdbfe;
+}
+[data-theme="dark"] .status-dot.ready {
+    background: #2b3f7a;
+    border-color: #6b85ff;
+}
+[data-theme="dark"] .dot-learned {
+    box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.28);
 }
 [data-theme="dark"] .graph-node .node-card {
     fill: #131c31;
@@ -3339,19 +3356,38 @@ pre code {
 [data-theme="dark"] .arrow-head.prerequisite {
     fill: #64748b;
 }
-[data-theme="dark"] .type-label {
+[data-theme="dark"] .type-label,
+[data-theme="dark"] .track-label.algorithm,
+[data-theme="dark"] .track-mini.algorithm,
+[data-theme="dark"] .viz-badge {
     background: #1b2845;
     color: #93c5fd;
 }
+[data-theme="dark"] .track-label.code-lab-tag {
+    background: #1a2744;
+    color: #93c5fd;
+    border-color: #2d4270;
+}
 [data-theme="dark"] .type-label.theorem,
-[data-theme="dark"] .type-label.formula {
+[data-theme="dark"] .type-label.formula,
+[data-theme="dark"] .track-label.math,
+[data-theme="dark"] .track-mini.math,
+[data-theme="dark"] .viz-badge.math {
     background: #2b2114;
     color: #fcd34d;
 }
 [data-theme="dark"] .type-label.example,
-[data-theme="dark"] .type-label.exercise {
+[data-theme="dark"] .type-label.exercise,
+[data-theme="dark"] .ex-tag,
+[data-theme="dark"] .viz-badge.solved {
     background: #102a22;
     color: #6ee7b7;
+    border-color: #234e44;
+}
+[data-theme="dark"] .detail-section.math-bridge {
+    background: #1c1914;
+    border-color: #4d3c1b;
+    color: var(--p-ink);
 }
 [data-theme="dark"] .detail .primary,
 [data-theme="dark"] .course-overview .primary,
@@ -3432,9 +3468,15 @@ pre code {
 [data-theme="dark"] .table-wrap th {
     background: #162036;
     color: #cbd5e1;
+    border-bottom-color: var(--line);
 }
 [data-theme="dark"] .table-wrap td {
+    background: #111a2e;
+    color: var(--p-ink);
     border-color: var(--line);
+}
+[data-theme="dark"] .table-wrap tbody tr:nth-child(even) td {
+    background: #152036;
 }
 [data-theme="dark"] .math-fold {
     background: #131c31;
@@ -3449,6 +3491,54 @@ pre code {
     background: #0d1526;
     border-color: var(--line);
     color: var(--p-ink);
+}
+[data-theme="dark"] .viz-controls {
+    background: #131c31;
+    border-color: var(--line);
+    color: var(--p-ink);
+}
+[data-theme="dark"] .viz-stat {
+    background: #162038;
+    border-color: var(--line);
+    color: #cbd5e1;
+}
+[data-theme="dark"] .viz-step-log {
+    background: #15213b;
+    border-color: #293e6b;
+    color: #dbeafe;
+}
+[data-theme="dark"] .viz-step-counter {
+    color: #93c5fd;
+}
+[data-theme="dark"] .viz-bucket {
+    background: #131c31;
+    border-color: #364766;
+}
+[data-theme="dark"] .viz-matrix {
+    background: #111a2e;
+}
+[data-theme="dark"] .viz-matrix th {
+    background: #162036;
+    color: #cbd5e1;
+    border-color: var(--line);
+}
+[data-theme="dark"] .viz-matrix td {
+    background: #111a2e;
+    color: var(--p-ink);
+    border-color: var(--line);
+}
+[data-theme="dark"] .viz-matrix td.is-active {
+    background: #1d2d52;
+    color: #bfdbfe;
+    outline-color: #6b85ff;
+}
+[data-theme="dark"] .viz-matrix td.is-source {
+    background: #2b2114;
+    color: #fde68a;
+}
+[data-theme="dark"] .viz-matrix td.is-path {
+    background: #102a22;
+    color: #6ee7b7;
 }
 [data-theme="dark"] .viz-preset-btn.active,
 [data-theme="dark"] .viz-preset-btn:hover {

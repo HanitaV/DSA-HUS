@@ -54,7 +54,30 @@ test('education shell, dark mode toggle persistence, and code editor contrast', 
     expect(editorStyles.codeBlockPreBg).toBe('rgb(13, 21, 38)');
     expect(editorStyles.codeBlockPreColor).toBe('rgb(226, 232, 240)');
 
+    // 4b. Verify dynamic-programming table rows & visualizer boxes are dark in dark mode (no white-on-white)
+    await page.goto('/lesson.html#piece=dynamic-programming');
+    await expect(page.locator('#lesson-content h1')).toContainText('Quy hoạch động');
+    await expect(page.locator('.viz-step-log')).toBeVisible();
+    const dpColors = await page.evaluate(() => {
+        const evenTd = document.querySelector('.table-wrap tbody tr:nth-child(even) td');
+        const stepLog = document.querySelector('.viz-step-log');
+        const controls = document.querySelector('.viz-controls');
+        return {
+            evenTdBg: evenTd ? getComputedStyle(evenTd).backgroundColor : null,
+            evenTdColor: evenTd ? getComputedStyle(evenTd).color : null,
+            stepLogBg: stepLog ? getComputedStyle(stepLog).backgroundColor : null,
+            controlsBg: controls ? getComputedStyle(controls).backgroundColor : null
+        };
+    });
+    expect(dpColors.evenTdBg).toBe('rgb(21, 32, 54)');
+    expect(dpColors.evenTdColor).toBe('rgb(230, 237, 247)');
+    expect(dpColors.stepLogBg).toBe('rgb(21, 33, 59)');
+    expect(dpColors.controlsBg).toBe('rgb(19, 28, 49)');
+
     // 5. Switch back to light mode and verify .ce-highlight stays transparent and .code-block switches to light
+    await page.goto('/lesson.html#piece=quick-sort');
+    await expect(page.locator('#lesson-content h1')).toContainText('Sắp xếp nhanh');
+    await expect(page.locator('.ce-highlight')).toBeVisible();
     await page.locator('#theme-toggle').click();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
     const lightStyles = await page.evaluate(() => ({
