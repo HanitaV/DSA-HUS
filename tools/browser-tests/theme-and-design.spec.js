@@ -4,29 +4,38 @@ test('education shell, dark mode toggle persistence, and code editor contrast', 
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
 
-    // 1. Education dashboard & process bar on index.html
+    // 1. Streamlined workspace on index.html (graph-first, no redundant dashboard hero)
     await page.goto('/');
-    await expect(page.locator('#study-dashboard')).toBeVisible();
-    await expect(page.locator('.study-process')).toBeVisible();
-    await expect(page.locator('#study-next')).toBeVisible();
+    await expect(page.locator('#study-dashboard')).toHaveCount(0);
+    await expect(page.locator('.study-process')).toHaveCount(0);
+    await expect(page.locator('#track-switch')).toBeVisible();
+    await expect(page.locator('#explore-guide')).toBeVisible();
+    await expect(page.locator('.graph-panel')).toBeVisible();
 
-    // 2. Toggle dark mode on index.html and verify persistence
+    // 2. Toggle dark mode on index.html and verify persistence & readable contrast
     const toggle = page.locator('#theme-toggle');
     await expect(toggle).toBeVisible();
     await toggle.click();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
     await expect(toggle).toHaveAttribute('aria-pressed', 'true');
 
-    const indexDarkBg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
-    expect(indexDarkBg).toBe('rgb(11, 17, 32)');
+    const darkColors = await page.evaluate(() => ({
+        bodyBg: getComputedStyle(document.body).backgroundColor,
+        listItemColor: getComputedStyle(document.querySelector('#piece-list .list-item')).color,
+        legendColor: getComputedStyle(document.querySelector('.legend-strip')).color,
+    }));
+    expect(darkColors.bodyBg).toBe('rgb(11, 17, 32)');
+    expect(darkColors.listItemColor).toBe('rgb(203, 213, 225)');
+    expect(darkColors.legendColor).toBe('rgb(148, 163, 184)');
 
     await page.reload();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
 
-    // 3. Navigate to lesson.html and verify dark mode persists + education roadmap renders
+    // 3. Navigate to lesson.html and verify dark mode persists + single smart bar renders (no duplicate roadmap)
     await page.goto('/lesson.html#piece=quick-sort');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-    await expect(page.locator('#lesson-roadmap')).toBeVisible();
+    await expect(page.locator('.lesson-smart-bar')).toBeVisible();
+    await expect(page.locator('#lesson-roadmap')).toHaveCount(0);
     await expect(page.locator('.reading-progress')).toBeAttached();
 
     // 4. Verify interactive code editor (.ce-highlight) has transparent bg (not light-gray <pre>) and crisp contrast
