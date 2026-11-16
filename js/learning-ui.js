@@ -149,10 +149,7 @@ if (document.body.classList.contains('lesson-page')) {
 } else if ($('.workspace-heading')) {
   createDashboard();
   fillDashboard();
-  window.addEventListener('hashchange', () => {
-    $('#study-dashboard')?.classList.toggle('is-course', location.hash.includes('course='));
-    // Existing app.js handles routing. Refresh counts for changed local progress.
-    const count = $('#study-count');
-    if (count) { try { count.textContent = String(JSON.parse(localStorage.getItem('hus.learned.v1') || '[]').length); } catch {} }
-  });
+  const syncCourseMode = () => $('#study-dashboard')?.classList.toggle('is-course', new URLSearchParams(location.hash.slice(1)).has('course'));
+  syncCourseMode();
+  window.addEventListener('hashchange', syncCourseMode);
 }
