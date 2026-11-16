@@ -60,7 +60,7 @@
       "id": "c1",
       "title": "Nền tảng Java và Bộ nhớ",
       "pieces": [
-        "oop-jvm-program-structure",
+        "cb-java-program-bytecode",
         "oop-variables-types",
         "oop-stack-heap-memory",
         "oop-parameter-passing"
@@ -91,7 +91,7 @@
       "title": "Trừu tượng hóa, ADT và UML",
       "pieces": [
         "java-interface-abstract",
-        "oop-adt-information-hiding",
+        "abstraction-adt",
         "oop-uml-class-diagram"
       ]
     },
@@ -109,8 +109,8 @@
       "title": "Nguyên lý SOLID và Xử lý ngoại lệ",
       "pieces": [
         "oop-solid-principles",
-        "oop-exceptions-hierarchy",
-        "oop-try-catch-custom-exception"
+        "cb-exceptions-checked-unchecked",
+        "cb-try-catch-finally-throw"
       ]
     },
     {

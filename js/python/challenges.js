@@ -685,6 +685,136 @@ def bfs_distances(adj, start):
         heap[i], heap[p] = heap[p], heap[i]
         i = p
     return heap`
+    },
+    'cb-operators-expressions': {
+        fnName: 'sum_digits',
+        starter: `def sum_digits(n):
+    total = 0
+    # TODO: tách chữ số bằng n % 10 và giảm n //= 10
+    
+    return total`,
+        solution: `def sum_digits(n):
+    total = 0
+    while n > 0:
+        total += n % 10
+        n //= 10
+    return total`
+    },
+    'cb-branching-if-switch': {
+        fnName: 'is_leap_year',
+        starter: `def is_leap_year(year):
+    # TODO: trả về True nếu year là năm nhuận
+    return False`,
+        solution: `def is_leap_year(year):
+    return (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0)`
+    },
+    'cb-loops-break-continue': {
+        fnName: 'gcd',
+        starter: `def gcd(a, b):
+    # TODO: lặp khi b != 0, cập nhật a, b = b, a % b
+    return a`,
+        solution: `def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a`
+    },
+    'cb-array-1d': {
+        fnName: 'second_max',
+        starter: `def second_max(arr):
+    first = float('-inf')
+    second = float('-inf')
+    # TODO: duyệt mảng tìm giá trị lớn thứ hai
+    
+    return -1 if second == float('-inf') else second`,
+        solution: `def second_max(arr):
+    first = float('-inf')
+    second = float('-inf')
+    for x in arr:
+        if x > first:
+            second = first
+            first = x
+        elif second < x < first:
+            second = x
+    return -1 if second == float('-inf') else second`
+    },
+    'cb-array-2d': {
+        fnName: 'diagonal_sum',
+        starter: `def diagonal_sum(mat):
+    n = len(mat)
+    total = 0
+    # TODO: cộng phần tử trên hai đường chéo (không tính trùng ô giữa)
+    
+    return total`,
+        solution: `def diagonal_sum(mat):
+    n = len(mat)
+    total = 0
+    for i in range(n):
+        for j in range(n):
+            if i == j or i + j == n - 1:
+                total += mat[i][j]
+    return total`
+    },
+    'cb-ex-array-sort-search': {
+        fnName: 'sort_and_search',
+        starter: `def sort_and_search(arr, target):
+    arr.sort()
+    l, r = 0, len(arr) - 1
+    # TODO: tìm kiếm nhị phân trên [l, r]
+    
+    return -1`,
+        solution: `def sort_and_search(arr, target):
+    arr.sort()
+    l, r = 0, len(arr) - 1
+    while l <= r:
+        mid = (l + r) // 2
+        if arr[mid] == target:
+            return mid
+        if arr[mid] < target:
+            l = mid + 1
+        else:
+            r = mid - 1
+    return -1`
+    },
+    'cb-ex-string-vigenere': {
+        fnName: 'caesar_shift',
+        starter: `def caesar_shift(text, shift):
+    res = []
+    # TODO: dịch từng ký tự hoa sang phải shift bước (mod 26)
+    
+    return ''.join(res)`,
+        solution: `def caesar_shift(text, shift):
+    res = []
+    for ch in text:
+        res.append(chr(((ord(ch) - 65 + shift) % 26) + 65))
+    return ''.join(res)`
+    },
+    'oop-ex-matrix': {
+        fnName: 'transpose_matrix',
+        starter: `def transpose_matrix(mat):
+    n = len(mat)
+    # TODO: trả về ma trận chuyển vị n x n
+    return [[0] * n for _ in range(n)]`,
+        solution: `def transpose_matrix(mat):
+    n = len(mat)
+    return [[mat[j][i] for j in range(n)] for i in range(n)]`
+    },
+    'oop-ex-statistics': {
+        fnName: 'variance',
+        starter: `def variance(arr):
+    # TODO: tính phương sai tổng thể làm tròn 2 chữ số thập phân
+    return 0`,
+        solution: `def variance(arr):
+    mean = sum(arr) / len(arr)
+    var = sum((x - mean) ** 2 for x in arr) / len(arr)
+    return round(var, 2)`
+    },
+    'oop-stream-api-basics': {
+        fnName: 'even_squares',
+        starter: `def even_squares(arr):
+    # TODO: lọc số chẵn và bình phương
+    return []`,
+        solution: `def even_squares(arr):
+    return [x * x for x in arr if x % 2 == 0]`
     }
 };
 

@@ -5,7 +5,34 @@ const GROUPS = {
     graphs: ['graph-concepts', 'graph-representation', 'dfs', 'bfs', 'mst', 'prim', 'kruskal', 'dijkstra', 'floyd', 'hw-graph'],
     recursion: ['algorithm-problem', 'recursion', 'tower-of-hanoi', 'fibonacci', 'recursion-elimination', 'divide-and-conquer', 'minmax-dc', 'strassen', 'tromino-tiling', 'decrease-transform-conquer', 'brute-force', 'string-matching-bf', 'backtracking', 'binary-strings', 'n-queens', 'maze-stack', 'maze-path-backtracking', 'branch-and-bound', 'tsp-bnb', 'hw-trial-error'],
     dp: ['greedy-method', 'coin-change-greedy', 'activity-selection', 'hw-greedy', 'dynamic-programming', 'dp-elements', 'binomial-dp', 'lis', 'knapsack-01', 'grid-path-dp', 'lcs', 'hw-dp'],
-    oopmath: ['java-interface-abstract', 'java-generics', 'comparable-interface', 'running-time-model', 'big-o', 'sum-product-rules', 'best-worst-average', 'complexity-classes', 'turing-machine', 'hw-turing', 'recursion-correctness', 'recurrence-relation', 'substitution-method', 'master-theorem', 'hw-recurrences', 'bubble-sort-cost', 'comparison-sort-lower-bound', 'full-binary-tree-height', 'heap-height']
+    oopmath: ['java-interface-abstract', 'java-generics', 'comparable-interface', 'running-time-model', 'big-o', 'sum-product-rules', 'best-worst-average', 'complexity-classes', 'turing-machine', 'hw-turing', 'recursion-correctness', 'recurrence-relation', 'substitution-method', 'master-theorem', 'hw-recurrences', 'bubble-sort-cost', 'comparison-sort-lower-bound', 'full-binary-tree-height', 'heap-height'],
+    basics: [
+        'cb-java-program-bytecode', 'cb-primitive-types-variables', 'cb-operators-expressions',
+        'cb-methods-intro', 'cb-variable-scope', 'cb-scanner-io-format',
+        'cb-branching-if-switch', 'cb-loops-break-continue', 'cb-coding-style',
+        'cb-array-1d', 'cb-array-2d', 'cb-array-methods',
+        'cb-ex-array-sort-search', 'cb-java-api-math-string', 'cb-class-object-constructor',
+        'cb-reference-vs-primitive', 'cb-static-members', 'cb-ex-string-vigenere',
+        'cb-access-control', 'cb-class-scope-this', 'cb-packages-arraylist',
+        'cb-encapsulation-debug', 'cb-interface-contract', 'cb-inheritance-oop',
+        'cb-exceptions-checked-unchecked', 'cb-try-catch-finally-throw',
+        'cb-io-streams-files', 'cb-text-binary-serialization', 'cb-swing-gui-basics'
+    ],
+    oop: [
+        'oop-variables-types', 'oop-stack-heap-memory', 'oop-parameter-passing',
+        'oop-paradigm-class-object', 'oop-encapsulation-modifiers', 'oop-constructors-this',
+        'oop-java-api-wrapper', 'oop-inheritance-super', 'oop-object-class-contract',
+        'oop-casting-instanceof', 'oop-polymorphism-dispatch', 'oop-uml-class-diagram',
+        'oop-jcf-hierarchy-list', 'oop-set-queue-map', 'oop-iterator-collections-utils',
+        'oop-solid-principles', 'oop-design-patterns-intro', 'oop-singleton-pattern',
+        'oop-factory-method-abstract-factory', 'oop-adapter-facade', 'oop-decorator-pattern',
+        'oop-bridge-proxy', 'oop-strategy-pattern', 'oop-observer-pattern',
+        'oop-template-method-iterator', 'oop-command-state', 'oop-chain-mediator-visitor',
+        'oop-generic-methods-bounded', 'oop-generics-wildcards', 'oop-type-erasure-restrictions',
+        'oop-functional-interface-lambda', 'oop-standard-functional-interfaces',
+        'oop-stream-api-basics', 'oop-stream-operations-collectors',
+        'oop-ex-matrix', 'oop-ex-integration', 'oop-ex-statistics', 'oop-ex-student-manager'
+    ]
 };
 
 const LOADERS = {
@@ -15,7 +42,9 @@ const LOADERS = {
     graphs: () => import('./graphs.js').then(m => m.mountGraphs),
     recursion: () => import('./recursion-bt.js').then(m => m.mountRecursion),
     dp: () => import('./dp-greedy.js').then(m => m.mountDpGreedy),
-    oopmath: () => import('./oop-math.js').then(m => m.mountOopMath)
+    oopmath: () => import('./oop-math.js').then(m => m.mountOopMath),
+    basics: () => import('./basics.js').then(m => m.mountBasics),
+    oop: () => import('./oop.js').then(m => m.mountOop)
 };
 
 export const VISUALIZER_REGISTRY = Object.fromEntries(

@@ -4,8 +4,8 @@ Tài liệu này ghi nhận các bước kiểm tra đã chạy sau lần chỉn
 
 ## 1. Dữ liệu kiến thức, nguồn và công thức
 
-- `npm run validate:strict` (`node tools/validate.mjs --strict`): **đạt (0 lỗi, 0 cảnh báo)** trên 176 mảnh kiến thức, 305 cạnh quan hệ, 4 khóa học (`THCS4`, `OOP`, `MAT3514`, `MAT3504`), 176 tệp bài học và 0 mảnh đánh dấu `"ngoài docs"`.
-- `python tools/inventory.py` và `python tools/audit-sources.py`: đã kiểm kê 604 tệp trong `docs/` (13.232 trang PDF/slide, chi tiết tại [DOCUMENTS.md](DOCUMENTS.md) và `data/documents.json`) và đối chiếu 276 trích dẫn nguồn trang của 176 mảnh với kết quả `problems: []`.
+- `npm run validate:strict` (`node tools/validate.mjs --strict`): **đạt (0 lỗi, 0 cảnh báo)** trên 171 mảnh kiến thức, 317 cạnh quan hệ, 4 khóa học (`THCS4`, `OOP`, `MAT3514`, `MAT3504`), 171 tệp bài học và 0 mảnh đánh dấu `"ngoài docs"`.
+- `python tools/inventory.py` và `python tools/audit-sources.py`: đã kiểm kê 604 tệp trong `docs/` (13.232 trang PDF/slide, chi tiết tại [DOCUMENTS.md](DOCUMENTS.md) và `data/documents.json`) và đối chiếu 276 trích dẫn nguồn trang của 171 mảnh với kết quả `problems: []`.
 - Kiểm tra phân tích KaTeX qua `node_modules/katex`: toàn bộ 195 biểu thức `$...$` trong 104 `summary` và 104 bài học `content/lessons/*.md` biên dịch với **0 lỗi**.
 - Làm sạch tiêu đề 4 mảnh (`generic-bubble-sort`, `tromino-tiling`, `ex-count-pairs`, `binomial-dp`) để không hiển thị dấu backtick hoặc cú pháp `$...$` thô trong nhãn SVG của đồ thị, danh sách thanh bên và thẻ `<title>`.
 

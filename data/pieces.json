@@ -256,10 +256,17 @@
         {
           "file": "docs/18. Thiết kế đánh giá thuật toán/MAT3504/Bài 3 - Đệ quy và khử đệ quy/L3 - Recursion.pdf",
           "page": "8-18"
+        },
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 3 - Mảng.pdf",
+          "page": "22-34"
         }
       ],
       "tags": [
-        "đệ quy"
+        "đệ quy",
+        "java",
+        "de-quy",
+        "vong-lap"
       ],
       "lesson": "content/lessons/recursion.md",
       "track": "algorithm"
@@ -837,10 +844,20 @@
         {
           "file": "docs/17. Cấu trúc dữ liệu và giải thuật/DSA - MAT3514/Lecture 3/L3a - AbstractDataType.pdf",
           "page": "19"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 5- Abstraction/OOP2024_JavaSlides_W5_OOP-Abstraction.pdf",
+          "page": "45-53"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 5- Abstraction/OOP2024_JavaSlides_W5_OOP-Abstraction.pdf",
+          "page": "57-70"
         }
       ],
       "tags": [
-        "adt"
+        "adt",
+        "abstraction",
+        "information-hiding"
       ],
       "lesson": "content/lessons/abstraction-adt.md",
       "track": "algorithm"
@@ -2237,12 +2254,22 @@
         {
           "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 1 - Kiểu dữ liệu, biến, toán tử và biểu thức.pdf",
           "page": "12-21"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
+          "page": "16-26"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
+          "page": "31-35"
         }
       ],
       "tags": [
         "java",
         "jvm",
-        "co-ban"
+        "co-ban",
+        "java-basics",
+        "oop"
       ],
       "lesson": "content/lessons/cb-java-program-bytecode.md",
       "track": "algorithm"
@@ -2465,26 +2492,6 @@
         "phuong-thuc"
       ],
       "lesson": "content/lessons/cb-array-methods.md",
-      "track": "algorithm"
-    },
-    {
-      "id": "cb-recursion-basics",
-      "title": "Đệ quy cơ bản và so sánh với vòng lặp",
-      "type": "concept",
-      "difficulty": 2,
-      "summary": "Cơ chế phương thức tự gọi lại chính nó với bước cơ sở và bước hội tụ (giai thừa, Fibonacci, đổi nhị phân, gcd Euclid), kèm đánh giá bộ nhớ và hiệu năng so với vòng lặp.",
-      "sources": [
-        {
-          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 3 - Mảng.pdf",
-          "page": "22-34"
-        }
-      ],
-      "tags": [
-        "java",
-        "de-quy",
-        "vong-lap"
-      ],
-      "lesson": "content/lessons/cb-recursion-basics.md",
       "track": "algorithm"
     },
     {
@@ -2742,12 +2749,26 @@
         {
           "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 7 - Kế thừa, xử lí ngoại lệ.pdf",
           "page": "9-13"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "51-61"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "71-74"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "92-93"
         }
       ],
       "tags": [
         "java",
         "ngoai-le",
-        "exception"
+        "exception",
+        "exceptions",
+        "robustness"
       ],
       "lesson": "content/lessons/cb-exceptions-checked-unchecked.md",
       "track": "algorithm"
@@ -2762,12 +2783,21 @@
         {
           "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 7 - Kế thừa, xử lí ngoại lệ.pdf",
           "page": "14-28"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "63-69"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "75-89"
         }
       ],
       "tags": [
         "java",
         "ngoai-le",
-        "try-catch"
+        "try-catch",
+        "exceptions"
       ],
       "lesson": "content/lessons/cb-try-catch-finally-throw.md",
       "track": "algorithm"
@@ -2831,30 +2861,6 @@
       ],
       "lesson": "content/lessons/cb-swing-gui-basics.md",
       "track": "algorithm"
-    },
-    {
-      "id": "oop-jvm-program-structure",
-      "title": "Biên dịch Java, JVM và cấu trúc chương trình",
-      "type": "concept",
-      "track": "algorithm",
-      "difficulty": 1,
-      "summary": "Kiến trúc hai bước biên dịch sang bytecode chạy trên JVM (JDK/JRE/JVM) và cấu trúc tệp nguồn Java gồm package, import, class và main.",
-      "sources": [
-        {
-          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
-          "page": "16-26"
-        },
-        {
-          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
-          "page": "31-35"
-        }
-      ],
-      "tags": [
-        "java-basics",
-        "jvm",
-        "oop"
-      ],
-      "lesson": "content/lessons/oop-jvm-program-structure.md"
     },
     {
       "id": "oop-variables-types",
@@ -3108,30 +3114,6 @@
       "lesson": "content/lessons/oop-polymorphism-dispatch.md"
     },
     {
-      "id": "oop-adt-information-hiding",
-      "title": "ADT, che giấu thông tin và tiền/hậu điều kiện",
-      "type": "concept",
-      "track": "algorithm",
-      "difficulty": 2,
-      "summary": "Tách đặc tả phép toán (ADT) khỏi cấu trúc dữ liệu cài đặt bên dưới, kèm tiền điều kiện/hậu điều kiện qua ví dụ số phức Complex.",
-      "sources": [
-        {
-          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 5- Abstraction/OOP2024_JavaSlides_W5_OOP-Abstraction.pdf",
-          "page": "45-53"
-        },
-        {
-          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 5- Abstraction/OOP2024_JavaSlides_W5_OOP-Abstraction.pdf",
-          "page": "57-70"
-        }
-      ],
-      "tags": [
-        "abstraction",
-        "adt",
-        "information-hiding"
-      ],
-      "lesson": "content/lessons/oop-adt-information-hiding.md"
-    },
-    {
       "id": "oop-uml-class-diagram",
       "title": "Biểu đồ lớp UML và các quan hệ",
       "type": "concept",
@@ -3246,56 +3228,6 @@
         "oop"
       ],
       "lesson": "content/lessons/oop-solid-principles.md"
-    },
-    {
-      "id": "oop-exceptions-hierarchy",
-      "title": "Phân cấp ngoại lệ: Checked và Unchecked",
-      "type": "concept",
-      "track": "algorithm",
-      "difficulty": 2,
-      "summary": "Cơ chế lan truyền ngoại lệ trên call stack và sự khác biệt giữa Error, RuntimeException (unchecked) với Checked Exception.",
-      "sources": [
-        {
-          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
-          "page": "51-61"
-        },
-        {
-          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
-          "page": "71-74"
-        },
-        {
-          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
-          "page": "92-93"
-        }
-      ],
-      "tags": [
-        "exceptions",
-        "robustness"
-      ],
-      "lesson": "content/lessons/oop-exceptions-hierarchy.md"
-    },
-    {
-      "id": "oop-try-catch-custom-exception",
-      "title": "Xử lý ngoại lệ và tự định nghĩa Exception",
-      "type": "concept",
-      "track": "algorithm",
-      "difficulty": 2,
-      "summary": "Cú pháp try-catch-finally, try-with-resources, phân biệt throw/throws và tạo lớp ngoại lệ nghiệp vụ riêng.",
-      "sources": [
-        {
-          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
-          "page": "63-69"
-        },
-        {
-          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
-          "page": "75-89"
-        }
-      ],
-      "tags": [
-        "exceptions",
-        "try-catch"
-      ],
-      "lesson": "content/lessons/oop-try-catch-custom-exception.md"
     },
     {
       "id": "oop-design-patterns-intro",
@@ -4803,12 +4735,12 @@
     },
     {
       "source": "cb-methods-intro",
-      "target": "cb-recursion-basics",
+      "target": "recursion",
       "relation": "prerequisite"
     },
     {
       "source": "cb-branching-if-switch",
-      "target": "cb-recursion-basics",
+      "target": "recursion",
       "relation": "prerequisite"
     },
     {
@@ -4972,11 +4904,6 @@
       "note": "Kết hợp thuộc tính private với setter dùng this để bảo vệ dữ liệu đối tượng"
     },
     {
-      "source": "cb-recursion-basics",
-      "target": "recursion",
-      "relation": "related"
-    },
-    {
       "source": "cb-interface-contract",
       "target": "java-interface-abstract",
       "relation": "related"
@@ -4997,7 +4924,7 @@
       "relation": "related"
     },
     {
-      "source": "oop-jvm-program-structure",
+      "source": "cb-java-program-bytecode",
       "target": "oop-variables-types",
       "relation": "prerequisite"
     },
@@ -5078,12 +5005,12 @@
     },
     {
       "source": "java-interface-abstract",
-      "target": "oop-adt-information-hiding",
+      "target": "abstraction-adt",
       "relation": "prerequisite"
     },
     {
       "source": "oop-encapsulation-modifiers",
-      "target": "oop-adt-information-hiding",
+      "target": "abstraction-adt",
       "relation": "prerequisite"
     },
     {
@@ -5133,12 +5060,7 @@
     },
     {
       "source": "oop-inheritance-super",
-      "target": "oop-exceptions-hierarchy",
-      "relation": "prerequisite"
-    },
-    {
-      "source": "oop-exceptions-hierarchy",
-      "target": "oop-try-catch-custom-exception",
+      "target": "cb-exceptions-checked-unchecked",
       "relation": "prerequisite"
     },
     {
@@ -5282,7 +5204,7 @@
       "relation": "prerequisite"
     },
     {
-      "source": "oop-adt-information-hiding",
+      "source": "abstraction-adt",
       "target": "oop-ex-statistics",
       "relation": "prerequisite"
     },
@@ -5355,6 +5277,76 @@
       "target": "oop-ex-matrix",
       "relation": "applies",
       "note": "Che giấu mảng 2 chiều data và chỉ cung cấp phép toán qua phương thức"
+    },
+    {
+      "source": "cb-primitive-types-variables",
+      "target": "oop-variables-types",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-reference-vs-primitive",
+      "target": "oop-stack-heap-memory",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-methods-intro",
+      "target": "oop-parameter-passing",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-class-object-constructor",
+      "target": "oop-paradigm-class-object",
+      "relation": "related"
+    },
+    {
+      "source": "cb-access-control",
+      "target": "oop-encapsulation-modifiers",
+      "relation": "related"
+    },
+    {
+      "source": "cb-inheritance-oop",
+      "target": "oop-inheritance-super",
+      "relation": "related"
+    },
+    {
+      "source": "cb-packages-arraylist",
+      "target": "oop-jcf-hierarchy-list",
+      "relation": "related"
+    },
+    {
+      "source": "cb-packages-arraylist",
+      "target": "array-list",
+      "relation": "related"
+    },
+    {
+      "source": "cb-array-1d",
+      "target": "array-list",
+      "relation": "related"
+    },
+    {
+      "source": "cb-array-1d",
+      "target": "sorting-problem",
+      "relation": "related"
+    },
+    {
+      "source": "cb-ex-array-sort-search",
+      "target": "binary-search",
+      "relation": "related"
+    },
+    {
+      "source": "oop-jcf-hierarchy-list",
+      "target": "list-adt",
+      "relation": "related"
+    },
+    {
+      "source": "oop-set-queue-map",
+      "target": "queue-adt",
+      "relation": "related"
+    },
+    {
+      "source": "oop-set-queue-map",
+      "target": "hash-table",
+      "relation": "related"
     }
   ]
 }

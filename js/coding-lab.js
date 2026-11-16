@@ -589,6 +589,127 @@ export const CHALLENGES = {
             { name: 'Chèn phần tử nhỏ nhất mới', args: [[3, 5, 8, 10, 7], 2], expected: [2, 5, 3, 10, 7, 8] },
             { name: 'Heap rỗng', args: [[], 9], expected: [9] }
         ]
+    },
+    'cb-operators-expressions': {
+        title: 'Tính tổng các chữ số của số nguyên dương',
+        prompt: 'Cho số nguyên không âm `n`. Trả về tổng các chữ số của `n` (ví dụ `1234` → `10`).',
+        fnName: 'sumDigits',
+        starter: `static int sumDigits(int n) {\n    int sum = 0;\n    // TODO: tách chữ số bằng n % 10 và giảm n bằng Math.floor(n / 10)\n    \n    return sum;\n}`,
+        solution: `static int sumDigits(int n) {\n    int sum = 0;\n    while (n > 0) {\n        sum += n % 10;\n        n = Math.floor(n / 10);\n    }\n    return sum;\n}`,
+        hint: 'Dùng n % 10 lấy chữ số cuối và Math.floor(n / 10) bỏ chữ số cuối.',
+        tests: [
+            { name: 'Số nhiều chữ số', args: [1234], expected: 10 },
+            { name: 'Số 0', args: [0], expected: 0 }
+        ]
+    },
+    'cb-branching-if-switch': {
+        title: 'Kiểm tra năm nhuận',
+        prompt: 'Trả về `true` nếu `year` là năm nhuận (chia hết cho 400, hoặc chia hết cho 4 nhưng không chia hết cho 100), ngược lại `false`.',
+        fnName: 'isLeapYear',
+        starter: `static boolean isLeapYear(int year) {\n    // TODO: kiểm tra điều kiện năm nhuận\n    return false;\n}`,
+        solution: `static boolean isLeapYear(int year) {\n    return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);\n}`,
+        hint: 'Điều kiện: (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0).',
+        tests: [
+            { name: 'Chia hết cho 400', args: [2000], expected: true },
+            { name: 'Chia hết cho 100 nhưng không cho 400', args: [1900], expected: false },
+            { name: 'Năm nhuận thường', args: [2024], expected: true }
+        ]
+    },
+    'cb-loops-break-continue': {
+        title: 'Ước chung lớn nhất (thuật toán Euclid)',
+        prompt: 'Cho hai số nguyên dương `a` và `b`. Dùng vòng lặp `while` tính và trả về ước chung lớn nhất $\\gcd(a, b)$.',
+        fnName: 'gcd',
+        starter: `static int gcd(int a, int b) {\n    // TODO: lặp khi b != 0, cập nhật (a, b) = (b, a % b)\n    return a;\n}`,
+        solution: `static int gcd(int a, int b) {\n    while (b != 0) {\n        int r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}`,
+        hint: 'Lưu r = a % b, gán a = b, b = r cho đến khi b == 0.',
+        tests: [
+            { name: 'Hai số có ước chung', args: [48, 18], expected: 6 },
+            { name: 'Hai số nguyên tố cùng nhau', args: [17, 5], expected: 1 }
+        ]
+    },
+    'cb-array-1d': {
+        title: 'Tìm phần tử lớn thứ hai trong mảng',
+        prompt: 'Cho mảng `arr` gồm ít nhất 2 số nguyên khác nhau. Trả về giá trị lớn thứ hai (nghiêm ngặt nhỏ hơn giá trị lớn nhất). Nếu không có, trả về `-1`.',
+        fnName: 'secondMax',
+        starter: `static int secondMax(int[] arr) {\n    int first = -Infinity, second = -Infinity;\n    // TODO: duyệt mảng cập nhật first và second\n    \n    return second == -Infinity ? -1 : second;\n}`,
+        solution: `static int secondMax(int[] arr) {\n    int first = -Infinity, second = -Infinity;\n    for (int i = 0; i < arr.length; i++) {\n        int x = arr[i];\n        if (x > first) {\n            second = first;\n            first = x;\n        } else if (x < first && x > second) {\n            second = x;\n        }\n    }\n    return second == -Infinity ? -1 : second;\n}`,
+        hint: 'Khi x > first thì đẩy first xuống second rồi gán first = x; chú ý bỏ qua phần tử bằng first.',
+        tests: [
+            { name: 'Mảng thường', args: [[5, 9, 2, 9, 7]], expected: 7 },
+            { name: 'Tất cả phần tử bằng nhau', args: [[4, 4, 4]], expected: -1 }
+        ]
+    },
+    'cb-array-2d': {
+        title: 'Tổng hai đường chéo ma trận vuông',
+        prompt: 'Cho ma trận vuông `mat` kích thước $n \\times n$. Trả về tổng các phần tử trên đường chéo chính (`i == j`) cộng đường chéo phụ (`i + j == n - 1`), phần tử giao nhau ở giữa chỉ tính một lần.',
+        fnName: 'diagonalSum',
+        starter: `static int diagonalSum(int[][] mat) {\n    int n = mat.length, sum = 0;\n    // TODO: cộng các phần tử thuộc ít nhất một trong hai đường chéo\n    \n    return sum;\n}`,
+        solution: `static int diagonalSum(int[][] mat) {\n    int n = mat.length, sum = 0;\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            if (i == j || i + j == n - 1) sum += mat[i][j];\n        }\n    }\n    return sum;\n}`,
+        hint: 'Dùng điều kiện if (i == j || i + j == n - 1) để không cộng trùng ô giữa khi n lẻ.',
+        tests: [
+            { name: 'Ma trận 3x3', args: [[[1, 2, 3], [4, 5, 6], [7, 8, 9]]], expected: 25 },
+            { name: 'Ma trận 2x2', args: [[[1, 2], [3, 4]]], expected: 10 }
+        ]
+    },
+    'cb-ex-array-sort-search': {
+        title: 'Sắp xếp tăng dần và tìm kiếm nhị phân',
+        prompt: 'Cho mảng `arr` và giá trị `target`. Sắp xếp `arr` tăng dần rồi dùng tìm kiếm nhị phân trả về chỉ số của `target` trong mảng đã sắp xếp (`-1` nếu không có).',
+        fnName: 'sortAndSearch',
+        starter: `static int sortAndSearch(int[] arr, int target) {\n    Arrays.sort(arr);\n    int l = 0, r = arr.length - 1;\n    // TODO: tìm kiếm nhị phân trên [l, r]\n    \n    return -1;\n}`,
+        solution: `static int sortAndSearch(int[] arr, int target) {\n    Arrays.sort(arr);\n    int l = 0, r = arr.length - 1;\n    while (l <= r) {\n        int mid = Math.floor((l + r) / 2);\n        if (arr[mid] == target) return mid;\n        if (arr[mid] < target) l = mid + 1;\n        else r = mid - 1;\n    }\n    return -1;\n}`,
+        hint: 'Sau Arrays.sort(arr), thu hẹp [l, r] theo so sánh arr[mid] với target.',
+        tests: [
+            { name: 'Tìm thấy sau sắp xếp', args: [[9, 1, 5, 3, 7], 5], expected: 2 },
+            { name: 'Không tìm thấy', args: [[4, 2, 8], 6], expected: -1 }
+        ]
+    },
+    'cb-ex-string-vigenere': {
+        title: 'Mã hóa Caesar / Vigenère chữ hoa',
+        prompt: 'Cho xâu chữ hoa `text` (A-Z) và khóa dịch `shift` (số nguyên không âm). Trả về xâu mới sau khi dịch vòng mỗi ký tự sang phải `shift` bước trong bảng chữ cái 26 ký tự.',
+        fnName: 'caesarShift',
+        starter: `static String caesarShift(String text, int shift) {\n    String res = "";\n    // TODO: dịch từng ký tự trong text sang phải shift bước (mod 26)\n    \n    return res;\n}`,
+        solution: `static String caesarShift(String text, int shift) {\n    String res = "";\n    for (int i = 0; i < text.length(); i++) {\n        int code = text.charCodeAt(i) - 65;\n        res += String.fromCharCode(((code + shift) % 26) + 65);\n    }\n    return res;\n}`,
+        hint: 'Mã ASCII của A là 65; chuyển về 0..25, cộng shift rồi % 26 và cộng lại 65.',
+        tests: [
+            { name: 'Dịch cơ bản', args: ['HUS', 3], expected: 'KXV' },
+            { name: 'Vòng qua Z', args: ['XYZ', 3], expected: 'ABC' }
+        ]
+    },
+    'oop-ex-matrix': {
+        title: 'Chuyển vị ma trận vuông',
+        prompt: 'Cho ma trận vuông `mat` kích thước $n \\times n$. Trả về ma trận chuyển vị mới $B$ với $B[i][j] = mat[j][i]$.',
+        fnName: 'transposeMatrix',
+        starter: `static int[][] transposeMatrix(int[][] mat) {\n    int n = mat.length;\n    int[][] res = new int[n][n];\n    // TODO: gán res[i][j] = mat[j][i]\n    \n    return res;\n}`,
+        solution: `static int[][] transposeMatrix(int[][] mat) {\n    int n = mat.length;\n    int[][] res = new int[n][n];\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            res[i][j] = mat[j][i];\n        }\n    }\n    return res;\n}`,
+        hint: 'Dùng hai vòng lặp i, j từ 0 đến n - 1 và gán res[i][j] = mat[j][i].',
+        tests: [
+            { name: 'Ma trận 2x2', args: [[[1, 2], [3, 4]]], expected: [[1, 3], [2, 4]] },
+            { name: 'Ma trận 3x3', args: [[[1, 2, 3], [4, 5, 6], [7, 8, 9]]], expected: [[1, 4, 7], [2, 5, 8], [3, 6, 9]] }
+        ]
+    },
+    'oop-ex-statistics': {
+        title: 'Tính phương sai mẫu (Statistics)',
+        prompt: 'Cho mảng số `arr` ($n \\ge 1$). Trả về phương sai tổng thể $\\frac{1}{n}\\sum (x_i - \\bar{x})^2$ làm tròn tới 2 chữ số thập phân.',
+        fnName: 'variance',
+        starter: `static double variance(double[] arr) {\n    double sum = 0;\n    // TODO: tính trung bình mean rồi tính tổng bình phương độ lệch chia n\n    \n    return 0;\n}`,
+        solution: `static double variance(double[] arr) {\n    double sum = 0;\n    for (int i = 0; i < arr.length; i++) sum += arr[i];\n    double mean = sum / arr.length;\n    double sq = 0;\n    for (int i = 0; i < arr.length; i++) sq += (arr[i] - mean) * (arr[i] - mean);\n    return Math.round((sq / arr.length) * 100) / 100;\n}`,
+        hint: 'Tính mean = sum / arr.length trước, sau đó cộng (arr[i] - mean) * (arr[i] - mean) và chia arr.length.',
+        tests: [
+            { name: 'Dãy [2, 4, 4, 4, 5, 5, 7, 9]', args: [[2, 4, 4, 4, 5, 5, 7, 9]], expected: 4 },
+            { name: 'Dãy đều nhau', args: [[5, 5, 5]], expected: 0 }
+        ]
+    },
+    'oop-stream-api-basics': {
+        title: 'Pipeline lọc chẵn và bình phương',
+        prompt: 'Mô phỏng pipeline Stream `filter(x -> x % 2 == 0).map(x -> x * x)`: cho mảng `arr`, trả về mảng mới gồm bình phương các số chẵn theo đúng thứ tự ban đầu.',
+        fnName: 'evenSquares',
+        starter: `static int[] evenSquares(int[] arr) {\n    // TODO: lọc các số chẵn và bình phương chúng\n    return new int[]{};\n}`,
+        solution: `static int[] evenSquares(int[] arr) {\n    int[] out = new int[]{};\n    for (int i = 0; i < arr.length; i++) {\n        if (arr[i] % 2 == 0) out.push(arr[i] * arr[i]);\n    }\n    return out;\n}`,
+        hint: 'Kiểm tra arr[i] % 2 == 0 rồi đẩy arr[i] * arr[i] vào mảng kết quả.',
+        tests: [
+            { name: 'Mảng hỗn hợp', args: [[1, 2, 3, 4, 5, 6]], expected: [4, 16, 36] },
+            { name: 'Không có số chẵn', args: [[1, 3, 5]], expected: [] }
+        ]
     }
 };
 

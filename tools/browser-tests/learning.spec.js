@@ -219,21 +219,23 @@ test('new courses THCS4 and OOP render chapters and lessons', async ({ page }) =
     await expect(page.locator('#course-overview')).toBeVisible();
     await expect(page.locator('#course-path .chapter')).toHaveCount(11);
 
-    await page.goto('/lesson.html#course=THCS4&piece=cb-variables-types');
-    await expect(page.locator('#lesson-content h1')).toBeVisible();
+    await page.goto('/lesson.html#course=THCS4&piece=cb-primitive-types-variables');
+    await expect(page.locator('#lesson-content h1')).toContainText('Kiểu dữ liệu nguyên thủy');
+    await expect(page.locator('#algorithm-animation .viz-controls')).toBeVisible();
     await expect(page.locator('.katex-error')).toHaveCount(0);
 
     await page.goto('/lesson.html#course=OOP&piece=oop-design-patterns-intro');
-    await expect(page.locator('#lesson-content h1')).toBeVisible();
+    await expect(page.locator('#lesson-content h1')).toContainText('Mẫu thiết kế');
+    await expect(page.locator('#algorithm-animation .viz-controls')).toBeVisible();
     await expect(page.locator('.katex-error')).toHaveCount(0);
     expect(errors).toEqual([]);
 });
 
 test('visualizers run on every lesson without errors', async ({ page, request }) => {
-    test.setTimeout(300000);
+    test.setTimeout(600000);
     const errors = []; page.on('pageerror', e => errors.push(e.message));
     const data = await (await request.get('/data/pieces.json')).json();
-    for (const p of data.pieces.filter((item) => !/^(cb|oop)-/.test(item.id))) {
+    for (const p of data.pieces) {
         await page.goto('/lesson.html#piece=' + p.id);
         await expect(page.locator('#algorithm-animation .viz-controls'), p.id).toBeVisible();
         await page.locator('#algorithm-animation .viz-btn', { hasText: 'Bước tiếp' }).click();
