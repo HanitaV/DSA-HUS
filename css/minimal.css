@@ -337,3 +337,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 [data-theme="dark"] .primary { background: #5168dd; border-color: #5168dd; color: #fff; }
 [data-theme="dark"] .course-track-stats, [data-theme="dark"] .detail-section.math-bridge { background: transparent; border: 0; color: var(--p-muted); }
 [data-theme="dark"] .lesson-smart-bar { background: transparent; border: 0; }
+
+/* The chapter outline is contextual, not a permanent empty card. */
+.outline-disclosure:has(#course-path[hidden]) { display: none; }
