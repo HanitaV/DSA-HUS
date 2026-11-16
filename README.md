@@ -1,6 +1,6 @@
 # Bản đồ kiến thức HUS
 
-Website học tập tĩnh bằng tiếng Việt, tổ chức kiến thức thành các mảnh dùng chung giữa hai khóa **MAT3514 – Cấu trúc dữ liệu và giải thuật** và **MAT3504 – Thiết kế và đánh giá thuật toán**. Hiện có 104 mảnh, 183 cạnh và 104 bài học ngắn có câu hỏi tự kiểm tra, gợi ý và nguồn trang PDF.
+Website học tập tĩnh bằng tiếng Việt, tổ chức kiến thức thành các mảnh dùng chung giữa bốn khóa: **THCS4 – Lập trình cơ bản**, **OOP – Lập trình hướng đối tượng**, **MAT3514 – Cấu trúc dữ liệu và giải thuật** và **MAT3504 – Thiết kế và đánh giá thuật toán**. Hiện có 176 mảnh, 305 cạnh và 176 bài học ngắn có câu hỏi tự kiểm tra, gợi ý và nguồn trang PDF.
 
 Đồ thị là lối điều hướng chính. Chọn một mảnh để xem tiên quyết, ứng dụng và các hướng học tiếp. Có thể tìm kiếm không dấu, dùng danh sách bằng bàn phím, học theo chương và đánh dấu đã học. Tiến độ dùng chung giữa các khóa, lưu tại trình duyệt hiện tại; khi localStorage bị chặn, site vẫn dùng được và thông báo không thể lưu lâu dài.
 

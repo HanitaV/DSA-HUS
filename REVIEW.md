@@ -4,7 +4,7 @@
 
 Đã đọc tệp và trích xuất tự động toàn bộ 604 tệp trong `docs/`: 137 PDF, 9 PPTX, 4 DOCX, mã Java, văn bản, dữ liệu và các gói nén. Tổng số trang PDF/slide là 13.232. Danh mục từng tệp, số trang, môn, thư mục chương và tình trạng trích xuất nằm trong [DOCUMENTS.md](DOCUMENTS.md) và `data/documents.json`.
 
-**Không coi bước trích xuất là đã thẩm định thủ công cả 13.232 trang.** Nội dung website hiện chỉ biên soạn 104 mảnh ngắn cho MAT3514/MAT3504 dựa trên các nguồn được ghi trong từng mảnh. Chưa có lộ trình đầy đủ cho môn nhập môn lập trình hoặc lập trình hướng đối tượng và chưa chuyển toàn bộ chương trong mọi sách tham khảo thành bài học. Các nguồn là slide có hình hoặc sách scan vẫn cần xem trực quan để kiểm chứng đầy đủ. Không ghi nhận phần đó là đã hoàn tất chỉ vì script đọc tệp thành công.
+**Không coi bước trích xuất là đã thẩm định thủ công cả 13.232 trang.** Nội dung website hiện biên soạn 176 mảnh ngắn cho 4 khóa (`THCS4`, `OOP`, `MAT3514`, `MAT3504`) dựa trên các nguồn được ghi trong từng mảnh, chưa chuyển toàn bộ chương trong mọi sách tham khảo thành bài học. Các nguồn là slide có hình hoặc sách scan vẫn cần xem trực quan để kiểm chứng đầy đủ. Không ghi nhận phần đó là đã hoàn tất chỉ vì script đọc tệp thành công.
 
 Đã kiểm tra sự tồn tại và giới hạn trang của các nguồn đang dẫn, đọc các đoạn nguồn được trích cho các mảnh và đối chiếu những công thức, điều kiện hoặc quy ước gây nhầm. Các bài hiện là bài đọc ngắn để định hướng học; sơ đồ, mã dài và đề bài đầy đủ vẫn cần mở PDF. Câu hỏi tự kiểm tra được biên soạn từ nội dung tương ứng, không phải bản chép nguyên đề thi.
 
@@ -60,5 +60,5 @@ Hiện không còn mảnh đánh dấu `source: ngoài docs`. Điều đó phả
 
 - Hoạt ảnh thuật toán hiện chỉ có vùng gắn kết với mã mảnh, chưa có mô phỏng tương tác.
 - Bài học còn ngắn; cần mở rộng lời giải bài tập, ví dụ nhiều bước và phần chứng minh theo từng nguồn.
-- OCR sách scan, kiểm tra trực quan toàn bộ slide hình, và biên soạn thêm hai môn 15/16 chưa hoàn thành.
+- OCR sách scan và kiểm tra trực quan toàn bộ slide hình.
 - Chưa triển khai lên tài khoản GitHub; workflow đã chuẩn bị để chủ repository kích hoạt.

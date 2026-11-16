@@ -1,0 +1,126 @@
+{
+  "id": "THCS4",
+  "name": "Lập trình cơ bản",
+  "aim": "Trang bị nền tảng lập trình cấu trúc và hướng đối tượng bằng ngôn ngữ Java: từ kiểu dữ liệu, cấu trúc điều khiển, mảng, đệ quy đến thiết kế lớp, đóng gói, giao diện, kế thừa, xử lý ngoại lệ và vào/ra tệp.",
+  "outcomes": [
+    "Biên dịch và chạy chương trình Java trên JVM; sử dụng thành thạo biến, kiểu nguyên thủy, toán tử, biểu thức và phương thức.",
+    "Vận dụng cấu trúc rẽ nhánh (if-else, switch-case), vòng lặp (while, do-while, for), nhập xuất chuẩn và phong cách lập trình tốt.",
+    "Thao tác với mảng một chiều, mảng nhiều chiều, truyền/trả mảng trong phương thức và cài đặt thuật toán đệ quy cơ bản.",
+    "Thiết kế lớp và đối tượng, phân biệt tham chiếu với nguyên thủy, sử dụng static, kiểm soát quyền truy cập, phạm vi biến và gói.",
+    "Vận dụng giao diện (interface), kế thừa (extends, super), xử lý ngoại lệ (try-catch-finally, throw/throws) và đọc ghi tệp cùng Swing cơ bản."
+  ],
+  "sources": [
+    {
+      "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 1 - Kiểu dữ liệu, biến, toán tử và biểu thức.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 2 - Phương thức, cấu trúc điều khiển, cấu trúc lặp.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 3 - Mảng.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 4 - Lớp và đối tượng.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 5 - Kiểm soát quyền truy cập, phạm vi biến lớp, tổ chức gói.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 6 - Giao diện lớp.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 7 - Kế thừa, xử lí ngoại lệ.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 8 - Thư viện nhập và xuất.pdf",
+      "page": "1"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "c1",
+      "title": "Kiểu dữ liệu, biến, toán tử và phương thức",
+      "pieces": [
+        "cb-java-program-bytecode",
+        "cb-primitive-types-variables",
+        "cb-operators-expressions",
+        "cb-methods-intro"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Phạm vi biến, nhập xuất, rẽ nhánh và vòng lặp",
+      "pieces": [
+        "cb-variable-scope",
+        "cb-scanner-io-format",
+        "cb-branching-if-switch",
+        "cb-loops-break-continue",
+        "cb-coding-style"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "Mảng và đệ quy",
+      "pieces": [
+        "cb-array-1d",
+        "cb-array-2d",
+        "cb-array-methods",
+        "cb-recursion-basics",
+        "cb-ex-array-sort-search"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Java API, lớp và đối tượng",
+      "pieces": [
+        "cb-java-api-math-string",
+        "cb-class-object-constructor",
+        "cb-reference-vs-primitive",
+        "cb-static-members",
+        "cb-ex-string-vigenere"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "Quyền truy cập, từ khóa this và tổ chức gói",
+      "pieces": [
+        "cb-access-control",
+        "cb-class-scope-this",
+        "cb-packages-arraylist"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Đóng gói và giao diện lớp",
+      "pieces": [
+        "cb-encapsulation-debug",
+        "cb-interface-contract"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "Kế thừa và xử lý ngoại lệ",
+      "pieces": [
+        "cb-inheritance-oop",
+        "cb-exceptions-checked-unchecked",
+        "cb-try-catch-finally-throw"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Thư viện nhập xuất và giao diện Swing",
+      "pieces": [
+        "cb-io-streams-files",
+        "cb-text-binary-serialization",
+        "cb-swing-gui-basics"
+      ]
+    }
+  ]
+}

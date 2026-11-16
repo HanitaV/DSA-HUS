@@ -1,0 +1,171 @@
+{
+  "id": "OOP",
+  "name": "Lập trình hướng đối tượng",
+  "aim": "Nắm vững bốn trụ cột của lập trình hướng đối tượng bằng Java (đóng gói, kế thừa, đa hình, trừu tượng hóa), hiểu bộ nhớ Stack/Heap, Java Collections Framework, nguyên lý SOLID, xử lý ngoại lệ, các mẫu thiết kế kinh điển, Java Generics và lập trình hàm với Lambda/Stream API.",
+  "outcomes": [
+    "Hiểu mô hình thực thi JVM (Stack/Heap), cơ chế truyền tham số và thiết kế lớp đúng chuẩn đóng gói trong Java.",
+    "Vận dụng kế thừa, đa hình động, lớp trừu tượng, giao diện và biểu đồ lớp UML để mô hình hóa bài toán.",
+    "Sử dụng thành thạo Java Collections Framework (List, Set, Queue, Map, Iterator) và cơ chế xử lý ngoại lệ.",
+    "Áp dụng nguyên lý SOLID cùng các mẫu thiết kế phổ biến (Singleton, Factory, Adapter, Decorator, Strategy, Observer, Template Method, Command, State).",
+    "Viết mã tổng quát với Generics (bounded types, wildcards) và xử lý dữ liệu khai báo bằng Lambda và Stream API."
+  ],
+  "sources": [
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 2- OOP Introduction/OOP2024_JavaSlides_W2_OOPIntroduction-FromFuntionsToObjects.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 3- Using and Designing Objects/OOP2024_JavaSlides_W3_OOP-UsingAndDesigningObjects.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 4- Inheritance and Polymorphism/OOP2024_JavaSlides_W4_OOP-InheritanceAndPolymorphism.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 5- Abstraction/OOP2024_JavaSlides_W5_OOP-Abstraction.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 6- Java Collections Framework/OOP2024_JavaSlides_W7_JavaCollectionsFramework.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+      "page": "13"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 12- Java Generics/OOP2024_JavaSlides_W12_JavaGenerics.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 13- Java Functional Programming/OOP2024_JavaSlides_W13_JavaFunctionalInterfaces.pdf",
+      "page": "1"
+    },
+    {
+      "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 13- Java Functional Programming/OOP2024_JavaSlides_W13_JavaStreams.pdf",
+      "page": "1"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "c1",
+      "title": "Nền tảng Java và Bộ nhớ",
+      "pieces": [
+        "oop-jvm-program-structure",
+        "oop-variables-types",
+        "oop-stack-heap-memory",
+        "oop-parameter-passing"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Khởi đầu Hướng đối tượng và Thiết kế lớp",
+      "pieces": [
+        "oop-paradigm-class-object",
+        "oop-encapsulation-modifiers",
+        "oop-constructors-this",
+        "oop-java-api-wrapper"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "Kế thừa và Đa hình",
+      "pieces": [
+        "oop-inheritance-super",
+        "oop-object-class-contract",
+        "oop-casting-instanceof",
+        "oop-polymorphism-dispatch"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Trừu tượng hóa, ADT và UML",
+      "pieces": [
+        "java-interface-abstract",
+        "oop-adt-information-hiding",
+        "oop-uml-class-diagram"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "Java Collections Framework",
+      "pieces": [
+        "oop-jcf-hierarchy-list",
+        "oop-set-queue-map",
+        "oop-iterator-collections-utils"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Nguyên lý SOLID và Xử lý ngoại lệ",
+      "pieces": [
+        "oop-solid-principles",
+        "oop-exceptions-hierarchy",
+        "oop-try-catch-custom-exception"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "Mẫu thiết kế: Khởi tạo và Cấu trúc",
+      "pieces": [
+        "oop-design-patterns-intro",
+        "oop-singleton-pattern",
+        "oop-factory-method-abstract-factory",
+        "oop-adapter-facade",
+        "oop-decorator-pattern",
+        "oop-bridge-proxy"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Mẫu thiết kế: Hành vi",
+      "pieces": [
+        "oop-strategy-pattern",
+        "oop-observer-pattern",
+        "oop-template-method-iterator",
+        "oop-command-state",
+        "oop-chain-mediator-visitor"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "Lập trình tổng quát (Java Generics)",
+      "pieces": [
+        "java-generics",
+        "comparable-interface",
+        "oop-generic-methods-bounded",
+        "oop-generics-wildcards",
+        "oop-type-erasure-restrictions"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "Lập trình hàm và Stream API",
+      "pieces": [
+        "oop-functional-interface-lambda",
+        "oop-standard-functional-interfaces",
+        "oop-stream-api-basics",
+        "oop-stream-operations-collectors"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "Bài tập tổng hợp và Đề thi",
+      "pieces": [
+        "oop-ex-matrix",
+        "oop-ex-integration",
+        "oop-ex-statistics",
+        "oop-ex-student-manager"
+      ]
+    }
+  ]
+}

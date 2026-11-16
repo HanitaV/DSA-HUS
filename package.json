@@ -2,7 +2,7 @@
   "name": "dsa-hus-knowledge-map",
   "version": "1.0.0",
   "private": true,
-  "description": "Website học theo mảnh kiến thức cho MAT3514 và MAT3504 (HUS), dữ liệu lấy từ docs/.",
+  "description": "Website học theo mảnh kiến thức cho THCS4, OOP, MAT3514 và MAT3504 (HUS), dữ liệu lấy từ docs/.",
   "type": "module",
   "scripts": {
     "validate": "node tools/validate.mjs",

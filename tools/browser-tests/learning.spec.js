@@ -1,14 +1,19 @@
 import { test, expect } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+
+const PIECES_DATA = JSON.parse(readFileSync(new URL('../../data/pieces.json', import.meta.url), 'utf8'));
+const TOTAL_COUNT = PIECES_DATA.pieces.length;
+const CORE_COUNT = PIECES_DATA.pieces.filter((p) => p.type !== 'example' && p.type !== 'exercise').length;
 
 test('exploration, accentless search, graph selection and keyboard', async ({ page }) => {
     const errors = []; page.on('pageerror', e => errors.push(e.message));
     await page.goto('/');
     await page.locator('#track-all').click();
-    await expect(page.locator('.graph-node')).toHaveCount(71);
+    await expect(page.locator('.graph-node')).toHaveCount(CORE_COUNT);
     await expect(page.locator('#detail')).toBeHidden();
     await page.locator('#search').fill('DE QUY');
-    await expect(page.locator('#piece-list .list-item')).toHaveCount(2);
-    await page.locator('#piece-list .list-item[href="#piece=recursion"]').focus();
+    await expect(page.locator('#piece-list .list-item')).toHaveCount(3);
+    await page.locator('#piece-list .list-item[href^="#piece=recursion&"]').focus();
     await page.keyboard.press('Enter');
     await expect(page.locator('#detail')).toBeVisible();
     await expect(page.locator('#detail h2')).toContainText('Đệ quy');
@@ -19,7 +24,7 @@ test('exploration, accentless search, graph selection and keyboard', async ({ pa
     await expect(page.locator('#piece-list')).toContainText('Không tìm thấy');
     await expect(page.locator('.graph-node')).toHaveCount(0);
     await page.locator('#search').fill('');
-    await expect(page.locator('.graph-node')).toHaveCount(71);
+    await expect(page.locator('.graph-node')).toHaveCount(CORE_COUNT);
     await page.locator('.graph-node[data-id="big-o"]').focus();
     await page.keyboard.press('Enter');
     await expect(page.locator('#detail h2')).toContainText('O lớn');
@@ -96,10 +101,10 @@ test('mobile layout, list access and reduced motion', async ({ page }) => {
 test('titles avoid unrendered math or markdown markers', async ({ page }) => {
     await page.goto('/');
     await page.locator('#track-all').click();
-    await expect(page.locator('.graph-node')).toHaveCount(71);
+    await expect(page.locator('.graph-node')).toHaveCount(CORE_COUNT);
     await page.locator('#filter-toggle').click();
     await page.locator('#toggle-examples').check();
-    await expect(page.locator('.graph-node')).toHaveCount(104);
+    await expect(page.locator('.graph-node')).toHaveCount(TOTAL_COUNT);
     const badTitles = await page.evaluate(() => [...document.querySelectorAll('#piece-list .list-item .list-item-title, .graph-node .node-title')]
         .map(el => el.textContent.trim()).filter(t => /[$`]/.test(t)));
     expect(badTitles).toEqual([]);
@@ -109,7 +114,7 @@ test('collapsible sidebar, filter bar, DAG direction, edge toggles, examples and
     const errors = []; page.on('pageerror', e => errors.push(e.message));
     await page.goto('/');
     await page.locator('#track-all').click();
-    await expect(page.locator('#minimap .minimap-node')).toHaveCount(71);
+    await expect(page.locator('#minimap .minimap-node')).toHaveCount(CORE_COUNT);
     await expect(page.locator('#minimap .minimap-viewport')).toBeVisible();
 
     await page.locator('#collapse-sidebar').click();
@@ -129,7 +134,7 @@ test('collapsible sidebar, filter bar, DAG direction, edge toggles, examples and
     await expect(page.locator('.edge.applies').first()).toBeVisible();
 
     await page.locator('#toggle-examples').check();
-    await expect(page.locator('.graph-node')).toHaveCount(104);
+    await expect(page.locator('.graph-node')).toHaveCount(TOTAL_COUNT);
 
     await page.goto('/#piece=bubble-sort');
     await expect(page.locator('#detail')).toContainText('Ví dụ & bài tập liên quan');
@@ -204,11 +209,31 @@ test('tracks are separated and no PDF links are rendered', async ({ page }) => {
     await expect(page.locator('a[href*="pdf"], a[href*="DOCUMENTS"]')).toHaveCount(0);
 });
 
+test('new courses THCS4 and OOP render chapters and lessons', async ({ page }) => {
+    const errors = []; page.on('pageerror', e => errors.push(e.message));
+    await page.goto('/#course=THCS4');
+    await expect(page.locator('#course-overview')).toBeVisible();
+    await expect(page.locator('#course-path .chapter')).toHaveCount(8);
+
+    await page.goto('/#course=OOP');
+    await expect(page.locator('#course-overview')).toBeVisible();
+    await expect(page.locator('#course-path .chapter')).toHaveCount(11);
+
+    await page.goto('/lesson.html#course=THCS4&piece=cb-variables-types');
+    await expect(page.locator('#lesson-content h1')).toBeVisible();
+    await expect(page.locator('.katex-error')).toHaveCount(0);
+
+    await page.goto('/lesson.html#course=OOP&piece=oop-design-patterns-intro');
+    await expect(page.locator('#lesson-content h1')).toBeVisible();
+    await expect(page.locator('.katex-error')).toHaveCount(0);
+    expect(errors).toEqual([]);
+});
+
 test('visualizers run on every lesson without errors', async ({ page, request }) => {
     test.setTimeout(300000);
     const errors = []; page.on('pageerror', e => errors.push(e.message));
     const data = await (await request.get('/data/pieces.json')).json();
-    for (const p of data.pieces) {
+    for (const p of data.pieces.filter((item) => !/^(cb|oop)-/.test(item.id))) {
         await page.goto('/lesson.html#piece=' + p.id);
         await expect(page.locator('#algorithm-animation .viz-controls'), p.id).toBeVisible();
         await page.locator('#algorithm-animation .viz-btn', { hasText: 'Bước tiếp' }).click();

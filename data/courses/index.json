@@ -1,3 +1,8 @@
 {
-  "courses": ["MAT3514", "MAT3504"]
+  "courses": [
+    "THCS4",
+    "OOP",
+    "MAT3514",
+    "MAT3504"
+  ]
 }

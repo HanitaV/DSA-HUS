@@ -2226,6 +2226,1552 @@
       ],
       "lesson": "content/lessons/hw-dp.md",
       "track": "algorithm"
+    },
+    {
+      "id": "cb-java-program-bytecode",
+      "title": "Chương trình Java, biên dịch và JVM",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Mã nguồn Java (.java) được trình biên dịch javac dịch thành bytecode (.class) độc lập nền tảng và thực thi trên máy ảo JVM từ phương thức main(String[] args).",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 1 - Kiểu dữ liệu, biến, toán tử và biểu thức.pdf",
+          "page": "12-21"
+        }
+      ],
+      "tags": [
+        "java",
+        "jvm",
+        "co-ban"
+      ],
+      "lesson": "content/lessons/cb-java-program-bytecode.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-primitive-types-variables",
+      "title": "Kiểu dữ liệu nguyên thủy và biến",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Java phân biệt 8 kiểu nguyên thủy (boolean, char, byte, short, int, long, float, double) với kiểu tham chiếu như String; biến phải được khai báo trước khi dùng và phân biệt hoa thường.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 1 - Kiểu dữ liệu, biến, toán tử và biểu thức.pdf",
+          "page": "23-25"
+        }
+      ],
+      "tags": [
+        "java",
+        "kieu-du-lieu",
+        "bien"
+      ],
+      "lesson": "content/lessons/cb-primitive-types-variables.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-operators-expressions",
+      "title": "Toán tử, phép gán và biểu thức",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Các nhóm toán tử gán, số học, quan hệ, logic, ghép xâu, tăng giảm tiền tố/hậu tố (++/--) và phép gán kết hợp (+=, *=) cùng thứ tự ưu tiên khi tính biểu thức.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 1 - Kiểu dữ liệu, biến, toán tử và biểu thức.pdf",
+          "page": "26-30"
+        }
+      ],
+      "tags": [
+        "java",
+        "toan-tu",
+        "bieu-thuc"
+      ],
+      "lesson": "content/lessons/cb-operators-expressions.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-methods-intro",
+      "title": "Phương thức và lời gọi hàm",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Tổ chức chương trình thành các phương thức (void hoặc trả về giá trị qua return), truyền đối số theo kiểu khai báo để phân rã bài toán và tái sử dụng mã.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 1 - Kiểu dữ liệu, biến, toán tử và biểu thức.pdf",
+          "page": "32-38"
+        }
+      ],
+      "tags": [
+        "java",
+        "phuong-thuc",
+        "ham"
+      ],
+      "lesson": "content/lessons/cb-methods-intro.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-variable-scope",
+      "title": "Phạm vi hiệu lực của biến",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Tham số có hiệu lực trong toàn phương thức, còn biến cục bộ chỉ tồn tại từ chỗ khai báo tới dấu } kết thúc khối chứa nó; kiểu nguyên thủy truyền theo giá trị.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 2 - Phương thức, cấu trúc điều khiển, cấu trúc lặp.pdf",
+          "page": "4-7"
+        }
+      ],
+      "tags": [
+        "java",
+        "pham-vi-bien",
+        "phuong-thuc"
+      ],
+      "lesson": "content/lessons/cb-variable-scope.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-scanner-io-format",
+      "title": "Nhập xuất chuẩn với Scanner và printf",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Đọc dữ liệu từ bàn phím bằng java.util.Scanner, chuyển hướng luồng vào/ra bằng dòng lệnh, sinh số ngẫu nhiên với Math.random() và xuất định dạng bằng System.out.printf.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 2 - Phương thức, cấu trúc điều khiển, cấu trúc lặp.pdf",
+          "page": "12-18"
+        }
+      ],
+      "tags": [
+        "java",
+        "scanner",
+        "nhap-xuat"
+      ],
+      "lesson": "content/lessons/cb-scanner-io-format.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-branching-if-switch",
+      "title": "Cấu trúc rẽ nhánh if-else và switch-case",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Điều khiển rẽ nhánh theo biểu thức boolean với if, if-else, chuỗi else if (ưu tiên !, &&, ||) và rẽ nhánh theo giá trị rời rạc với switch-case, break, default.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 2 - Phương thức, cấu trúc điều khiển, cấu trúc lặp.pdf",
+          "page": "19-31"
+        }
+      ],
+      "tags": [
+        "java",
+        "re-nhanh",
+        "dieu-khien"
+      ],
+      "lesson": "content/lessons/cb-branching-if-switch.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-loops-break-continue",
+      "title": "Cấu trúc lặp while, do-while, for",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Lặp kiểm tra trước (while, for) và lặp kiểm tra sau (do-while), vòng lặp lồng nhau cùng lệnh break thoát vòng và continue bỏ qua phần còn lại của lượt lặp.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 2 - Phương thức, cấu trúc điều khiển, cấu trúc lặp.pdf",
+          "page": "33-42"
+        }
+      ],
+      "tags": [
+        "java",
+        "vong-lap",
+        "dieu-khien"
+      ],
+      "lesson": "content/lessons/cb-loops-break-continue.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-coding-style",
+      "title": "Phong cách lập trình tốt",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Bảy quy tắc viết mã sạch: đặt tên gợi nhớ, canh lề, khoảng trống và dòng trống hợp lý, ngắt dòng lệnh dài, tối ưu biểu thức điều kiện và tách hàm tính toán khỏi việc in.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 2 - Phương thức, cấu trúc điều khiển, cấu trúc lặp.pdf",
+          "page": "44-53"
+        }
+      ],
+      "tags": [
+        "java",
+        "phong-cach",
+        "clean-code"
+      ],
+      "lesson": "content/lessons/cb-coding-style.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-array-1d",
+      "title": "Mảng một chiều và duyệt mảng",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Mảng là đối tượng lưu dãy phần tử cùng kiểu đánh chỉ số từ 0 đến length - 1; khởi tạo bằng new hoặc {...} và duyệt qua chỉ số hoặc vòng lặp for-each.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 3 - Mảng.pdf",
+          "page": "3-7, 10-12"
+        }
+      ],
+      "tags": [
+        "java",
+        "mang",
+        "for-each"
+      ],
+      "lesson": "content/lessons/cb-array-1d.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-array-2d",
+      "title": "Mảng nhiều chiều",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Mảng n chiều là mảng chứa tham chiếu tới các mảng n - 1 chiều; hỗ trợ cả bảng đều (new int[2][3]) lẫn mảng răng cưa có các hàng độ dài khác nhau.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 3 - Mảng.pdf",
+          "page": "8-10, 13"
+        }
+      ],
+      "tags": [
+        "java",
+        "mang-2-chieu",
+        "mang"
+      ],
+      "lesson": "content/lessons/cb-array-2d.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-array-methods",
+      "title": "Mảng làm tham số và giá trị trả về",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Truyền mảng vào phương thức cho phép cập nhật trực tiếp phần tử mảng gốc; phương thức có thể cấp phát và trả về một mảng mới.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 3 - Mảng.pdf",
+          "page": "14-21"
+        }
+      ],
+      "tags": [
+        "java",
+        "mang",
+        "phuong-thuc"
+      ],
+      "lesson": "content/lessons/cb-array-methods.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-recursion-basics",
+      "title": "Đệ quy cơ bản và so sánh với vòng lặp",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Cơ chế phương thức tự gọi lại chính nó với bước cơ sở và bước hội tụ (giai thừa, Fibonacci, đổi nhị phân, gcd Euclid), kèm đánh giá bộ nhớ và hiệu năng so với vòng lặp.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 3 - Mảng.pdf",
+          "page": "22-34"
+        }
+      ],
+      "tags": [
+        "java",
+        "de-quy",
+        "vong-lap"
+      ],
+      "lesson": "content/lessons/cb-recursion-basics.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-ex-array-sort-search",
+      "title": "Bài tập: Mảng, sắp xếp và tìm kiếm nhị phân",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Sinh mảng số nguyên ngẫu nhiên trong [1, 100], sắp xếp giảm dần bằng thuật toán nổi bọt (Bubble Sort) và tìm kiếm nhị phân trên mảng giảm dần.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/MidExam_De3 (2).pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "bai-tap",
+        "mang",
+        "sap-xep",
+        "tim-kiem"
+      ],
+      "lesson": "content/lessons/cb-ex-array-sort-search.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-java-api-math-string",
+      "title": "Thư viện Java API: Math và String",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Sử dụng thư viện chuẩn java.lang: lớp Math (PI, sqrt, pow, abs, max, min) và lớp String (length, charAt, substring, indexOf, so sánh bằng equals).",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 4 - Lớp và đối tượng.pdf",
+          "page": "3-10"
+        }
+      ],
+      "tags": [
+        "java",
+        "api",
+        "string",
+        "math"
+      ],
+      "lesson": "content/lessons/cb-java-api-math-string.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-class-object-constructor",
+      "title": "Lớp, đối tượng và hàm dựng",
+      "type": "concept",
+      "difficulty": 1,
+      "summary": "Định nghĩa lớp gồm trường dữ liệu và phương thức thực thể, tạo đối tượng bằng new và viết hàm dựng ngầm định hoặc có tham số để khởi tạo trạng thái.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 4 - Lớp và đối tượng.pdf",
+          "page": "12-25"
+        }
+      ],
+      "tags": [
+        "java",
+        "oop",
+        "lop",
+        "ham-dung"
+      ],
+      "lesson": "content/lessons/cb-class-object-constructor.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-reference-vs-primitive",
+      "title": "Kiểu nguyên thủy và kiểu tham chiếu",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Phân biệt biến nguyên thủy lưu giá trị trực tiếp với biến tham chiếu lưu địa chỉ vùng nhớ đối tượng; lý giải phép so sánh ==, phép gán tham chiếu và truyền tham số.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 4 - Lớp và đối tượng.pdf",
+          "page": "26-34"
+        }
+      ],
+      "tags": [
+        "java",
+        "tham-chieu",
+        "bo-nho"
+      ],
+      "lesson": "content/lessons/cb-reference-vs-primitive.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-static-members",
+      "title": "Biến tĩnh và phương thức tĩnh (static)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Thành viên static thuộc về lớp và dùng chung cho mọi đối tượng; phương thức tĩnh truy cập qua tên lớp và không gọi trực tiếp được thành viên không tĩnh.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 4 - Lớp và đối tượng.pdf",
+          "page": "35-37"
+        }
+      ],
+      "tags": [
+        "java",
+        "static",
+        "oop"
+      ],
+      "lesson": "content/lessons/cb-static-members.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-ex-string-vigenere",
+      "title": "Bài tập: Xử lý xâu và mật mã Vigenère",
+      "type": "exercise",
+      "difficulty": 2,
+      "summary": "Đảo ngược từng từ trong xâu, tìm ký tự không lặp đầu tiên và cài đặt mã hóa Vigenère $C_i = (P_i + K_j) \\bmod 26$ trên các chữ cái A–Z.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/MidExam_De4 (1).pdf",
+          "page": "1-2"
+        }
+      ],
+      "tags": [
+        "bai-tap",
+        "string",
+        "ma-hoa"
+      ],
+      "lesson": "content/lessons/cb-ex-string-vigenere.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-access-control",
+      "title": "Kiểm soát quyền truy cập (public, private)",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Dùng private để ẩn trường dữ liệu nhạy cảm khỏi truy cập trực tiếp từ bên ngoài và cung cấp phương thức public có kiểm soát để tách biệt cài đặt với giao diện lớp.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 5 - Kiểm soát quyền truy cập, phạm vi biến lớp, tổ chức gói.pdf",
+          "page": "9-13"
+        }
+      ],
+      "tags": [
+        "java",
+        "oop",
+        "dong-goi",
+        "quyen-truy-cap"
+      ],
+      "lesson": "content/lessons/cb-access-control.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-class-scope-this",
+      "title": "Phạm vi biến trong lớp và từ khóa this",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Biến thành viên có phạm vi toàn lớp; khi tham số phương thức trùng tên với biến thành viên, dùng this để trỏ tới biến của đối tượng hiện tại.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 5 - Kiểm soát quyền truy cập, phạm vi biến lớp, tổ chức gói.pdf",
+          "page": "14-15"
+        }
+      ],
+      "tags": [
+        "java",
+        "this",
+        "pham-vi-bien"
+      ],
+      "lesson": "content/lessons/cb-class-scope-this.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-packages-arraylist",
+      "title": "Tổ chức gói (package) và ArrayList",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Gom nhóm lớp vào package tương ứng thư mục và nạp bằng import (trừ cùng gói và java.lang); dùng ArrayList cho danh sách có kích thước thay đổi linh hoạt.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 5 - Kiểm soát quyền truy cập, phạm vi biến lớp, tổ chức gói.pdf",
+          "page": "16-19, 21"
+        }
+      ],
+      "tags": [
+        "java",
+        "package",
+        "arraylist"
+      ],
+      "lesson": "content/lessons/cb-packages-arraylist.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-encapsulation-debug",
+      "title": "Đóng gói, quy ước đặt tên và gỡ lỗi",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Quy ước đặt tên camelCase/PascalCase, thiết kế lớp đóng gói với thuộc tính private kèm get/set, và kỹ thuật tìm sửa lỗi từ mã giả tới cảnh báo của IDE.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 6 - Giao diện lớp.pdf",
+          "page": "2-6"
+        }
+      ],
+      "tags": [
+        "java",
+        "dong-goi",
+        "debug"
+      ],
+      "lesson": "content/lessons/cb-encapsulation-debug.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-interface-contract",
+      "title": "Giao diện (interface), nạp chồng và ghi đè",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Khai báo interface và cài đặt nhiều giao diện bằng implements; phân biệt nạp chồng phương thức (overload, khác tham số) với ghi đè phương thức (override).",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 6 - Giao diện lớp.pdf",
+          "page": "7-13"
+        }
+      ],
+      "tags": [
+        "java",
+        "interface",
+        "oop"
+      ],
+      "lesson": "content/lessons/cb-interface-contract.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-inheritance-oop",
+      "title": "Kế thừa, từ khóa super và 4 đặc trưng OOP",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Mở rộng lớp cha bằng extends (đơn kế thừa), gọi hàm dựng và phương thức lớp cha qua super, cùng tổng hợp 4 đặc trưng OOP: trừu tượng, đóng gói, đa hình, kế thừa.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 7 - Kế thừa, xử lí ngoại lệ.pdf",
+          "page": "2-8"
+        }
+      ],
+      "tags": [
+        "java",
+        "ke-thua",
+        "oop",
+        "da-hinh"
+      ],
+      "lesson": "content/lessons/cb-inheritance-oop.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-exceptions-checked-unchecked",
+      "title": "Ngoại lệ: Checked và Unchecked",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Phân biệt Checked Exception bắt buộc xử lý lúc biên dịch (IOException, FileNotFoundException) với Unchecked Exception lúc chạy (RuntimeException) và cách tự tạo lớp ngoại lệ.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 7 - Kế thừa, xử lí ngoại lệ.pdf",
+          "page": "9-13"
+        }
+      ],
+      "tags": [
+        "java",
+        "ngoai-le",
+        "exception"
+      ],
+      "lesson": "content/lessons/cb-exceptions-checked-unchecked.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-try-catch-finally-throw",
+      "title": "Xử lý ngoại lệ với try-catch-finally, throw và throws",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Bắt ngoại lệ bằng try và nhiều khối catch theo thứ tự từ cụ thể đến tổng quát, dọn tài nguyên trong finally, chủ động ném lỗi với throw và khai báo throws.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 7 - Kế thừa, xử lí ngoại lệ.pdf",
+          "page": "14-28"
+        }
+      ],
+      "tags": [
+        "java",
+        "ngoai-le",
+        "try-catch"
+      ],
+      "lesson": "content/lessons/cb-try-catch-finally-throw.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-io-streams-files",
+      "title": "Luồng vào/ra (I/O) và xử lý tệp",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "Khái niệm luồng (Stream), 3 luồng chuẩn, đọc ghi tệp nhị phân (FileInputStream/FileOutputStream) và tệp văn bản (FileReader/FileWriter), cùng lớp File kiểm tra đường dẫn.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 8 - Thư viện nhập và xuất.pdf",
+          "page": "4-9"
+        }
+      ],
+      "tags": [
+        "java",
+        "io",
+        "tep"
+      ],
+      "lesson": "content/lessons/cb-io-streams-files.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-text-binary-serialization",
+      "title": "Đọc ghi tệp tuần tự và tuần tự hóa đối tượng",
+      "type": "concept",
+      "difficulty": 3,
+      "summary": "Ghi và đọc tệp văn bản tuần tự bằng Formatter và Scanner; lưu trữ và khôi phục đối tượng trên tệp nhị phân thông qua giao diện Serializable.",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 8 - Thư viện nhập và xuất.pdf",
+          "page": "10-17"
+        }
+      ],
+      "tags": [
+        "java",
+        "io",
+        "serializable"
+      ],
+      "lesson": "content/lessons/cb-text-binary-serialization.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "cb-swing-gui-basics",
+      "title": "Giới thiệu giao diện đồ họa Swing",
+      "type": "concept",
+      "difficulty": 2,
+      "summary": "So sánh AWT và Swing đa nền tảng, các thành phần cơ bản (JLabel, JTextField, JButton, JPanel, ...) và quản lý bố cục bằng LayoutManager (FlowLayout, GridLayout).",
+      "sources": [
+        {
+          "file": "docs/15. Lập trình cơ bản/Slide trên lớp/Slide 2/Lec 8 - Thư viện nhập và xuất.pdf",
+          "page": "20-25"
+        }
+      ],
+      "tags": [
+        "java",
+        "swing",
+        "gui"
+      ],
+      "lesson": "content/lessons/cb-swing-gui-basics.md",
+      "track": "algorithm"
+    },
+    {
+      "id": "oop-jvm-program-structure",
+      "title": "Biên dịch Java, JVM và cấu trúc chương trình",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Kiến trúc hai bước biên dịch sang bytecode chạy trên JVM (JDK/JRE/JVM) và cấu trúc tệp nguồn Java gồm package, import, class và main.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
+          "page": "16-26"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
+          "page": "31-35"
+        }
+      ],
+      "tags": [
+        "java-basics",
+        "jvm",
+        "oop"
+      ],
+      "lesson": "content/lessons/oop-jvm-program-structure.md"
+    },
+    {
+      "id": "oop-variables-types",
+      "title": "Kiểu dữ liệu và phạm vi biến trong Java",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Phân biệt 8 kiểu nguyên thủy với kiểu tham chiếu, cùng 3 phạm vi biến: local, instance và static.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
+          "page": "40-60"
+        }
+      ],
+      "tags": [
+        "java-basics",
+        "types",
+        "variables"
+      ],
+      "lesson": "content/lessons/oop-variables-types.md"
+    },
+    {
+      "id": "oop-stack-heap-memory",
+      "title": "Bộ nhớ Stack và Heap trong JVM",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Cách JVM lưu khung lời gọi hàm, biến nguyên thủy và tham chiếu trên Stack, còn đối tượng thực sự nằm trên Heap.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
+          "page": "85-105"
+        }
+      ],
+      "tags": [
+        "memory",
+        "stack",
+        "heap"
+      ],
+      "lesson": "content/lessons/oop-stack-heap-memory.md"
+    },
+    {
+      "id": "oop-parameter-passing",
+      "title": "Cơ chế truyền tham số trong Java",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Java luôn truyền theo giá trị (pass-by-value): sao chép giá trị nguyên thủy hoặc sao chép địa chỉ tham chiếu khi gọi phương thức.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 1- Java Programming Basics - Structured Programming/OOP2024_JavaSlides_W1_JavaBasics-StructuredProgramming.pdf",
+          "page": "143-161"
+        }
+      ],
+      "tags": [
+        "java-basics",
+        "parameter-passing"
+      ],
+      "lesson": "content/lessons/oop-parameter-passing.md"
+    },
+    {
+      "id": "oop-paradigm-class-object",
+      "title": "Từ lập trình thủ tục đến Lớp và Đối tượng",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Chuyển dịch từ tách rời dữ liệu–hàm sang đóng gói thành lớp (bản thiết kế), đối tượng (thể hiện), thông điệp và 4 trụ cột OOP.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 2- OOP Introduction/OOP2024_JavaSlides_W2_OOPIntroduction-FromFuntionsToObjects.pdf",
+          "page": "18-40"
+        }
+      ],
+      "tags": [
+        "oop",
+        "class",
+        "object"
+      ],
+      "lesson": "content/lessons/oop-paradigm-class-object.md"
+    },
+    {
+      "id": "oop-encapsulation-modifiers",
+      "title": "Đóng gói và bộ từ khóa truy cập",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Che giấu dữ liệu nội bộ bằng private/protected/public, kết hợp getter và setter để kiểm soát truy cập.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 2- OOP Introduction/OOP2024_JavaSlides_W2_OOPIntroduction-FromFuntionsToObjects.pdf",
+          "page": "40-42"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 3- Using and Designing Objects/OOP2024_JavaSlides_W3_OOP-UsingAndDesigningObjects.pdf",
+          "page": "46-53"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 3- Using and Designing Objects/OOP2024_JavaSlides_W3_OOP-UsingAndDesigningObjects.pdf",
+          "page": "65-67"
+        }
+      ],
+      "tags": [
+        "oop",
+        "encapsulation",
+        "access-modifiers"
+      ],
+      "lesson": "content/lessons/oop-encapsulation-modifiers.md"
+    },
+    {
+      "id": "oop-constructors-this",
+      "title": "Constructor, nạp chồng, this và static",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Khởi tạo đối tượng qua constructor, nạp chồng phương thức, tham chiếu đối tượng hiện tại bằng this và thành viên dùng chung static.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 3- Using and Designing Objects/OOP2024_JavaSlides_W3_OOP-UsingAndDesigningObjects.pdf",
+          "page": "22-25"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 3- Using and Designing Objects/OOP2024_JavaSlides_W3_OOP-UsingAndDesigningObjects.pdf",
+          "page": "55-58"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 3- Using and Designing Objects/OOP2024_JavaSlides_W3_OOP-UsingAndDesigningObjects.pdf",
+          "page": "71-79"
+        }
+      ],
+      "tags": [
+        "oop",
+        "constructor",
+        "static"
+      ],
+      "lesson": "content/lessons/oop-constructors-this.md"
+    },
+    {
+      "id": "oop-java-api-wrapper",
+      "title": "Thư viện chuẩn Java, Wrapper và Autoboxing",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Sử dụng String, Scanner, Math, ghi đè toString(), cùng các lớp bọc (Integer, Double...) và cơ chế autoboxing/unboxing.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 3- Using and Designing Objects/OOP2024_JavaSlides_W3_OOP-UsingAndDesigningObjects.pdf",
+          "page": "6-12"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 3- Using and Designing Objects/OOP2024_JavaSlides_W3_OOP-UsingAndDesigningObjects.pdf",
+          "page": "68-69"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 3- Using and Designing Objects/OOP2024_JavaSlides_W3_OOP-UsingAndDesigningObjects.pdf",
+          "page": "82-85"
+        }
+      ],
+      "tags": [
+        "java-api",
+        "wrapper",
+        "string"
+      ],
+      "lesson": "content/lessons/oop-java-api-wrapper.md"
+    },
+    {
+      "id": "oop-inheritance-super",
+      "title": "Kế thừa, từ khóa super và final",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Quan hệ IS-A và đơn kế thừa bằng extends, ghi đè phương thức, dùng super khởi tạo lớp cha và final để chặn kế thừa/ghi đè.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 4- Inheritance and Polymorphism/OOP2024_JavaSlides_W4_OOP-InheritanceAndPolymorphism.pdf",
+          "page": "8-25"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 4- Inheritance and Polymorphism/OOP2024_JavaSlides_W4_OOP-InheritanceAndPolymorphism.pdf",
+          "page": "32-39"
+        }
+      ],
+      "tags": [
+        "oop",
+        "inheritance",
+        "super"
+      ],
+      "lesson": "content/lessons/oop-inheritance-super.md"
+    },
+    {
+      "id": "oop-object-class-contract",
+      "title": "Lớp gốc Object và hợp đồng equals/hashCode",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Các dịch vụ chung của java.lang.Object: toString(), equals(), hashCode() (bắt buộc đồng bộ khi ghi đè equals) và clone().",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 4- Inheritance and Polymorphism/OOP2024_JavaSlides_W4_OOP-InheritanceAndPolymorphism.pdf",
+          "page": "41-50"
+        }
+      ],
+      "tags": [
+        "oop",
+        "object",
+        "equals-hashcode"
+      ],
+      "lesson": "content/lessons/oop-object-class-contract.md"
+    },
+    {
+      "id": "oop-casting-instanceof",
+      "title": "Upcasting, Downcasting và instanceof",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Ép kiểu lên tự động (upcasting), ép kiểu xuống tường minh (downcasting) và kiểm tra kiểu an toàn lúc chạy với instanceof.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 4- Inheritance and Polymorphism/OOP2024_JavaSlides_W4_OOP-InheritanceAndPolymorphism.pdf",
+          "page": "52-61"
+        }
+      ],
+      "tags": [
+        "oop",
+        "casting",
+        "instanceof"
+      ],
+      "lesson": "content/lessons/oop-casting-instanceof.md"
+    },
+    {
+      "id": "oop-polymorphism-dispatch",
+      "title": "Đa hình tĩnh, đa hình động và liên kết động",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Phân biệt đa hình lúc biên dịch (overloading) và đa hình lúc chạy (overriding, dynamic method dispatch qua bảng phương thức ảo).",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 4- Inheritance and Polymorphism/OOP2024_JavaSlides_W4_OOP-InheritanceAndPolymorphism.pdf",
+          "page": "63-79"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 4- Inheritance and Polymorphism/OOP2024_JavaSlides_W4_OOP-InheritanceAndPolymorphism.pdf",
+          "page": "86-87"
+        }
+      ],
+      "tags": [
+        "oop",
+        "polymorphism",
+        "dynamic-dispatch"
+      ],
+      "lesson": "content/lessons/oop-polymorphism-dispatch.md"
+    },
+    {
+      "id": "oop-adt-information-hiding",
+      "title": "ADT, che giấu thông tin và tiền/hậu điều kiện",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Tách đặc tả phép toán (ADT) khỏi cấu trúc dữ liệu cài đặt bên dưới, kèm tiền điều kiện/hậu điều kiện qua ví dụ số phức Complex.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 5- Abstraction/OOP2024_JavaSlides_W5_OOP-Abstraction.pdf",
+          "page": "45-53"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 5- Abstraction/OOP2024_JavaSlides_W5_OOP-Abstraction.pdf",
+          "page": "57-70"
+        }
+      ],
+      "tags": [
+        "abstraction",
+        "adt",
+        "information-hiding"
+      ],
+      "lesson": "content/lessons/oop-adt-information-hiding.md"
+    },
+    {
+      "id": "oop-uml-class-diagram",
+      "title": "Biểu đồ lớp UML và các quan hệ",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Ký hiệu lớp, giao diện và phân biệt kế thừa, thực thi, liên kết (association), tập hợp (aggregation) và hợp thành (composition).",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 5- Abstraction/OOP2024_JavaSlides_W5_OOP-Abstraction.pdf",
+          "page": "94-104"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "26-32"
+        }
+      ],
+      "tags": [
+        "uml",
+        "class-diagram",
+        "design"
+      ],
+      "lesson": "content/lessons/oop-uml-class-diagram.md"
+    },
+    {
+      "id": "oop-jcf-hierarchy-list",
+      "title": "Kiến trúc Java Collections Framework và List",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Hệ thống giao diện Iterable, Collection, List<E> và đánh đổi hiệu năng giữa ArrayList (truy cập $O(1)$) với LinkedList (chèn/xóa đầu $O(1)$).",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 6- Java Collections Framework/OOP2024_JavaSlides_W7_JavaCollectionsFramework.pdf",
+          "page": "4-7"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 6- Java Collections Framework/OOP2024_JavaSlides_W7_JavaCollectionsFramework.pdf",
+          "page": "13-27"
+        }
+      ],
+      "tags": [
+        "collections",
+        "list",
+        "arraylist"
+      ],
+      "lesson": "content/lessons/oop-jcf-hierarchy-list.md"
+    },
+    {
+      "id": "oop-set-queue-map",
+      "title": "Set, Queue và Map trong JCF",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Các cấu trúc không trùng lặp Set (HashSet, TreeSet), hàng đợi Queue/PriorityQueue và ánh xạ khóa–giá trị Map (HashMap, TreeMap).",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 6- Java Collections Framework/OOP2024_JavaSlides_W7_JavaCollectionsFramework.pdf",
+          "page": "29-47"
+        }
+      ],
+      "tags": [
+        "collections",
+        "set",
+        "queue",
+        "map"
+      ],
+      "lesson": "content/lessons/oop-set-queue-map.md"
+    },
+    {
+      "id": "oop-iterator-collections-utils",
+      "title": "Iterator, duyệt an toàn và lớp Collections",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Tách hành vi duyệt với Iterator/ListIterator, tránh ConcurrentModificationException khi xóa phần tử và dùng thuật toán sẵn trong Collections.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 6- Java Collections Framework/OOP2024_JavaSlides_W7_JavaCollectionsFramework.pdf",
+          "page": "49-57"
+        }
+      ],
+      "tags": [
+        "collections",
+        "iterator"
+      ],
+      "lesson": "content/lessons/oop-iterator-collections-utils.md"
+    },
+    {
+      "id": "oop-solid-principles",
+      "title": "Năm nguyên lý thiết kế SOLID",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "SRP, OCP, LSP, ISP và DIP — bộ nguyên lý giúp mã hướng đối tượng dễ mở rộng, giảm phụ thuộc cứng và dễ bảo trì.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "33-50"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "16"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "158-161"
+        }
+      ],
+      "tags": [
+        "solid",
+        "design-principles",
+        "oop"
+      ],
+      "lesson": "content/lessons/oop-solid-principles.md"
+    },
+    {
+      "id": "oop-exceptions-hierarchy",
+      "title": "Phân cấp ngoại lệ: Checked và Unchecked",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Cơ chế lan truyền ngoại lệ trên call stack và sự khác biệt giữa Error, RuntimeException (unchecked) với Checked Exception.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "51-61"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "71-74"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "92-93"
+        }
+      ],
+      "tags": [
+        "exceptions",
+        "robustness"
+      ],
+      "lesson": "content/lessons/oop-exceptions-hierarchy.md"
+    },
+    {
+      "id": "oop-try-catch-custom-exception",
+      "title": "Xử lý ngoại lệ và tự định nghĩa Exception",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Cú pháp try-catch-finally, try-with-resources, phân biệt throw/throws và tạo lớp ngoại lệ nghiệp vụ riêng.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "63-69"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture Note (Tổng hợp bài giảng)/OOP2024_CorrectnessRobustnessEfficiency.pdf",
+          "page": "75-89"
+        }
+      ],
+      "tags": [
+        "exceptions",
+        "try-catch"
+      ],
+      "lesson": "content/lessons/oop-try-catch-custom-exception.md"
+    },
+    {
+      "id": "oop-design-patterns-intro",
+      "title": "Tổng quan Mẫu thiết kế (Design Patterns)",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 1,
+      "summary": "Khái niệm Design Pattern của nhóm GoF và phân loại 23 mẫu thành 3 nhóm: Creational, Structural và Behavioral.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "5-26"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "gof"
+      ],
+      "lesson": "content/lessons/oop-design-patterns-intro.md"
+    },
+    {
+      "id": "oop-singleton-pattern",
+      "title": "Mẫu Singleton",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Đảm bảo một lớp chỉ có duy nhất một thể hiện với constructor private và phương thức tĩnh getInstance().",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "51-60"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "creational",
+        "singleton"
+      ],
+      "lesson": "content/lessons/oop-singleton-pattern.md"
+    },
+    {
+      "id": "oop-factory-method-abstract-factory",
+      "title": "Factory Method và Abstract Factory",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 3,
+      "summary": "Đóng gói quá trình khởi tạo đối tượng (1 sản phẩm qua lớp con hoặc cả họ sản phẩm qua giao diện factory) theo nguyên lý DIP.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "139-173"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "creational",
+        "factory"
+      ],
+      "lesson": "content/lessons/oop-factory-method-abstract-factory.md"
+    },
+    {
+      "id": "oop-adapter-facade",
+      "title": "Mẫu Adapter và Facade",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Adapter chuyển đổi hai giao diện không tương thích để làm việc chung; Facade cung cấp giao diện đơn giản cho cả hệ thống con.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "62-88"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "structural",
+        "adapter",
+        "facade"
+      ],
+      "lesson": "content/lessons/oop-adapter-facade.md"
+    },
+    {
+      "id": "oop-decorator-pattern",
+      "title": "Mẫu Decorator",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Gắn thêm hành vi cho từng đối tượng lúc chạy bằng cách bọc lồng các lớp trang trí, tránh bùng nổ lớp con (như Java I/O).",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "120-137"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "structural",
+        "decorator"
+      ],
+      "lesson": "content/lessons/oop-decorator-pattern.md"
+    },
+    {
+      "id": "oop-bridge-proxy",
+      "title": "Mẫu Bridge và Proxy",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 3,
+      "summary": "Bridge tách trừu tượng khỏi cài đặt để hai chiều phát triển độc lập; Proxy cung cấp đại diện kiểm soát truy cập hoặc trì hoãn khởi tạo.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 11- Design Patterns (Thầy bận chưa có làm Slide)/Java_DesignPatterns_Bridge_Theory.pdf",
+          "page": "1-12"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 11- Design Patterns (Thầy bận chưa có làm Slide)/Java_DesignPatterns_Proxy_Theory.pdf",
+          "page": "1-10"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "structural",
+        "bridge",
+        "proxy"
+      ],
+      "lesson": "content/lessons/oop-bridge-proxy.md"
+    },
+    {
+      "id": "oop-strategy-pattern",
+      "title": "Mẫu Strategy",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Đóng gói họ thuật toán sau một giao diện chung để hoán đổi linh hoạt lúc chạy, ưu tiên composition hơn inheritance.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "28-49"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "behavioral",
+        "strategy"
+      ],
+      "lesson": "content/lessons/oop-strategy-pattern.md"
+    },
+    {
+      "id": "oop-observer-pattern",
+      "title": "Mẫu Observer",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Thiết lập quan hệ một–nhiều kết nối lỏng giữa Subject và các Observer để tự động thông báo khi trạng thái thay đổi.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "90-106"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "behavioral",
+        "observer"
+      ],
+      "lesson": "content/lessons/oop-observer-pattern.md"
+    },
+    {
+      "id": "oop-template-method-iterator",
+      "title": "Mẫu Template Method và Iterator",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Template Method cố định khung thuật toán ở lớp cha và giao bước chi tiết cho lớp con; Iterator duyệt tuần tự ẩn cấu trúc bên trong.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "108-118"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 9- Design Patterns/OOP2024_JavaSlides_W9_JavaDesignPatterns.pdf",
+          "page": "175-185"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "behavioral",
+        "template-method",
+        "iterator"
+      ],
+      "lesson": "content/lessons/oop-template-method-iterator.md"
+    },
+    {
+      "id": "oop-command-state",
+      "title": "Mẫu Command và State",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 3,
+      "summary": "Command đóng gói yêu cầu thành đối tượng hỗ trợ Undo/hàng đợi; State cho phép đối tượng đổi hành vi theo trạng thái nội tại.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 11- Design Patterns (Thầy bận chưa có làm Slide)/Java_DesignPatterns_Command_Theory.pdf",
+          "page": "1-19"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 11- Design Patterns (Thầy bận chưa có làm Slide)/Java_DesignPatterns_State_Theory.pdf",
+          "page": "1-11"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "behavioral",
+        "command",
+        "state"
+      ],
+      "lesson": "content/lessons/oop-command-state.md"
+    },
+    {
+      "id": "oop-chain-mediator-visitor",
+      "title": "Chain of Responsibility, Mediator và Visitor",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 3,
+      "summary": "Truyền yêu cầu qua chuỗi xử lý (Chain), điều phối tập trung (Mediator) và tách thuật toán khỏi cấu trúc phần tử (Visitor).",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 11- Design Patterns (Thầy bận chưa có làm Slide)/Java_DesignPatterns_ChainOfResponsibility_Theory.pdf",
+          "page": "1-12"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 11- Design Patterns (Thầy bận chưa có làm Slide)/Java_DesignPatterns_Mediator_Theory.pdf",
+          "page": "1-10"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 11- Design Patterns (Thầy bận chưa có làm Slide)/Java_DesignPatterns_Visitor_Theory.pdf",
+          "page": "1-17"
+        }
+      ],
+      "tags": [
+        "design-patterns",
+        "behavioral",
+        "visitor"
+      ],
+      "lesson": "content/lessons/oop-chain-mediator-visitor.md"
+    },
+    {
+      "id": "oop-generic-methods-bounded",
+      "title": "Phương thức tổng quát và Bounded Type Parameters",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Khai báo tham số kiểu riêng cho phương thức và giới hạn cận trên `<T extends Bound>` để gọi được phương thức của kiểu chặn.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 12- Java Generics/OOP2024_JavaSlides_W12_JavaGenerics.pdf",
+          "page": "13-19"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 12- Java Generics/OOP2024_JavaSlides_W12_JavaGenerics.pdf",
+          "page": "57-59"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 12- Java Generics/OOP2024_JavaSlides_W12_JavaGenerics.pdf",
+          "page": "73-81"
+        }
+      ],
+      "tags": [
+        "generics",
+        "bounded-types"
+      ],
+      "lesson": "content/lessons/oop-generic-methods-bounded.md"
+    },
+    {
+      "id": "oop-generics-wildcards",
+      "title": "Wildcards trong Generics và quy tắc PECS",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 3,
+      "summary": "Dùng `?`, `? extends T` (đọc — Producer) và `? super T` (ghi — Consumer) để khắc phục tính bất biến của kiểu tham số hóa.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 12- Java Generics/OOP2024_JavaSlides_W12_JavaGenerics.pdf",
+          "page": "20-33"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 12- Java Generics/OOP2024_JavaSlides_W12_JavaGenerics.pdf",
+          "page": "61-71"
+        }
+      ],
+      "tags": [
+        "generics",
+        "wildcards",
+        "pecs"
+      ],
+      "lesson": "content/lessons/oop-generics-wildcards.md"
+    },
+    {
+      "id": "oop-type-erasure-restrictions",
+      "title": "Type Erasure và 7 hạn chế của Java Generics",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 3,
+      "summary": "Cơ chế trình biên dịch xóa tham số kiểu thành Object hoặc cận trên, dẫn tới các lệnh cấm như `new T()`, mảng `T[]` và `instanceof`.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 12- Java Generics/OOP2024_JavaSlides_W12_JavaGenerics.pdf",
+          "page": "34-47"
+        }
+      ],
+      "tags": [
+        "generics",
+        "type-erasure"
+      ],
+      "lesson": "content/lessons/oop-type-erasure-restrictions.md"
+    },
+    {
+      "id": "oop-functional-interface-lambda",
+      "title": "Giao diện hàm và Biểu thức Lambda",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Từ lớp vô danh đến biểu thức Lambda cho giao diện có đúng 1 phương thức trừu tượng (`@FunctionalInterface`), hỗ trợ tham số hóa hành vi.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 13- Java Functional Programming/OOP2024_JavaSlides_W13_JavaFunctionalInterfaces.pdf",
+          "page": "15-35"
+        }
+      ],
+      "tags": [
+        "functional-programming",
+        "lambda",
+        "functional-interface"
+      ],
+      "lesson": "content/lessons/oop-functional-interface-lambda.md"
+    },
+    {
+      "id": "oop-standard-functional-interfaces",
+      "title": "Giao diện hàm chuẩn java.util.function và Optional",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Bốn giao diện cốt lõi Predicate, Function, Consumer, Supplier cùng hộp chứa Optional giúp tránh NullPointerException.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 13- Java Functional Programming/OOP2024_JavaSlides_W13_JavaFunctionalInterfaces.pdf",
+          "page": "37-60"
+        }
+      ],
+      "tags": [
+        "functional-programming",
+        "optional",
+        "java-util-function"
+      ],
+      "lesson": "content/lessons/oop-standard-functional-interfaces.md"
+    },
+    {
+      "id": "oop-stream-api-basics",
+      "title": "Java Stream API: bản chất Lazy và Pipeline",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Khác biệt giữa Stream và Collection (không lưu trữ, không sửa nguồn, đánh giá lười, dùng một lần) và các cách tạo Stream.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 13- Java Functional Programming/OOP2024_JavaSlides_W13_JavaStreams.pdf",
+          "page": "3-13"
+        },
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 13- Java Functional Programming/OOP2024_JavaSlides_W13_JavaStreams.pdf",
+          "page": "28-33"
+        }
+      ],
+      "tags": [
+        "streams",
+        "functional-programming"
+      ],
+      "lesson": "content/lessons/oop-stream-api-basics.md"
+    },
+    {
+      "id": "oop-stream-operations-collectors",
+      "title": "Phép toán trung gian, kết thúc và Collectors",
+      "type": "concept",
+      "track": "algorithm",
+      "difficulty": 3,
+      "summary": "Chuỗi xử lý với `filter`, `map`, `sorted`, `flatMap` kết hợp các phép kết thúc `collect`, `reduce`, `count`, `match` và `findFirst`.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Lecture (Slide bài giảng)/Lecture 13- Java Functional Programming/OOP2024_JavaSlides_W13_JavaStreams.pdf",
+          "page": "35-52"
+        }
+      ],
+      "tags": [
+        "streams",
+        "collectors",
+        "functional-programming"
+      ],
+      "lesson": "content/lessons/oop-stream-operations-collectors.md"
+    },
+    {
+      "id": "oop-ex-matrix",
+      "title": "Bài tập: Ma trận vuông MySquareMatrix",
+      "type": "exercise",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Đóng gói mảng 2 chiều biểu diễn ma trận vuông, trích xuất đường chéo chính/phụ, lọc số nguyên tố và tạo ma trận biến đổi mới.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Exams/Final Exam (Đề thi cuối kì)/OOPHKII2425_FinalExam_De2/OOPHKII2425_FinalExam_De2.pdf",
+          "page": "1"
+        }
+      ],
+      "tags": [
+        "exercise",
+        "matrix",
+        "encapsulation"
+      ],
+      "lesson": "content/lessons/oop-ex-matrix.md"
+    },
+    {
+      "id": "oop-ex-integration",
+      "title": "Bài tập: Tính tích phân số (Strategy & Đa thức)",
+      "type": "exercise",
+      "track": "algorithm",
+      "difficulty": 3,
+      "summary": "Thiết kế `IntegrationCalculator` kết hợp đa hình `MyPolynomial` (`MyArrayPolynomial`, `MyListPolynomial`) và mẫu Strategy `MyIntegrator`.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Exams/Final Exam (Đề thi cuối kì)/OOPHKII2425_FinalExam_De2/OOPHKII2425_FinalExam_De2.pdf",
+          "page": "2-3"
+        }
+      ],
+      "tags": [
+        "exercise",
+        "strategy",
+        "polymorphism"
+      ],
+      "lesson": "content/lessons/oop-ex-integration.md"
+    },
+    {
+      "id": "oop-ex-statistics",
+      "title": "Bài tập: Thống kê và tự cài đặt MyList",
+      "type": "exercise",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Tự cài đặt `MyArrayList`/`MyLinkedList` cùng `MyIterable`/`MyIterator`, tách biệt cho lớp `Statistics` tính max, min, mean, variance.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Exams/Final Exam (Đề thi cuối kì)/OOPHKII2425_FinalExam_De2/OOPHKII2425_FinalExam_De2.pdf",
+          "page": "3-4"
+        }
+      ],
+      "tags": [
+        "exercise",
+        "collections",
+        "iterator"
+      ],
+      "lesson": "content/lessons/oop-ex-statistics.md"
+    },
+    {
+      "id": "oop-ex-student-manager",
+      "title": "Bài tập: Quản lý sinh viên StudentManager",
+      "type": "exercise",
+      "track": "algorithm",
+      "difficulty": 2,
+      "summary": "Kết hợp mẫu Singleton, `List<Student>` và `Comparator`/`Comparable` để lưu trữ, lọc và sắp xếp danh sách sinh viên theo nhiều tiêu chí.",
+      "sources": [
+        {
+          "file": "docs/16. Lập trình hướng đối tượng/Exams/Final Exam (Đề thi cuối kì)/OOP_HK2_2223_FinalExam_De2/OOP_HK2_2223_FinalExam_De2.pdf",
+          "page": "2"
+        }
+      ],
+      "tags": [
+        "exercise",
+        "singleton",
+        "comparator"
+      ],
+      "lesson": "content/lessons/oop-ex-student-manager.md"
     }
   ],
   "edges": [
@@ -3189,6 +4735,626 @@
       "target": "hw-dp",
       "relation": "related",
       "note": "Bài \"bố trí phòng họp\" trong bài tập QHĐ có lời giải tham lam"
+    },
+    {
+      "source": "cb-java-program-bytecode",
+      "target": "cb-primitive-types-variables",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-primitive-types-variables",
+      "target": "cb-operators-expressions",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-operators-expressions",
+      "target": "cb-methods-intro",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-methods-intro",
+      "target": "cb-variable-scope",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-primitive-types-variables",
+      "target": "cb-scanner-io-format",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-operators-expressions",
+      "target": "cb-branching-if-switch",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-branching-if-switch",
+      "target": "cb-loops-break-continue",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-methods-intro",
+      "target": "cb-coding-style",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-loops-break-continue",
+      "target": "cb-coding-style",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-loops-break-continue",
+      "target": "cb-array-1d",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-array-1d",
+      "target": "cb-array-2d",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-methods-intro",
+      "target": "cb-array-methods",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-array-1d",
+      "target": "cb-array-methods",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-methods-intro",
+      "target": "cb-recursion-basics",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-branching-if-switch",
+      "target": "cb-recursion-basics",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-array-methods",
+      "target": "cb-ex-array-sort-search",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-scanner-io-format",
+      "target": "cb-java-api-math-string",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-methods-intro",
+      "target": "cb-class-object-constructor",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-primitive-types-variables",
+      "target": "cb-class-object-constructor",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-class-object-constructor",
+      "target": "cb-reference-vs-primitive",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-array-1d",
+      "target": "cb-reference-vs-primitive",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-class-object-constructor",
+      "target": "cb-static-members",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-java-api-math-string",
+      "target": "cb-ex-string-vigenere",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-loops-break-continue",
+      "target": "cb-ex-string-vigenere",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-class-object-constructor",
+      "target": "cb-access-control",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-variable-scope",
+      "target": "cb-class-scope-this",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-class-object-constructor",
+      "target": "cb-class-scope-this",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-access-control",
+      "target": "cb-packages-arraylist",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-array-1d",
+      "target": "cb-packages-arraylist",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-access-control",
+      "target": "cb-encapsulation-debug",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-coding-style",
+      "target": "cb-encapsulation-debug",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-encapsulation-debug",
+      "target": "cb-interface-contract",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-class-object-constructor",
+      "target": "cb-inheritance-oop",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-access-control",
+      "target": "cb-inheritance-oop",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-inheritance-oop",
+      "target": "cb-exceptions-checked-unchecked",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-exceptions-checked-unchecked",
+      "target": "cb-try-catch-finally-throw",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-try-catch-finally-throw",
+      "target": "cb-io-streams-files",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-io-streams-files",
+      "target": "cb-text-binary-serialization",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-interface-contract",
+      "target": "cb-text-binary-serialization",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-inheritance-oop",
+      "target": "cb-swing-gui-basics",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-interface-contract",
+      "target": "cb-swing-gui-basics",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "cb-loops-break-continue",
+      "target": "cb-ex-array-sort-search",
+      "relation": "applies",
+      "note": "Vòng lặp lồng nhau cài đặt Bubble Sort giảm dần và vòng lặp while cho tìm kiếm nhị phân"
+    },
+    {
+      "source": "cb-array-methods",
+      "target": "cb-ex-string-vigenere",
+      "relation": "applies",
+      "note": "Tổ chức bài xử lý xâu thành các phương thức độc lập như reverseString và encryptVigenere"
+    },
+    {
+      "source": "cb-static-members",
+      "target": "cb-java-api-math-string",
+      "relation": "applies",
+      "note": "Các phương thức Math.sqrt, Math.pow và hằng Math.PI đều là thành viên static"
+    },
+    {
+      "source": "cb-reference-vs-primitive",
+      "target": "cb-array-methods",
+      "relation": "applies",
+      "note": "Truyền mảng vào phương thức là truyền bản sao tham chiếu nên thay đổi phần tử tác động lên mảng gốc"
+    },
+    {
+      "source": "cb-access-control",
+      "target": "cb-class-scope-this",
+      "relation": "applies",
+      "note": "Kết hợp thuộc tính private với setter dùng this để bảo vệ dữ liệu đối tượng"
+    },
+    {
+      "source": "cb-recursion-basics",
+      "target": "recursion",
+      "relation": "related"
+    },
+    {
+      "source": "cb-interface-contract",
+      "target": "java-interface-abstract",
+      "relation": "related"
+    },
+    {
+      "source": "cb-variable-scope",
+      "target": "cb-class-scope-this",
+      "relation": "related"
+    },
+    {
+      "source": "cb-array-1d",
+      "target": "cb-packages-arraylist",
+      "relation": "related"
+    },
+    {
+      "source": "cb-scanner-io-format",
+      "target": "cb-io-streams-files",
+      "relation": "related"
+    },
+    {
+      "source": "oop-jvm-program-structure",
+      "target": "oop-variables-types",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-variables-types",
+      "target": "oop-stack-heap-memory",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-stack-heap-memory",
+      "target": "oop-parameter-passing",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-variables-types",
+      "target": "oop-paradigm-class-object",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-paradigm-class-object",
+      "target": "oop-encapsulation-modifiers",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-paradigm-class-object",
+      "target": "oop-constructors-this",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-variables-types",
+      "target": "oop-java-api-wrapper",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-constructors-this",
+      "target": "oop-java-api-wrapper",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-encapsulation-modifiers",
+      "target": "oop-inheritance-super",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-constructors-this",
+      "target": "oop-inheritance-super",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-inheritance-super",
+      "target": "oop-object-class-contract",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-inheritance-super",
+      "target": "oop-casting-instanceof",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-inheritance-super",
+      "target": "oop-polymorphism-dispatch",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-casting-instanceof",
+      "target": "oop-polymorphism-dispatch",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-inheritance-super",
+      "target": "java-interface-abstract",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-polymorphism-dispatch",
+      "target": "java-interface-abstract",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-interface-abstract",
+      "target": "oop-adt-information-hiding",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-encapsulation-modifiers",
+      "target": "oop-adt-information-hiding",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-inheritance-super",
+      "target": "oop-uml-class-diagram",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-interface-abstract",
+      "target": "oop-uml-class-diagram",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-interface-abstract",
+      "target": "oop-jcf-hierarchy-list",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-java-api-wrapper",
+      "target": "oop-jcf-hierarchy-list",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-jcf-hierarchy-list",
+      "target": "oop-set-queue-map",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-object-class-contract",
+      "target": "oop-set-queue-map",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-jcf-hierarchy-list",
+      "target": "oop-iterator-collections-utils",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-interface-abstract",
+      "target": "oop-solid-principles",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-polymorphism-dispatch",
+      "target": "oop-solid-principles",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-inheritance-super",
+      "target": "oop-exceptions-hierarchy",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-exceptions-hierarchy",
+      "target": "oop-try-catch-custom-exception",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-solid-principles",
+      "target": "oop-design-patterns-intro",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-singleton-pattern",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-factory-method-abstract-factory",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-adapter-facade",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-decorator-pattern",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-bridge-proxy",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-strategy-pattern",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-observer-pattern",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-template-method-iterator",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-iterator-collections-utils",
+      "target": "oop-template-method-iterator",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-command-state",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-design-patterns-intro",
+      "target": "oop-chain-mediator-visitor",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-java-api-wrapper",
+      "target": "java-generics",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-generics",
+      "target": "oop-generic-methods-bounded",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "comparable-interface",
+      "target": "oop-generic-methods-bounded",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-generic-methods-bounded",
+      "target": "oop-generics-wildcards",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-generics",
+      "target": "oop-type-erasure-restrictions",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-interface-abstract",
+      "target": "oop-functional-interface-lambda",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-generics",
+      "target": "oop-standard-functional-interfaces",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-functional-interface-lambda",
+      "target": "oop-standard-functional-interfaces",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-jcf-hierarchy-list",
+      "target": "oop-stream-api-basics",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-standard-functional-interfaces",
+      "target": "oop-stream-api-basics",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-stream-api-basics",
+      "target": "oop-stream-operations-collectors",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-encapsulation-modifiers",
+      "target": "oop-ex-matrix",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-constructors-this",
+      "target": "oop-ex-matrix",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-strategy-pattern",
+      "target": "oop-ex-integration",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "java-interface-abstract",
+      "target": "oop-ex-integration",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-template-method-iterator",
+      "target": "oop-ex-statistics",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-adt-information-hiding",
+      "target": "oop-ex-statistics",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-singleton-pattern",
+      "target": "oop-ex-student-manager",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "comparable-interface",
+      "target": "oop-ex-student-manager",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-jcf-hierarchy-list",
+      "target": "oop-ex-student-manager",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "oop-stack-heap-memory",
+      "target": "oop-parameter-passing",
+      "relation": "related"
+    },
+    {
+      "source": "oop-uml-class-diagram",
+      "target": "oop-design-patterns-intro",
+      "relation": "related"
+    },
+    {
+      "source": "oop-adapter-facade",
+      "target": "oop-decorator-pattern",
+      "relation": "related"
+    },
+    {
+      "source": "oop-strategy-pattern",
+      "target": "oop-command-state",
+      "relation": "related"
+    },
+    {
+      "source": "oop-functional-interface-lambda",
+      "target": "oop-strategy-pattern",
+      "relation": "related"
+    },
+    {
+      "source": "oop-solid-principles",
+      "target": "oop-factory-method-abstract-factory",
+      "relation": "applies",
+      "note": "Factory Method hiện thực hóa Dependency Inversion Principle (DIP)"
+    },
+    {
+      "source": "oop-solid-principles",
+      "target": "oop-strategy-pattern",
+      "relation": "applies",
+      "note": "Strategy tách phần hành vi thay đổi để tuân thủ Open/Closed Principle"
+    },
+    {
+      "source": "oop-strategy-pattern",
+      "target": "oop-ex-integration",
+      "relation": "applies",
+      "note": "Hoán đổi thuật toán tính tích phân (Midpoint, Trapezoid, Simpson) lúc chạy"
+    },
+    {
+      "source": "oop-singleton-pattern",
+      "target": "oop-ex-student-manager",
+      "relation": "applies",
+      "note": "Đảm bảo chỉ có một thể hiện StudentManager quản lý danh sách sinh viên"
+    },
+    {
+      "source": "oop-encapsulation-modifiers",
+      "target": "oop-ex-matrix",
+      "relation": "applies",
+      "note": "Che giấu mảng 2 chiều data và chỉ cung cấp phép toán qua phương thức"
     }
   ]
 }

@@ -6,7 +6,7 @@ Loại sản phẩm: phần mềm học tập, giao diện sử dụng trực ti
 
 Trang đầu mở thẳng vào đồ thị toàn cảnh. Bố cục gồm thanh bên có thể thu gọn ở bên trái, vùng đồ thị trung tâm chiếm tối đa chiều cao màn hình và bảng chi tiết bên phải chỉ mở khi người học chọn một mảnh kiến thức. Không đặt trang quảng bá hoặc yêu cầu đăng nhập trước hoạt động học.
 
-Trong chế độ Khám phá, đồ thị bố trí các mảnh kiến thức cốt lõi (`71` khái niệm, định lý, công thức) thành các tầng DAG có hướng (mặc định Trái → phải, chuyển được sang Trên → dưới trong thanh `Bộ lọc`), sử dụng thẻ chữ nhật bo góc, đường cong Bezier mượt và bản đồ thu gọn ở góc phải dưới để kéo nhìn nhanh. Các `ví dụ` và `bài tập` (`33` mảnh) được ẩn khỏi đồ thị chính mặc định để giữ đồ thị thoáng, đồng thời liên kết trực tiếp trong mục `Ví dụ & bài tập liên quan` của bảng chi tiết hoặc bật lại bất cứ lúc nào qua `Bộ lọc`.
+Trong chế độ Khám phá, đồ thị bố trí các mảnh kiến thức cốt lõi (`137` khái niệm, định lý, công thức) thành các tầng DAG có hướng (mặc định Trái → phải, chuyển được sang Trên → dưới trong thanh `Bộ lọc`), sử dụng thẻ chữ nhật bo góc, đường cong Bezier mượt và bản đồ thu gọn ở góc phải dưới để kéo nhìn nhanh. Các `ví dụ` và `bài tập` (`39` mảnh) được ẩn khỏi đồ thị chính mặc định để giữ đồ thị thoáng, đồng thời liên kết trực tiếp trong mục `Ví dụ & bài tập liên quan` của bảng chi tiết hoặc bật lại bất cứ lúc nào qua `Bộ lọc`.
 
 Theo khóa học hiển thị các thẻ chương (`Chương 1..n`) dẫn vào DAG tiên quyết từng chương và giữ lộ trình văn bản đầy đủ ở bên dưới để đọc tuần tự hoặc dùng bằng bàn phím. Chọn liên kết vị trí khóa giữ cả mã khóa lẫn mã mảnh trong URL, làm nổi mảnh và chương tương ứng.
 

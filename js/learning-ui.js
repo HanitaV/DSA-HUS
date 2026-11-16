@@ -27,12 +27,10 @@ function createDashboard() {
     </div>
     <div class="study-status">
       <span class="study-status-label">TIẾN ĐỘ CỦA BẠN</span>
-      <div class="study-progress-number"><strong id="study-count">0</strong><span id="study-total">/ 104 chủ đề</span></div>
+      <div class="study-progress-number"><strong id="study-count">0</strong><span id="study-total">/ … chủ đề</span></div>
       <progress id="study-progress" value="0" max="100" aria-label="Tiến độ học tập"></progress>
       <p id="study-next-caption">Các bài đã học được lưu trên thiết bị này.</p>
       <div class="study-course-links">
-        <a href="index.html#course=MAT3514">MAT3514 <span aria-hidden="true">↗</span></a>
-        <a href="index.html#course=MAT3504">MAT3504 <span aria-hidden="true">↗</span></a>
       </div>
     </div>`;
   heading.after(host);
@@ -52,6 +50,20 @@ async function fillDashboard() {
   if (!$('#study-dashboard')) return;
   try {
     const data = await loadData();
+    const links = $('.study-course-links');
+    if (links) {
+      links.replaceChildren(...data.courses.map(c => {
+        const a = document.createElement('a');
+        a.href = `index.html#course=${encodeURIComponent(c.id)}`;
+        a.title = c.name;
+        a.append(c.id + ' ');
+        const arrow = document.createElement('span');
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = '↗';
+        a.append(arrow);
+        return a;
+      }));
+    }
     const ordered = data.courses
       .flatMap(c => c.chapters.flatMap(ch => ch.pieces))
       .filter((id, i, ids) => ids.indexOf(id) === i);
