@@ -3240,8 +3240,8 @@ pre code {
     background: #1d2a48;
 }
 [data-theme="dark"] select,
-[data-theme="dark"] input[type="search"],
-[data-theme="dark"] input[type="text"] {
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+[data-theme="dark"] textarea:not(.ce-textarea) {
     background: #0f172a;
     border-color: var(--line);
     color: var(--p-ink);
@@ -3449,10 +3449,32 @@ pre code {
 [data-theme="dark"] .callout {
     background: #152038;
     border-color: #28385a;
+    color: var(--p-ink);
 }
 [data-theme="dark"] .callout.warn,
 [data-theme="dark"] .callout.note {
     background: #1b2234;
+    color: var(--p-ink);
+}
+[data-theme="dark"] .course-track-stats {
+    background: #131c31;
+    border-color: var(--line);
+    color: #cbd5e1;
+}
+[data-theme="dark"] .track-banner {
+    background: #131c31;
+    border-color: var(--line);
+    color: var(--p-ink);
+}
+[data-theme="dark"] .track-banner.algorithm {
+    background: #15213b;
+    border-color: #293e6b;
+    color: #dbeafe;
+}
+[data-theme="dark"] .track-banner.math {
+    background: #221c14;
+    border-color: #4d3c1b;
+    color: #fde68a;
 }
 [data-theme="dark"] .answer-reveal {
     background: #112521;
@@ -3510,8 +3532,44 @@ pre code {
 [data-theme="dark"] .viz-step-counter {
     color: #93c5fd;
 }
-[data-theme="dark"] .viz-bucket {
+[data-theme="dark"] .viz-bucket,
+[data-theme="dark"] .viz-stack-col {
     background: #131c31;
+    border-color: #364766;
+    color: var(--p-ink);
+}
+[data-theme="dark"] .viz-ll-node,
+[data-theme="dark"] .viz-mini-card {
+    background: #131c31;
+    border-color: #2a3958;
+    color: var(--p-ink);
+}
+[data-theme="dark"] .viz-ll-node.is-active,
+[data-theme="dark"] .viz-mini-card.is-active {
+    background: #1d2d52;
+    border-color: #6b85ff;
+    color: #bfdbfe;
+}
+[data-theme="dark"] .viz-ll-node.is-found,
+[data-theme="dark"] .viz-mini-card.is-found {
+    background: #102a22;
+    border-color: #34d399;
+    color: #6ee7b7;
+}
+[data-theme="dark"] .viz-ll-next {
+    background: #1b2845;
+    border-color: #2c3d5e;
+    color: #93c5fd;
+}
+[data-theme="dark"] .viz-ll-arrow {
+    color: #64748b;
+}
+[data-theme="dark"] .viz-bar {
+    background: #4b64a8;
+    border-color: #6b85ff;
+}
+[data-theme="dark"] .viz-bar.is-dim {
+    background: #26334d;
     border-color: #364766;
 }
 [data-theme="dark"] .viz-matrix {
